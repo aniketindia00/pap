@@ -1,1 +1,1 @@
-<img src="imagens/banner.jpg">asd
+<img src="imagens/banner.jpg">
