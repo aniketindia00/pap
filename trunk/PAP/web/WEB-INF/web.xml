@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <description>Efetua o Login</description>
+        <servlet-name>EfetuarLogin</servlet-name>
+        <servlet-class>controle.EfetuarLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Deleta o Perfil</description>
+        <servlet-name>DeletarPerfil</servlet-name>
+        <servlet-class>controle.DeletarPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Altera o Perfil</description>
+        <servlet-name>AlterarPerfil</servlet-name>
+        <servlet-class>controle.AlterarPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Gerencia Menu e Perfil</description>
+        <servlet-name>GerenciarMenuPerfil</servlet-name>
+        <servlet-class>controle.GerenciarMenuPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Adicionar um Perfil</description>
+        <servlet-name>InserirPerfil</servlet-name>
+        <servlet-class>controle.InserirPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <description>Adiciona um Menu</description>
+        <servlet-name>InserirMenu</servlet-name>
+        <servlet-class>controle.InserirMenu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarMenu</servlet-name>
+        <servlet-class>controle.DeletarMenu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarMenu</servlet-name>
+        <servlet-class>controle.AlterarMenu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletarUsuario</servlet-name>
+        <servlet-class>controle.DeletarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InserirUsuario</servlet-name>
+        <servlet-class>controle.InserirUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarUsuario</servlet-name>
+        <servlet-class>controle.AlterarUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EfetuarLogin</servlet-name>
+        <url-pattern>/efetuar_login.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarPerfil</servlet-name>
+        <url-pattern>/deletar_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarPerfil</servlet-name>
+        <url-pattern>/alterar_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirPerfil</servlet-name>
+        <url-pattern>/inserir_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirMenu</servlet-name>
+        <url-pattern>/inserir_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GerenciarMenuPerfil</servlet-name>
+        <url-pattern>/gerenciar_menu_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarMenu</servlet-name>
+        <url-pattern>/deletar_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarMenu</servlet-name>
+        <url-pattern>/alterar_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarUsuario</servlet-name>
+        <url-pattern>/deletar_usuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirUsuario</servlet-name>
+        <url-pattern>/inserir_usuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarUsuario</servlet-name>
+        <url-pattern>/alterar_usuario.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
