@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Inserir Usuário</title>
     </head>
     <body>
         <div align="center">
@@ -29,7 +29,7 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
-                        <h1>Inserir Usuario</h1>
+                        <h1>Inserir Usuário</h1>
 
                         <table align="center" width="500">
                             <form action="inserir_usuario.do" method="POST" >
