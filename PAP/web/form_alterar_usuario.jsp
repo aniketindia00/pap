@@ -42,6 +42,7 @@
 
                                         try {
                                             int id = Integer.parseInt(request.getParameter("id"));
+                                            ArrayList<Perfil> lista1 = new ArrayList<Perfil>();
 
                                             UsuarioDAO uDB = new UsuarioDAO();
                                             uDB.conectar();
@@ -74,7 +75,9 @@
                                             <option value="<%=p.getId()%>">
                                                 <%=p.getPerfil()%>
                                             </option>
-                                            <%lista.remove(p);} } for (Perfil p1 : lista) {%>
+                                            <%}else {lista1.add(p);}
+                                            }
+                                            for (Perfil p1 : lista1) {%>
                                             <option value="<%=p1.getId()%>">
                                                 <%=p1.getPerfil()%>
                                             </option>
