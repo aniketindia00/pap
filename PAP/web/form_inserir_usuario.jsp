@@ -15,6 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inserir Usuário</title>
+
     </head>
     <body>
         <div align="center">
@@ -30,7 +31,19 @@
                     </td>
                     <td width="610" height="510" valign="top">
                         <h1>Inserir Usuário</h1>
+        <%
+        int perm = 0;
+        for(Menu m:user.getPerfil().getMenus()){
+        if(m.getId() == 4){
+            perm = 1;
+        }
+        }
 
+        if(perm == 0){
+        response.sendRedirect("index.jsp");
+        }
+
+%>
                         <table align="center" width="500">
                             <form action="inserir_usuario.do" method="POST" >
                                 <%

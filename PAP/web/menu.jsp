@@ -10,7 +10,7 @@
 <table>
 <%
 
-Usuario user;
+Usuario user = null;
 
 try{
 
