@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulário de Insersão - Menus</title>
-        <script type="text/javascript" src="css_js/ajax.js"></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
     </head>
     <body>
         <div align="center">

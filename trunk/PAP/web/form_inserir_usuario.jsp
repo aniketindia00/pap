@@ -33,14 +33,19 @@
                         <h1>Inserir Usuário</h1>
         <%
         int perm = 0;
+        try{
         for(Menu m:user.getPerfil().getMenus()){
         if(m.getId() == 4){
             perm = 1;
         }
         }
-
+        } catch(Exception e){
+            out.print(e);
+        }
         if(perm == 0){
-        response.sendRedirect("index.jsp");
+            out.print("<script language='JavaScript'>");
+            out.print("window.open('index.jsp','_parent');");
+            out.print("</script>");
         }
 
 %>
@@ -102,6 +107,8 @@
                                         out.println(e);
 
                                     }
+
+
                         %>
                     </td>
                 </tr>
