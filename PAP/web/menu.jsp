@@ -11,6 +11,7 @@
 <%
 
 Usuario user = null;
+boolean logged = false;
 
 try{
 
@@ -24,6 +25,8 @@ try{
             + "<a href='"+mp.getLink()+"'>"
             + "<img src='"+mp.getIcone()+"'>"+mp.getMenu()+"</a></td></tr>" );
     }
+
+    logged = true;
 
 }catch(Exception e){
 response.sendRedirect("login.jsp");
