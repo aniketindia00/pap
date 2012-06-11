@@ -34,6 +34,7 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
+
                         <h1 align="center" > Alterar Dados </h1>
                         <%
 
