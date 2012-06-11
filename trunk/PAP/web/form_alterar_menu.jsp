@@ -3,6 +3,8 @@
     Created on : 02/04/2012, 16:57:32
     Author     : André
 --%>
+<%@page import="modelo.Perfil"%>
+<%@page import="modelo.MenuDAO"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -35,38 +37,21 @@
                         <form action="alterar_menu.do" method="POST" >
                             <table width="500">
                                 <%
-                                    String id = "";
-                                    String menu = "";
-                                    String link = "";
-                                    String icone = "";
-
-                                    if (request.getParameter("id") != null) {
-                                        id = request.getParameter("id");
-                                    }
-
-                                    String DRIVER, USER, SENHA, URL;
-
-                                        DRIVER = "com.mysql.jdbc.Driver";
-                                        URL = "jdbc:mysql://localhost:3306/java3_vesp";
-                                        USER = "root";
-                                        SENHA = "root";
+                                    int id = 0;
+                                    Menu m = null;
 
                                         try {
-                                            Class.forName(DRIVER);
-                                            Connection conn;
 
-                                            conn = DriverManager.getConnection(URL, USER, SENHA);
+                                        if (request.getParameter("id") != null) {
+                                        id = Integer.parseInt(request.getParameter("id"));
+                                        }
 
-                                            Statement stm = conn.createStatement();
+                                        MenuDAO mDB = new MenuDAO();
 
-                                            String sql = "SELECT * FROM menu WHERE id="+id;
-
-                                            ResultSet rs = stm.executeQuery(sql);
-                                            if(rs.next()){
-                                            menu = rs.getString("menu");
-                                            link = rs.getString("link");
-                                            icone = rs.getString("icone");
-                                            }
+                                        mDB.conectar();
+                                        m = mDB.carregaPorId(id);
+                                        mDB.desconectar();
+                                            
                                         } catch(SQLException e){
 
                                         out.println(e);
@@ -76,20 +61,20 @@
                         %>
                                 <tr>
                                     <td>Id:</td>
-                                    <td><input readonly type="text" size="10" name="id" value="<%=id%>" /> </td>
+                                    <td><input readonly type="text" size="10" name="id" value="<%=m.getId() %>" /> </td>
                                 </tr>
                                 <tr>
                                     <td>Menu:</td>
-                                    <td><input type="text" size="45" name="menu" value="<%=menu%>" /> </td>
+                                    <td><input type="text" size="45" name="menu" value="<%=m.getMenu() %>" /> </td>
                                 </tr>
                                 <tr>
                                     <td>Icone URL:</td>
-                                    <td><input type="text" size="45" name="icone" value="<%=icone%>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
-                                    <td><div align="center" id="thumb"><img width="32" height="32" src="<%=icone%>"/></div></td>
+                                    <td><input type="text" size="45" name="icone" value="<%=m.getIcone() %>" onblur="refreshPage('thumb','thumb.jsp?link='+this.value)" /> </td>
+                                    <td><div align="center" id="thumb"><img width="32" height="32" src="<%=m.getIcone()%>"/></div></td>
                                 </tr>
                                 <tr>
                                     <td>Link:</td>
-                                    <td><input type="text" size="45" name="link" value="<%=link%>" /> </td>
+                                    <td><input type="text" size="45" name="link" value="<%=m.getLink() %>" /> </td>
                                 </tr>
 
                                 <tr>
