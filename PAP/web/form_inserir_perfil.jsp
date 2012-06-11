@@ -27,6 +27,24 @@
                     </td>
                     <td width="610" height="510" valign="top">
                         <h1>Novo Perfil</h1>
+        <%
+        int perm = 0;
+        try{
+        for(Menu m:user.getPerfil().getMenus()){
+        if(m.getId() == 6){
+            perm = 1;
+        }
+        }
+        } catch(Exception e){
+            out.print(e);
+        }
+        if(perm == 0){
+            out.print("<script language='JavaScript'>");
+            out.print("window.open('index.jsp','_parent');");
+            out.print("</script>");
+        }
+
+%>
                         <form action="inserir_perfil.do" method="GET" >
                             <table width="500">
                                 <tr>
