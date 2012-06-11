@@ -124,6 +124,18 @@ public class UsuarioDAO extends DataBaseDAO {
 
     }
 
+    public boolean temPermissao(String uri,String context, Usuario user){
+        boolean result = false;
+        String path = null;
+        for(Menu m:user.getPerfil().getMenus()){
+        path = context +"/"+ m.getLink();
+        if(path.equals(uri)){
+            result = true;
+        }
+        }
+        return result;
+    }
+
 
     
 }
