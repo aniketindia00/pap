@@ -20,6 +20,7 @@
         <%
         }else out.print("Imagem inválida");
 
+
 %>
     </body>
 </html>
