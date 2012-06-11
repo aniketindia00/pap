@@ -40,17 +40,6 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
-                        <%
-
-                        if(logged){
-                            Usuario uDB = new Usuario();
-                            if(!uDB.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
-                                response.sendRedirect("index.jsp?erro=1");
-                            }
-                        }
-
-
-                        %>
                         <h1>Lista dos Perfis</h1>
                         <table border="1" align="center" >
                             <tr>

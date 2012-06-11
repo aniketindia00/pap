@@ -11,8 +11,6 @@
 <%
 
 Usuario user = null;
-boolean logged = false;
-
 try{
 
     user = (Usuario) session.getAttribute("user");
@@ -26,7 +24,10 @@ try{
             + "<img src='"+mp.getIcone()+"'>"+mp.getMenu()+"</a></td></tr>" );
     }
 
-    logged = true;
+    Usuario uP = new Usuario();
+    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+       response.sendRedirect("index.jsp?erro=1");
+    }
 
 }catch(Exception e){
 response.sendRedirect("login.jsp");

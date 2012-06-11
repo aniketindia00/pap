@@ -27,6 +27,7 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
+
                         <h1>Novo Menu</h1>
                         <form action="inserir_menu.do" method="POST" >
                             <table width="500">

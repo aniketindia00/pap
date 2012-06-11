@@ -31,24 +31,6 @@
                     </td>
                     <td width="610" height="510" valign="top">
                         <h1>Inserir Usuário</h1>
-        <%
-        int perm = 0;
-        try{
-        for(Menu m:user.getPerfil().getMenus()){
-        if(m.getId() == 4){
-            perm = 1;
-        }
-        }
-        } catch(Exception e){
-            out.print(e);
-        }
-        if(perm == 0){
-            out.print("<script language='JavaScript'>");
-            out.print("window.open('index.jsp','_parent');");
-            out.print("</script>");
-        }
-
-%>
                         <table align="center" width="500">
                             <form action="inserir_usuario.do" method="POST" >
                                 <%

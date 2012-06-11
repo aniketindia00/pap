@@ -35,7 +35,9 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
+
                         <h1>Alterar Usuario</h1>
+
 
                         <table align="center" width="500">
                                                             <%
