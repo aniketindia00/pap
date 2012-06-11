@@ -26,6 +26,16 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
+                        <%
+                        try{
+                        if(request.getParameter("erro").equalsIgnoreCase("1")){
+                            out.print("<script language='JavaScript'>");
+                            out.print("alert('Você não tem permissão para acessar a área!');");
+                            out.print("</script>");
+                        }
+                        }catch (Exception e){
+                        }
+                        %>
                         Principal
                     </td>
                 </tr>
