@@ -45,7 +45,7 @@
                         if(logged){
                             Usuario uDB = new Usuario();
                             if(!uDB.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
-                                response.sendRedirect("index.jsp");
+                                response.sendRedirect("index.jsp?erro=1");
                             }
                         }
 
