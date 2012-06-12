@@ -44,7 +44,12 @@
 
                     </td>
                     <td width="610" height="510" valign="top">
-                        <h1>Lista de Usuários</h1>
+                        <table align="center" >
+                            <tr>
+                                <td align="left" ><h1>Lista de Usuários</h1></td>
+                                <td align="right" ><a href="form_inserir_usuario.jsp">Inserir Usuário</a></td>
+                            </tr>
+                        </table>
                         <table border="1" align="center" >
                             <tr>
                                 <td>Id</td>

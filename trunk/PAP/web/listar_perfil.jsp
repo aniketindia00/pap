@@ -41,7 +41,12 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
-                        <h1>Lista dos Perfis</h1>
+                        <table align="center" >
+                            <tr>
+                                <td align="left" ><h1>Lista de Perfis</h1></td>
+                                <td align="right" ><a href="form_inserir_perfil.jsp">Inserir Perfil</a></td>
+                            </tr>
+                        </table>
                         <table border="1" align="center" >
                             <tr>
                                 <td>Id</td>

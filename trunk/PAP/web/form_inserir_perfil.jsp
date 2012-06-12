@@ -47,11 +47,8 @@
 <%
 
     if(logged){
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    if(session.getAttribute("perfil") == null){
        response.sendRedirect("index.jsp?erro=1");
-    }else{
-    session.setAttribute("inserir_perfil",true);
     }
     }
 
