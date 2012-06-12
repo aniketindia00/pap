@@ -120,7 +120,7 @@
 <%
 
     if(logged){
-    if(!(Boolean) session.getAttribute("usuario")){
+    if(session.getAttribute("usuario") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

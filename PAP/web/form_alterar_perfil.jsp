@@ -83,7 +83,7 @@
 <%
 
     if(logged){
-    if(!(Boolean) session.getAttribute("perfil")){
+    if(session.getAttribute("perfil") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

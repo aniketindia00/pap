@@ -35,7 +35,7 @@ public class InserirUsuario extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(!(Boolean) session.getAttribute("inserir_usuario")){
+    if(session.getAttribute("inserir_usuario") == null){
        response.sendRedirect("index.jsp?erro=1");
     }else{
             // TODO output your page here
