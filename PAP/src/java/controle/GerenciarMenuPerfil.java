@@ -35,7 +35,9 @@ public class GerenciarMenuPerfil extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-
+    if(!(Boolean) session.getAttribute("perfil")){
+       response.sendRedirect("index.jsp?erro=1");
+    }else{
 
             out.println("<html>");
             out.println("<head>");
@@ -67,6 +69,16 @@ public class GerenciarMenuPerfil extends HttpServlet {
             uDB.desconectar();
             session.removeAttribute("user");
             session.setAttribute("user", nu);
+            session.removeAttribute("menu");
+            session.setAttribute("menu",false);
+            session.removeAttribute("usuario");
+            session.setAttribute("usuario",false);
+            session.removeAttribute("inserir_menu");
+            session.setAttribute("inserir_menu",false);
+            session.removeAttribute("inserir_usuario");
+            session.setAttribute("inserir_usuario",false);
+            session.removeAttribute("inserir_perfil");
+            session.setAttribute("inserir_perfil",false);
             response.sendRedirect("form_gerenciar_menu_perfil.jsp?id="+id_perfil);
 
             } catch(Exception e){
@@ -75,7 +87,7 @@ public class GerenciarMenuPerfil extends HttpServlet {
 
             out.println("</body>");
             out.println("</html>");
-
+            }
         } finally { 
             out.close();
         }

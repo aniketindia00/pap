@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Menu;
 import modelo.MenuDAO;
 
@@ -31,7 +32,11 @@ public class AlterarMenu extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         try {
+    if(!(Boolean) session.getAttribute("menu")){
+       response.sendRedirect("index.jsp?erro=1");
+    }else{
             // TODO output your page here
             out.println("<html>");
             out.println("<head>");
@@ -68,7 +73,7 @@ public class AlterarMenu extends HttpServlet {
             }
             out.println("</body>");
             out.println("</html>");
-            
+            }
         } finally { 
             out.close();
         }

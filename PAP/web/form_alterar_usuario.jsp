@@ -117,5 +117,14 @@
                 </tr>
             </table>
         </div>
+<%
+
+    if(logged){
+    if(!(Boolean) session.getAttribute("usuario")){
+       response.sendRedirect("index.jsp?erro=1");
+    }
+    }
+
+%>
     </body>
 </html>

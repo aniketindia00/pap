@@ -13,6 +13,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -93,5 +94,17 @@
                 </tr>
             </table>
         </div>
+<%
+
+    if(logged){
+    Usuario uP = new Usuario();
+    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+       response.sendRedirect("index.jsp?erro=1");
+    }else{
+    session.setAttribute("perfil",true);
+    }
+    }
+
+%>
     </body>
 </html>
