@@ -56,5 +56,17 @@
                 </tr>
             </table>
         </div>
+<%
+
+    if(logged){
+    Usuario uP = new Usuario();
+    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+       response.sendRedirect("index.jsp?erro=1");
+    }else{
+    session.setAttribute("inserir_menu",true);
+    }
+    }
+
+%>
     </body>
 </html>

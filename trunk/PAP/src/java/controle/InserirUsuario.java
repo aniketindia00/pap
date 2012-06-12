@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.MD5Encrypter;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
@@ -32,7 +33,11 @@ public class InserirUsuario extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         try {
+    if(!(Boolean) session.getAttribute("inserir_usuario")){
+       response.sendRedirect("index.jsp?erro=1");
+    }else{
             // TODO output your page here
             try {
                 MD5Encrypter md5 = new MD5Encrypter();
@@ -70,7 +75,7 @@ public class InserirUsuario extends HttpServlet {
             }
             out.println("</body>");
             out.println("</html>");
-
+            }
         } finally { 
             out.close();
         }

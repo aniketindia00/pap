@@ -89,5 +89,14 @@
                 </tr>
             </table>
         </div>
+<%
+
+    if(logged){
+    if(!(Boolean) session.getAttribute("menu")){
+       response.sendRedirect("index.jsp?erro=1");
+    }
+    }
+
+%>
     </body>
 </html>

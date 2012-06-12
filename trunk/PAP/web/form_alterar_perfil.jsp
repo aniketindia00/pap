@@ -80,5 +80,14 @@
                 </tr>
             </table>
         </div>
+<%
+
+    if(logged){
+    if(!(Boolean) session.getAttribute("perfil")){
+       response.sendRedirect("index.jsp?erro=1");
+    }
+    }
+
+%>
     </body>
 </html>

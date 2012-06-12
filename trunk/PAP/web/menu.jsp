@@ -9,7 +9,7 @@
     <body>
 <table>
 <%
-
+boolean logged = false;
 Usuario user = null;
 try{
 
@@ -23,11 +23,7 @@ try{
             + "<a href='"+mp.getLink()+"'>"
             + "<img src='"+mp.getIcone()+"'>"+mp.getMenu()+"</a></td></tr>" );
     }
-
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
-       response.sendRedirect("index.jsp?erro=1");
-    }
+    logged = true;
 
 }catch(Exception e){
 response.sendRedirect("login.jsp");
