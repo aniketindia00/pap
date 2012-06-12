@@ -46,7 +46,7 @@
                         <form name="form_gerenciar_menu" action="gerenciar_menu_perfil.do">
 
                             <%
-
+                            
                                         try {
                                             int id_perfil = Integer.parseInt(request.getParameter("id"));
                                             MenuDAO mDB = new MenuDAO();
@@ -95,7 +95,7 @@
 
 
                                             </table>
-                            </form>
+                                          </form>
                                                 <br>
                             <h1>Menus Vinculados</h1>
                             <br>
