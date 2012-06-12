@@ -70,15 +70,15 @@ public class GerenciarMenuPerfil extends HttpServlet {
             session.removeAttribute("user");
             session.setAttribute("user", nu);
             session.removeAttribute("menu");
-            session.setAttribute("menu",false);
+            session.setAttribute("menu",null);
             session.removeAttribute("usuario");
-            session.setAttribute("usuario",false);
+            session.setAttribute("usuario",null);
             session.removeAttribute("inserir_menu");
-            session.setAttribute("inserir_menu",false);
+            session.setAttribute("inserir_menu",null);
             session.removeAttribute("inserir_usuario");
-            session.setAttribute("inserir_usuario",false);
+            session.setAttribute("inserir_usuario",null);
             session.removeAttribute("inserir_perfil");
-            session.setAttribute("inserir_perfil",false);
+            session.setAttribute("inserir_perfil",null);
             response.sendRedirect("form_gerenciar_menu_perfil.jsp?id="+id_perfil);
 
             } catch(Exception e){
