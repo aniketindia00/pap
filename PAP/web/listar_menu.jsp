@@ -45,6 +45,7 @@
 
                     </td>
                     <td width="610" height="510" valign="top">
+                        <a href="form_inserir_menu.jsp">Insrir Menu</a>
                         <h1>Lista de Menus</h1>
                         <table border="1" align="center" >
                             <tr>
