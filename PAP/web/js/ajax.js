@@ -70,6 +70,32 @@ function refreshPage(divid,arq)
 
 
 }
+function refreshPageDiv(div,arq)
+{
+    var xmlhttp;
+
+
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            div.innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET",arq,true);
+    xmlhttp.setRequestHeader("If-Modified-Since","Sat, 1 Jan 2000 00:00:00 GMT");
+    xmlhttp.send();
+
+
+}
 
 
 function getPagePOST(divid,arq,par1,str1,par2,str2)
