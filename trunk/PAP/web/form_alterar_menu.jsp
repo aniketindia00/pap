@@ -92,7 +92,7 @@
 <%
 
     if(logged){
-    if(!(Boolean) session.getAttribute("menu")){
+    if(session.getAttribute("menu") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

@@ -34,7 +34,7 @@ public class DeletarUsuario extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(!(Boolean) session.getAttribute("usuario")){
+    if(session.getAttribute("usuario") == null){
        response.sendRedirect("index.jsp?erro=1");
     }else{
             // TODO output your page here

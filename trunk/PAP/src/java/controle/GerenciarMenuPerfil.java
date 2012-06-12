@@ -35,7 +35,7 @@ public class GerenciarMenuPerfil extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(!(Boolean) session.getAttribute("perfil")){
+    if(session.getAttribute("perfil") == null){
        response.sendRedirect("index.jsp?erro=1");
     }else{
 
