@@ -30,24 +30,24 @@ function goServlet(divid,arq)
 
 }
 
-            function desvincular(id_menu,id_perfil,op){
-                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&op="+op;
-                var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
-                if(resposta){
-                    goServlet('subcontent',url);
-                }
-            }
+function desvincular(id_menu,id_perfil,op){
+    var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&op="+op;
+    var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
+    if(resposta){
+        goServlet('subcontent',url);
+    }
+}
 
-            function vincular(id_menu,id_perfil,op){
-                var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&op="+op;
-                    goServlet('subcontent',url);
-            }
+function vincular(id_menu,id_perfil,op){
+    var url="gerenciar_menu_perfil.do?id_menu="+id_menu+"&id_perfil="+id_perfil+"&op="+op;
+    goServlet('subcontent',url);
+}
 
-            function confirma(uri,id){
-                var url=uri+"?id="+id;
-                var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
-                if(resposta){
-                    window.open(url,"_parent");
-                }
-            }
+function confirma(uri,id){
+    var url=uri+"?id="+id;
+    var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
+    if(resposta){
+        window.open(url,"_parent");
+    }
+}
 
