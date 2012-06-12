@@ -34,7 +34,7 @@ public class InserirMenu extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(session.getAttribute("inserir_menu") == null){
+    if(session.getAttribute("menu") == null){
        response.sendRedirect("index.jsp?erro=1");
     }else{
             // TODO output your page here

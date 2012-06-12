@@ -45,8 +45,13 @@
 
                     </td>
                     <td width="610" height="510" valign="top">
-                        <a href="form_inserir_menu.jsp">Insrir Menu</a>
-                        <h1>Lista de Menus</h1>
+                        <table align="center" >
+                            <tr>
+                                <td align="left" ><h1>Lista de Menus</h1></td>
+                                <td align="right" ><a href="form_inserir_menu.jsp">Inserir Menu</a></td>
+                            </tr>
+                        </table>
+                        
                         <table border="1" align="center" >
                             <tr>
                                 <td>Id</td>

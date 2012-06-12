@@ -59,11 +59,8 @@
 <%
 
     if(logged){
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    if(session.getAttribute("menu") == null){
        response.sendRedirect("index.jsp?erro=1");
-    }else{
-    session.setAttribute("inserir_menu",true);
     }
     }
 
