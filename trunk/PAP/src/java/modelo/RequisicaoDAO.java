@@ -6,7 +6,9 @@
 package modelo;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -57,24 +59,60 @@ public class RequisicaoDAO extends DataBaseDAO{
         pst.execute();
 
     }
-    /*
-    public Orcamento carregaPorId(int id) throws SQLException{
-        Orcamento o = new Orcamento();
+    
+    public Requisicao carregaPorId(int id) throws SQLException, Exception{
+        Requisicao r = new Requisicao();
+        ProdutoDAO pDB = new ProdutoDAO();
+        MecanicoDAO mDB = new MecanicoDAO();
         PreparedStatement pst;
-        String sql ="SELECT * FROM menu WHERE id=?";
+        String sql ="SELECT * FROM requisicao WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setInt(1,id);
         ResultSet rs = pst.executeQuery();
         if(rs.next()){
-        o.setId(rs.getInt("id_produto"));
-        o.setNome(rs.getString("nome"));
-        o.setCodBarras(rs.getString("cod_barras"));
-        o.setPreco(rs.getDouble("preco"));
+        r.setId(rs.getInt("id"));
+        r.setDataEmissao(rs.getString("data_emissao"));
+        r.setHoraEmissao(rs.getString("hora_emissao"));
+        r.setValor(rs.getDouble("valor"));
+        r.setCpfMecanico(rs.getString("cpf_mecanico"));
+        pDB.conectar();
+        r.setProdutos(pDB.produtosRequisicao(r.getId()));
+        pDB.desconectar();
+        mDB.conectar();
+        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
+        mDB.desconectar();
         }
-        return o;
+        return r;
 
     }
 
+        public ArrayList<Requisicao> listar() throws SQLException, Exception{
+        ArrayList<Requisicao> lista = new ArrayList<Requisicao>();
+        Requisicao r = new Requisicao();
+        ProdutoDAO pDB = new ProdutoDAO();
+        MecanicoDAO mDB = new MecanicoDAO();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM requisicao";
+        pst =conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+        r.setId(rs.getInt("id"));
+        r.setDataEmissao(rs.getString("data_emissao"));
+        r.setHoraEmissao(rs.getString("hora_emissao"));
+        r.setValor(rs.getDouble("valor"));
+        r.setCpfMecanico(rs.getString("cpf_mecanico"));
+        pDB.conectar();
+        r.setProdutos(pDB.produtosRequisicao(r.getId()));
+        pDB.desconectar();
+        mDB.conectar();
+        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
+        mDB.desconectar();
+        lista.add(r);
+        }
+        return lista;
+
+    }
+    /*
     public ArrayList<Orcamento> listar() throws SQLException{
 
         ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
