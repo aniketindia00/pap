@@ -1,33 +1,31 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package modelo;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Daniel
+ */
 public class Orcamento {
-    private int id;
+
+    private int id_orcamento;
     private String data;
-    private double valor;
+    private String hora;
+    private Double valor;
+    private ArrayList<Produto> produto;
     private Cliente cliente;
-    private ArrayList<Produto> produtos;
 
-    public Orcamento() {
+    public int getId_orcamento() {
+        return id_orcamento;
     }
 
-    public Orcamento(int id, String data, double valor, Cliente cliente, ArrayList<Produto> produtos) {
-        this.id = id;
-        this.data = data;
-        this.valor = valor;
-        this.cliente = cliente;
-        this.produtos = produtos;
-    }
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setId_orcamento(int id_orcamento) {
+        this.id_orcamento = id_orcamento;
     }
 
     public String getData() {
@@ -38,12 +36,28 @@ public class Orcamento {
         this.data = data;
     }
 
-    public double getValor() {
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public ArrayList<Produto> getProduto() {
+        return produto;
+    }
+
+    public void setProduto(ArrayList<Produto> produto) {
+        this.produto = produto;
     }
 
     public Cliente getCliente() {
@@ -54,11 +68,7 @@ public class Orcamento {
         this.cliente = cliente;
     }
 
-    public ArrayList<Produto> getProdutos() {
-        return produtos;
-    }
+    
+    
 
-    public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
-    }
 }
