@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Orcamento {
 
     private int id;
-    private String data;
-    private String hora;
+    private String dataEmissao;
+    private String horaEmissao;
     private Double valor;
     private int idCliente;
     private ArrayList<Produto> produtos;
@@ -29,22 +29,22 @@ public class Orcamento {
         this.id = id;
     }
 
-    public String getData() {
-        return data;
+    public String getDataEmissao() {
+        return dataEmissao;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataEmissao(String dataEmissao) {
+        this.dataEmissao = dataEmissao;
     }
 
-    public String getHora() {
-        return hora;
+    public String getHoraEmissao() {
+        return horaEmissao;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setHoraEmissao(String horaEmissao) {
+        this.horaEmissao = horaEmissao;
     }
-
+    
     public Double getValor() {
         return valor;
     }
