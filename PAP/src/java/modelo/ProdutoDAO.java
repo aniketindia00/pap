@@ -109,42 +109,41 @@ public class ProdutoDAO extends DataBaseDAO {
 
     }
 
-    /*
-    public ArrayList<Produto> menusPerfil(int id_perfil) throws SQLException {
+    public ArrayList<Produto> produtosOrcamento(int id_orcamento) throws SQLException {
 
         ArrayList<Produto> lista = new ArrayList<Produto>();
         PreparedStatement pst;
-        String sql = "SELECT m.* FROM menu as m, "
-                + "menu_perfil as mp "
-                + "WHERE mp.id_perfil=? "
-                + "AND mp.id_menu = m.id";
+        String sql = "SELECT p.* FROM produto as p, "
+                + "produto_orcamento as po "
+                + "WHERE po.id_orcamento=? "
+                + "AND po.id_produto = p.id";
         pst = conn.prepareStatement(sql);
-        pst.setInt(1,id_perfil);
+        pst.setInt(1,id_orcamento);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Produto m = new Produto(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
-            lista.add(m);
+            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            lista.add(p);
         }
         return lista;
 
     }
 
-    public ArrayList<Produto> menusNaoPerfil(int id_perfil) throws SQLException {
+    public ArrayList<Produto> produtosNaoOrcamento(int id_orcamento) throws SQLException {
 
         ArrayList<Produto> lista = new ArrayList<Produto>();
         PreparedStatement pst;
-        String sql = "SELECT * FROM menu as m WHERE id NOT IN(SELECT id_menu FROM menu_perfil WHERE id_perfil=?)";
+        String sql = "SELECT * FROM produto as p WHERE id NOT IN(SELECT id_produto FROM produto_orcamento WHERE id_orcamento=?)";
         pst = conn.prepareStatement(sql);
-        pst.setInt(1,id_perfil);
+        pst.setInt(1,id_orcamento);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Produto m = new Produto(rs.getInt("id"),rs.getString("menu"),rs.getString("link"),rs.getString("icone"));
+            Produto m = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
             lista.add(m);
         }
         return lista;
 
     }
-
+/*
     public void vincularMenu(int id_menu, int id_perfil) throws SQLException{
 
         PreparedStatement pst;
