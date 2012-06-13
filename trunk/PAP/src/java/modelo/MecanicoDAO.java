@@ -26,14 +26,17 @@ public class MecanicoDAO extends DataBaseDAO{
     }
     
     public ArrayList<Mecanico> listar() throws SQLException, Exception{
+        
+        MecanicoDAO meDB =new MecanicoDAO();
+        ArrayList<Mecanico> lista = new ArrayList<Mecanico>();
         PreparedStatement pst;
         String sql = "SELECT * FROM mecanico";
         pst = conn.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            mDB.conectar();
+            meDB.conectar();
             Mecanico me = new Mecanico(rs.getString("cpf"), rs.getString("oficina"), rs.getString("nome"),rs.getString("telefone"));
-            mDB.desconectar();
+            meDB.desconectar();
             lista.add(me);
         }
         return lista;
@@ -52,13 +55,13 @@ public class MecanicoDAO extends DataBaseDAO{
 
     public Mecanico carregaPorCpf(String cpf) throws SQLException, Exception{
         Mecanico me = new Mecanico();
-        MenuDAO mDB = new MenuDAO();
+        MecanicoDAO meDB = new MecanicoDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM mecanico WHERE cpf=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1,cpf);
         ResultSet rs = pst.executeQuery();
-        mDB.desconectar();
+        meDB.desconectar();
         }
         return me;
 
