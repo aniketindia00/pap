@@ -61,8 +61,16 @@ public class MecanicoDAO extends DataBaseDAO{
         pst =conn.prepareStatement(sql);
         pst.setString(1,cpf);
         ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+        me.setCpf(rs.getString("cpf"));
+        me.setOficina(rs.getString("oficina"));
+        u.setLogin(rs.getString("login"));
+        u.setSenha(rs.getString("senha"));
+        u.setIdPerfil(rs.getInt("id_perfil"));
+        u.setTelefone(rs.getString("telefone"));
+        meDB.conectar();
         meDB.desconectar();
-        }
+       }
         return me;
 
     }
