@@ -1,4 +1,4 @@
-
+package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,12 +14,12 @@ public class MecanicoDAO extends DataBaseDAO{
     public void inserir(Mecanico me) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="INSERT INTO mecanico(mecanico) VALUES(?)";
+        String sql ="INSERT INTO mecanico(mecanico) VALUES(?,?,?,?)";
         pst =conn.prepareStatement(sql);
         pst.setString(1,me.getCpf());
-        pst.setString(1,me.getNome());
-        pst.setString(1,me.getOficina());
-        pst.setString(1,me.getTelefone());
+        pst.setString(2,me.getNome());
+        pst.setString(3,me.getOficina());
+        pst.setString(4,me.getTelefone());
         
         pst.execute();
 
@@ -29,14 +29,14 @@ public class MecanicoDAO extends DataBaseDAO{
         MenuDAO mDB = new MenuDAO();
         ArrayList<Perfil> lista = new ArrayList<Perfil>();
         PreparedStatement pst;
-        String sql = "SELECT * FROM perfil";
+        String sql = "SELECT * FROM mecanico";
         pst = conn.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
             mDB.conectar();
-            Perfil p = new Perfil(rs.getInt("id"), rs.getString("perfil"),mDB.menusPerfil(rs.getInt("id")));
+            Mecanico me = new Mecanico(rs.getString("cpf"), rs.getString("oficina"), rs.getString("nome"),rs.getString("telefone"));
             mDB.desconectar();
-            lista.add(p);
+            lista.add(me);
         }
         return lista;
 
@@ -52,32 +52,29 @@ public class MecanicoDAO extends DataBaseDAO{
 
     }
 
-    public Perfil carregaPorId(int id) throws SQLException, Exception{
-        Perfil p = new Perfil();
+    public Mecanico carregaPorCpf(String cpf) throws SQLException, Exception{
+        Mecanico me = new Mecanico();
         MenuDAO mDB = new MenuDAO();
         PreparedStatement pst;
-        String sql ="SELECT * FROM perfil WHERE id=?";
+        String sql ="SELECT * FROM mecanico WHERE cpf=?";
         pst =conn.prepareStatement(sql);
-        pst.setInt(1,id);
+        pst.setString(1,cpf);
         ResultSet rs = pst.executeQuery();
-        if(rs.next()){
-        p.setId(rs.getInt("id"));
-        p.setPerfil(rs.getString("perfil"));
-        mDB.conectar();
-        p.setMenus(mDB.menusPerfil(id));
         mDB.desconectar();
         }
-        return p;
+        return me;
 
     }
 
     public void alterar(Mecanico me) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="UPDATE mecanico SET mecanico=? WHERE id=?";
+        String sql ="UPDATE usuario SET cpf=?, nome=?, oficina=?,telefone=?  WHERE cpf=?";
         pst =conn.prepareStatement(sql);
-        pst.setString(1,p.getPerfil());
-        pst.setInt(2,p.getId());
+        pst.setString(1,me.getCpf());
+        pst.setString(2,me.getNome());
+        pst.setString(3,me.getOficina());
+        pst.setString(4,me.getTelefone());
         pst.execute();
 
     }
