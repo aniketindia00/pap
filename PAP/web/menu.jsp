@@ -15,7 +15,7 @@ try{
 
     user = (Usuario) session.getAttribute("user");
 
-    out.print("Bem Vindo "+user.getNome());
+    out.print("Bem Vindo "+user.getNome()+"<br>");
     out.print("<a href='sair.jsp'>(Sair)</a>");
     for(Menu mp:user.getPerfil().getMenus()){
 
