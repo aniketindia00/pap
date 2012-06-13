@@ -25,7 +25,7 @@ public class MecanicoDAO extends DataBaseDAO{
     }
     
     public ArrayList<Mecanico> listar() throws SQLException, Exception{
-        
+
         ArrayList<Mecanico> lista = new ArrayList<Mecanico>();
         PreparedStatement pst;
         String sql = "SELECT * FROM mecanico";
