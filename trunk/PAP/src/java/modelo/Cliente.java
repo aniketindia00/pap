@@ -16,9 +16,6 @@ public class Cliente extends Pessoa{
         this.carros = carros;
     }
 
-
-
-
     public int getId() {
         return id;
     }
