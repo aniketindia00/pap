@@ -81,5 +81,21 @@ public class CarroDAO extends DataBaseDAO {
 
     }
 
+    public ArrayList<Carro> carrosCliente(int id_cliente) throws SQLException {
+
+        ArrayList<Carro> lista = new ArrayList<Carro>();
+        PreparedStatement pst;
+        String sql = "SELECT * FROM carro WHERE id_cliente=?";
+        pst = conn.prepareStatement(sql);
+        pst.setInt(1,id_cliente);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            Carro c = new Carro(rs.getInt("id"),rs.getString("modelo"),rs.getString("ano"),rs.getString("marca"),rs.getInt("id_cliente"));
+            lista.add(c);
+        }
+        return lista;
+
+    }
+
 
 }
