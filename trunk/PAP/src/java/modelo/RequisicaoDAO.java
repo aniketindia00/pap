@@ -25,8 +25,8 @@ public class RequisicaoDAO extends DataBaseDAO{
         pst = conn.prepareStatement(sql);
         pst.setInt(1,r.getId());
         pst.setString(2, r.getCpfMecanico());
-        pst.setString(3, r.getData());
-        pst.setString(3, r.getData());
+        pst.setString(3, r.getDataEmissao());
+        pst.setString(3, r.getDataEmissao());
         pst.setDouble(3, r.getValor());
         pst.execute();
 
@@ -38,8 +38,8 @@ public class RequisicaoDAO extends DataBaseDAO{
         String sql ="UPDATE requisicao SET cpf_mecanico=?, data_emissao=?, hora_emissao=?, valor=?  WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1, r.getCpfMecanico());
-        pst.setString(2, r.getData());
-        pst.setString(3, r.getHora());
+        pst.setString(2, r.getDataEmissao());
+        pst.setString(3, r.getHoraEmissao());
         pst.setDouble(4, r.getValor());
         pst.setInt(5, r.getId());
         pst.execute();
