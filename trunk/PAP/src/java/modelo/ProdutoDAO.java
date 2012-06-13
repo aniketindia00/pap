@@ -87,7 +87,7 @@ public class ProdutoDAO extends DataBaseDAO {
 
     }
 
-    public void vincularProduto(int id_produto, int id_orcamento) throws SQLException{
+    public void vincularProdutoOrcamento(int id_produto, int id_orcamento) throws SQLException{
 
         PreparedStatement pst;
         String sql = "INSERT INTO orcamento_produto (id_produto,id_orcamento) values(?,?)";
@@ -98,7 +98,7 @@ public class ProdutoDAO extends DataBaseDAO {
 
     }
 
-    public void desvincularProduto(int id_produto, int id_orcamento) throws SQLException{
+    public void desvincularProdutoOrcamento(int id_produto, int id_orcamento) throws SQLException{
 
         PreparedStatement pst;
         String sql = "DELETE FROM orcamento_produto WHERE id_produto=? AND id_orcamento=?";
@@ -130,40 +130,76 @@ public class ProdutoDAO extends DataBaseDAO {
 
     public ArrayList<Produto> produtosNaoOrcamento(int id_orcamento) throws SQLException {
 
-        ArrayList<Produto> lista = new ArrayList<Produto>();
+        ArrayList<Produto> listaN = new ArrayList<Produto>();
         PreparedStatement pst;
         String sql = "SELECT * FROM produto as p WHERE id NOT IN(SELECT id_produto FROM produto_orcamento WHERE id_orcamento=?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1,id_orcamento);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Produto m = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
-            lista.add(m);
+            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            listaN.add(p);
+        }
+        return listaN;
+
+    }
+
+    public void vincularProdutoRequisicao(int id_produto, int id_requisicao) throws SQLException{
+
+        PreparedStatement pst;
+        String sql = "INSERT INTO requisicao_produto (id_requisicao,id_produto) values(?,?)";
+        pst = conn.prepareStatement(sql);
+        pst.setInt(1,id_requisicao);
+        pst.setInt(2,id_produto);
+        pst.execute();
+
+    }
+
+    public void desvincularProdutoRequisicao(int id_produto, int id_requisicao) throws SQLException{
+
+        PreparedStatement pst;
+        String sql = "DELETE FROM requisicao_produto WHERE id_produto=? AND id_requisicao=?";
+        pst = conn.prepareStatement(sql);
+        pst.setInt(1,id_produto);
+        pst.setInt(2,id_requisicao);
+        pst.execute();
+
+    }
+
+    public ArrayList<Produto> produtosRequisicao(int id_requisicao) throws SQLException {
+
+        ArrayList<Produto> lista = new ArrayList<Produto>();
+        PreparedStatement pst;
+        String sql = "SELECT p.* FROM produto as p, "
+                + "produto_requisicao as pr "
+                + "WHERE pr.id_requisicao=? "
+                + "AND pr.id_produto = p.id";
+        pst = conn.prepareStatement(sql);
+        pst.setInt(1,id_requisicao);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            lista.add(p);
         }
         return lista;
 
     }
-/*
-    public void vincularMenu(int id_menu, int id_perfil) throws SQLException{
 
+    public ArrayList<Produto> produtosNaoRequisicao(int id_requisicao) throws SQLException {
+
+        ArrayList<Produto> listaN = new ArrayList<Produto>();
         PreparedStatement pst;
-        String sql = "INSERT INTO menu_perfil (id_menu,id_perfil) values(?,?)";
+        String sql = "SELECT * FROM produto as p WHERE id NOT IN(SELECT id_produto FROM produto_requisicao WHERE id_requisicao=?)";
         pst = conn.prepareStatement(sql);
-        pst.setInt(1,id_menu);
-        pst.setInt(2,id_perfil);
-        pst.execute();
+        pst.setInt(1,id_requisicao);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            listaN.add(p);
+        }
+        return listaN;
 
     }
 
-    public void desvincularMenu(int id_menu, int id_perfil) throws SQLException{
-
-        PreparedStatement pst;
-        String sql = "DELETE FROM menu_perfil WHERE id_menu=? AND id_perfil=?";
-        pst = conn.prepareStatement(sql);
-        pst.setInt(1,id_menu);
-        pst.setInt(2,id_perfil);
-        pst.execute();
-
-    }*/
 
 }
