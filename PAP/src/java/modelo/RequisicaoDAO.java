@@ -112,20 +112,5 @@ public class RequisicaoDAO extends DataBaseDAO{
         return lista;
 
     }
-    /*
-    public ArrayList<Orcamento> listar() throws SQLException{
-
-        ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
-        PreparedStatement pst;
-        String sql = "SELECT * FROM orcamento";
-        pst = conn.prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
-        while(rs.next()){
-            Orcamento o = new Orcamento(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
-            lista.add(o);
-        }
-        return lista;
-
-    }*/
 
 }
