@@ -71,5 +71,15 @@ public class CarroDAO extends DataBaseDAO {
 
     }
 
+        public void excluir(Carro c) throws SQLException{
+
+        PreparedStatement pst;
+        String sql ="DELETE FROM carro WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setInt(1,c.getId());
+        pst.execute();
+
+    }
+
 
 }
