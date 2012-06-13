@@ -15,7 +15,7 @@ public class ClienteDAO extends DataBaseDAO {
         String sql ="INSERT INTO cliente(nome,telefone) VALUES(?,?)";
         pst =conn.prepareStatement(sql);
         pst.setString(1,c.getNome());
-        pst.setString(1,c.getTelefone());
+        pst.setString(2,c.getTelefone());
         pst.execute();
 
     }
@@ -37,6 +37,48 @@ public class ClienteDAO extends DataBaseDAO {
             lista.add(c);
         }
         return lista;
+
+    }
+
+    public Cliente carregaPorId(int id) throws SQLException, Exception{
+        Cliente c = new Cliente();
+        CarroDAO cDB = new CarroDAO();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM cliente WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setInt(1,id);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+            c.setId(rs.getInt("id"));
+            c.setNome(rs.getString("nome"));
+            c.setTelefone(rs.getString("telefone"));
+            cDB.conectar();
+            c.setCarros(cDB.carrosCliente(c.getId()));
+            cDB.desconectar();
+        }
+        return c;
+
+    }
+
+    public void excluir(Cliente c) throws SQLException{
+
+        PreparedStatement pst;
+        String sql ="DELETE FROM cliente WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setInt(1,c.getId());
+        pst.execute();
+
+    }
+
+    public void alterar(Cliente c) throws SQLException{
+
+        PreparedStatement pst;
+        String sql ="UPDATE cliente SET nome=?, telefone=? WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setString(1,c.getNome());
+        pst.setString(2,c.getTelefone());
+        pst.setInt(3,c.getId());
+        pst.execute();
 
     }
 
