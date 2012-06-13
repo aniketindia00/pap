@@ -42,12 +42,12 @@ public class MecanicoDAO extends DataBaseDAO{
 
     }
 
-    public void excluir(Perfil p) throws SQLException{
+    public void excluir(Mecanico me) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="DELETE FROM perfil WHERE id=?";
+        String sql ="DELETE FROM mecanico WHERE id=?";
         pst =conn.prepareStatement(sql);
-        pst.setInt(1,p.getId());
+        pst.setString(1,me.getCpf());
         pst.execute();
 
     }
@@ -71,10 +71,10 @@ public class MecanicoDAO extends DataBaseDAO{
 
     }
 
-    public void alterar(Perfil p) throws SQLException{
+    public void alterar(Mecanico me) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="UPDATE perfil SET perfil=? WHERE id=?";
+        String sql ="UPDATE mecanico SET mecanico=? WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1,p.getPerfil());
         pst.setInt(2,p.getId());
