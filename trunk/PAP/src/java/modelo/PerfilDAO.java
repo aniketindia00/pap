@@ -77,12 +77,6 @@ public class PerfilDAO extends DataBaseDAO{
 
     }
 
-    public ArrayList<Menu> lerMenus() throws SQLException{
-        ArrayList<Menu> menus = new ArrayList<Menu>();
-        PreparedStatement pst;
-        String sql="SELECT ";
-        return menus;
-    }
 
 }
 
