@@ -59,7 +59,7 @@ public class InserirPerfil extends HttpServlet {
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Perfil inserido com sucesso!');");
+                out.print(" alert('Registros inseridos com sucesso!');");
                 out.print(" window.open('listar_perfil.jsp','_parent');");
                 out.print("</script>");
 

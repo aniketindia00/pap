@@ -71,7 +71,7 @@ public class AlterarUsuario extends HttpServlet {
                 uDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Usuario alterado com sucesso!');");
+                out.print(" alert('Registros alterados com sucesso!');");
                 out.print(" window.open('listar_usuario.jsp','_parent');");
                 out.print("</script>");
 

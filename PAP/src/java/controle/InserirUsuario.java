@@ -65,7 +65,7 @@ public class InserirUsuario extends HttpServlet {
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Usuario inserido com sucesso!');");
+                out.print(" alert('Registros inseridos com sucesso!');");
                 out.print(" window.open('listar_usuario.jsp','_parent');");
                 out.print("</script>");
 

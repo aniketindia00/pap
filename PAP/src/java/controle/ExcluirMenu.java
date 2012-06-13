@@ -56,7 +56,7 @@ public class ExcluirMenu extends HttpServlet {
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Menu deletado com sucesso!');");
+                out.print(" alert('Registros deletados com sucesso!');");
                 out.print(" window.open('listar_menu.jsp','_parent');");
                 out.print("</script>");
 

@@ -61,7 +61,7 @@ public class AlterarPerfil extends HttpServlet {
                 pDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Perfil alterado com sucesso!');");
+                out.print(" alert('Registros alterados com sucesso!');");
                 out.print(" window.open('listar_perfil.jsp','_parent');");
                 out.print("</script>");
                 

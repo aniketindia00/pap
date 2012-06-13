@@ -56,7 +56,7 @@ public class ExcluirUsuario extends HttpServlet {
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Usuario deletado com sucesso!');");
+                out.print(" alert('Registros deletados com sucesso!');");
                 out.print(" window.open('listar_usuario.jsp','_parent');");
                 out.print("</script>");
 

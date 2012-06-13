@@ -64,7 +64,7 @@ public class AlterarMenu extends HttpServlet {
                 mDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Menu alterado com sucesso!');");
+                out.print(" alert('Registros alterados com sucesso!');");
                 out.print(" window.open('listar_menu.jsp','_parent');");
                 out.print("</script>");
 
