@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DataBaseDAO {
 
     public static final String DRIVER = "com.mysql.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://localhost:3306/java3_vesp?useEncoding=true&amp;characterEncoding=UTF-8";
+    public static final String URL = "jdbc:mysql://localhost:3306/pap?useEncoding=true&amp;characterEncoding=UTF-8";
     public static final String SENHA = "root";
     public static final String USER = "root";
     protected Connection conn;
