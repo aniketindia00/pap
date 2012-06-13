@@ -6,7 +6,9 @@
 package modelo;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -57,39 +59,58 @@ public class OrcamentoDAO extends DataBaseDAO{
 
     }
 
-    /*
-    public ArrayList<Orcamento> listar() throws SQLException{
-
-        ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
+        public Orcamento carregaPorId(int id) throws SQLException, Exception{
+        Orcamento o = new Orcamento();
+        ProdutoDAO pDB = new ProdutoDAO();
+        ClienteDAO cDB = new ClienteDAO();
         PreparedStatement pst;
-        String sql = "SELECT * FROM orcamento";
-        pst = conn.prepareStatement(sql);
+        String sql ="SELECT * FROM orcamento WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setInt(1,id);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+        o.setId(rs.getInt("id"));
+        o.setDataEmissao(rs.getString("data_emissao"));
+        o.setHoraEmissao(rs.getString("hora_emissao"));
+        o.setValor(rs.getDouble("valor"));
+        o.setIdCliente(rs.getInt("id_cliente"));
+        pDB.conectar();
+        o.setProdutos(pDB.produtosRequisicao(o.getId()));
+        pDB.desconectar();
+        cDB.conectar();
+        o.setCliente(cDB.carregaPorId(o.getIdCliente()));
+        cDB.desconectar();
+        }
+        return o;
+
+    }
+
+        public ArrayList<Orcamento> listar() throws SQLException, Exception{
+        ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
+        Orcamento o = new Orcamento();
+        ProdutoDAO pDB = new ProdutoDAO();
+        ClienteDAO cDB = new ClienteDAO();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM orcamento";
+        pst =conn.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Orcamento o = new Orcamento(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
-            lista.add(o);
+        o.setId(rs.getInt("id"));
+        o.setDataEmissao(rs.getString("data_emissao"));
+        o.setHoraEmissao(rs.getString("hora_emissao"));
+        o.setValor(rs.getDouble("valor"));
+        o.setIdCliente(rs.getInt("id_cliente"));
+        pDB.conectar();
+        o.setProdutos(pDB.produtosRequisicao(o.getId()));
+        pDB.desconectar();
+        cDB.conectar();
+        o.setCliente(cDB.carregaPorId(o.getIdCliente()));
+        cDB.desconectar();
+        lista.add(o);
         }
         return lista;
 
     }
 
-    public Orcamento carregaPorId(int id) throws SQLException{
-        Orcamento o = new Orcamento();
-        PreparedStatement pst;
-        String sql ="SELECT * FROM menu WHERE id=?";
-        pst =conn.prepareStatement(sql);
-        pst.setInt(1,id);
-        ResultSet rs = pst.executeQuery();
-        if(rs.next()){
-        o.setId(rs.getInt("id_produto"));
-        o.setNome(rs.getString("nome"));
-        o.setCodBarras(rs.getString("cod_barras"));
-        o.setPreco(rs.getDouble("preco"));
-        }
-        return o;
-
-    }
-    */
     
-
 }
