@@ -6,18 +6,16 @@ public class Carro {
     private String ano;
     private String marca;
     private int idCliente;
-    private Cliente cliente;
 
     public Carro() {
     }
 
-    public Carro(int id, String modelo, String ano, String marca, int idCliente, Cliente cliente) {
+    public Carro(int id, String modelo, String ano, String marca, int idCliente) {
         this.id = id;
         this.modelo = modelo;
         this.ano = ano;
         this.marca = marca;
         this.idCliente = idCliente;
-        this.cliente = cliente;
     }
 
 
@@ -60,13 +58,5 @@ public class Carro {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 }
