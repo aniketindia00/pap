@@ -75,6 +75,7 @@ public class MecanicoDAO extends DataBaseDAO{
         pst.setString(1,me.getNome());
         pst.setString(2,me.getOficina());
         pst.setString(3,me.getTelefone());
+        pst.setString(4,me.getCpf());
         pst.execute();
      }
 }
