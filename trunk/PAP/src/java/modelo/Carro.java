@@ -5,18 +5,18 @@ public class Carro {
     private String modelo;
     private String ano;
     private String marca;
-    private int id_cliente;
+    private int idCliente;
     private Cliente cliente;
 
     public Carro() {
     }
 
-    public Carro(int id, String modelo, String ano, String marca, int id_cliente, Cliente cliente) {
+    public Carro(int id, String modelo, String ano, String marca, int idCliente, Cliente cliente) {
         this.id = id;
         this.modelo = modelo;
         this.ano = ano;
         this.marca = marca;
-        this.id_cliente = id_cliente;
+        this.idCliente = idCliente;
         this.cliente = cliente;
     }
 
@@ -54,12 +54,12 @@ public class Carro {
         this.marca = marca;
     }
 
-    public int getId_cliente() {
-        return id_cliente;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public Cliente getCliente() {
