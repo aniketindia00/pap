@@ -10,7 +10,7 @@ public class CarroDAO extends DataBaseDAO {
 
     public void inserir(Carro c) throws SQLException{
         PreparedStatement pst;
-        String sql = "INSERT INTO usuario (id_cliente,modelo,ano,marca) values(?,?,?,?)";
+        String sql = "INSERT INTO carro (id_cliente,modelo,ano,marca) values(?,?,?,?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1,c.getIdCliente());
         pst.setString(2, c.getModelo());
@@ -18,5 +18,6 @@ public class CarroDAO extends DataBaseDAO {
         pst.setString(4, c.getMarca());
         pst.execute();
     }
+
 
 }
