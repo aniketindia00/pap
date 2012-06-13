@@ -14,7 +14,7 @@ public class MecanicoDAO extends DataBaseDAO{
     public void inserir(Mecanico me) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="INSERT INTO mecanico(mecanico) VALUES(?,?,?,?)";
+        String sql ="INSERT INTO mecanico(cpf,nome,oficina,telefone) VALUES(?,?,?,?)";
         pst =conn.prepareStatement(sql);
         pst.setString(1,me.getCpf());
         pst.setString(2,me.getNome());
@@ -26,8 +26,6 @@ public class MecanicoDAO extends DataBaseDAO{
     }
     
     public ArrayList<Mecanico> listar() throws SQLException, Exception{
-        MenuDAO mDB = new MenuDAO();
-        ArrayList<Perfil> lista = new ArrayList<Perfil>();
         PreparedStatement pst;
         String sql = "SELECT * FROM mecanico";
         pst = conn.prepareStatement(sql);
@@ -69,15 +67,14 @@ public class MecanicoDAO extends DataBaseDAO{
     public void alterar(Mecanico me) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="UPDATE usuario SET cpf=?, nome=?, oficina=?,telefone=?  WHERE cpf=?";
+        String sql ="UPDATE mecanico SET cpf=?, nome=?, oficina=?,telefone=?  WHERE cpf=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1,me.getCpf());
         pst.setString(2,me.getNome());
         pst.setString(3,me.getOficina());
         pst.setString(4,me.getTelefone());
         pst.execute();
-
-    }
+     }
 
 
 }
