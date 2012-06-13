@@ -13,19 +13,19 @@ import java.util.ArrayList;
  */
 public class Orcamento {
 
-    private int id_orcamento;
+    private int id;
     private String data;
     private String hora;
     private Double valor;
     private ArrayList<Produto> produto;
     private Cliente cliente;
 
-    public int getId_orcamento() {
-        return id_orcamento;
+    public int getId() {
+        return id;
     }
 
-    public void setId_orcamento(int id_orcamento) {
-        this.id_orcamento = id_orcamento;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getData() {
