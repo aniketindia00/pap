@@ -10,6 +10,7 @@ public class Requisicao {
     private int id;
     private String data;
     private double valor;
+    private int cpfMecanico;
     private Mecanico mecanico;
     private ArrayList<Produto> produtos;
 
@@ -64,6 +65,14 @@ public class Requisicao {
 
     public void setProdutos(ArrayList<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public int getCpfMecanico() {
+        return cpfMecanico;
+    }
+
+    public void setCpfMecanico(int cpfMecanico) {
+        this.cpfMecanico = cpfMecanico;
     }
 
     
