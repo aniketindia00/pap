@@ -26,7 +26,7 @@ public class RequisicaoDAO extends DataBaseDAO{
         pst.setInt(1,r.getId());
         pst.setString(2, r.getCpfMecanico());
         pst.setString(3, r.getDataEmissao());
-        pst.setString(4, r.getDataEmissao());
+        pst.setString(4, r.getHoraEmissao());
         pst.setDouble(5, r.getValor());
         pst.execute();
 
