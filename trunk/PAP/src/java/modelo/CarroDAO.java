@@ -39,5 +39,19 @@ public class CarroDAO extends DataBaseDAO {
         return lista;
     }
 
+    public void alterar(Carro c) throws SQLException{
+
+        PreparedStatement pst;
+        String sql ="UPDATE carro SET id_cliente=?, modelo=?, ano=?, telefone=?, id_perfil=?  WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setInt(1, c.getIdCliente());
+        pst.setString(2, c.getModelo());
+        pst.setString(3, c.getAno());
+        pst.setString(4, c.getMarca());
+        pst.setInt(5,c.getId());
+        pst.execute();
+
+    }
+
 
 }
