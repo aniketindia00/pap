@@ -1,4 +1,8 @@
 package modelo;
-public class ClienteDAO {
+public class ClienteDAO extends DataBaseDAO {
+
+    public ClienteDAO() throws Exception {
+    }
+
     
 }
