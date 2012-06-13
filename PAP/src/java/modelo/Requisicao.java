@@ -8,7 +8,8 @@ import java.util.ArrayList;
  */
 public class Requisicao {
     private int id;
-    private String data;
+    private String dataEmissao;
+    private String horaEmissao;
     private double valor;
     private String cpfMecanico;
     private Mecanico mecanico;
@@ -17,9 +18,10 @@ public class Requisicao {
     public Requisicao() {
     }
 
-    public Requisicao(int id, String data, double valor, Mecanico mecanico, ArrayList<Produto> produtos) {
+    public Requisicao(int id, String dataEmissao, String horaEmissao, double valor, Mecanico mecanico, ArrayList<Produto> produtos) {
         this.id = id;
-        this.data = data;
+        this.dataEmissao = dataEmissao;
+        this.horaEmissao = horaEmissao;
         this.valor = valor;
         this.mecanico = mecanico;
         this.produtos = produtos;
@@ -33,14 +35,6 @@ public class Requisicao {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public double getValor() {
@@ -74,6 +68,24 @@ public class Requisicao {
     public void setCpfMecanico(String cpfMecanico) {
         this.cpfMecanico = cpfMecanico;
     }
+
+    public String getDataEmissao() {
+        return dataEmissao;
+    }
+
+    public void setDataEmissao(String dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
+
+    public String getHoraEmissao() {
+        return horaEmissao;
+    }
+
+    public void setHoraEmissao(String horaEmissao) {
+        this.horaEmissao = horaEmissao;
+    }
+
+
 
     
 }
