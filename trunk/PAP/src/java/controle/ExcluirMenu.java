@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Perfil;
-import modelo.PerfilDAO;
+import modelo.Menu;
+import modelo.MenuDAO;
 
 /**
  *
  * @author André
  */
-public class DeletarPerfil extends HttpServlet {
+public class ExcluirMenu extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,30 +34,30 @@ public class DeletarPerfil extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(session.getAttribute("perfil") == null){
+    if(session.getAttribute("menu") == null){
        response.sendRedirect("index.jsp?erro=1");
     }else{
             // TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InserirPerfil</title>");
+            out.println("<title>Servlet InserirMenu</title>");
             out.println("</head>");
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                Perfil p = new Perfil();
-                p.setId(id);
+                Menu m = new Menu();
+                m.setId(id);
 
-                PerfilDAO pDB = new PerfilDAO();
+                MenuDAO mDB = new MenuDAO();
 
-                pDB.conectar();
-                pDB.excluir(p);
-                pDB.desconectar();
+                mDB.conectar();
+                mDB.excluir(m);
+                mDB.desconectar();
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Perfil deletado com sucesso!');");
-                out.print(" window.open('listar_perfil.jsp','_parent');");
+                out.print(" alert('Menu deletado com sucesso!');");
+                out.print(" window.open('listar_menu.jsp','_parent');");
                 out.print("</script>");
 
 

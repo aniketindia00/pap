@@ -7,8 +7,8 @@
     </servlet>
     <servlet>
         <description>Deleta o Perfil</description>
-        <servlet-name>DeletarPerfil</servlet-name>
-        <servlet-class>controle.DeletarPerfil</servlet-class>
+        <servlet-name>ExcluirPerfil</servlet-name>
+        <servlet-class>controle.ExcluirPerfil</servlet-class>
     </servlet>
     <servlet>
         <description>Altera o Perfil</description>
@@ -31,16 +31,16 @@
         <servlet-class>controle.InserirMenu</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeletarMenu</servlet-name>
-        <servlet-class>controle.DeletarMenu</servlet-class>
+        <servlet-name>ExcluirMenu</servlet-name>
+        <servlet-class>controle.ExcluirMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AlterarMenu</servlet-name>
         <servlet-class>controle.AlterarMenu</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeletarUsuario</servlet-name>
-        <servlet-class>controle.DeletarUsuario</servlet-class>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <servlet-class>controle.ExcluirUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>InserirUsuario</servlet-name>
@@ -53,10 +53,6 @@
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeletarPerfil</servlet-name>
-        <url-pattern>/deletar_perfil.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarPerfil</servlet-name>
@@ -75,16 +71,8 @@
         <url-pattern>/gerenciar_menu_perfil.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeletarMenu</servlet-name>
-        <url-pattern>/deletar_menu.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AlterarMenu</servlet-name>
         <url-pattern>/alterar_menu.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeletarUsuario</servlet-name>
-        <url-pattern>/deletar_usuario.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>InserirUsuario</servlet-name>
@@ -93,6 +81,18 @@
     <servlet-mapping>
         <servlet-name>AlterarUsuario</servlet-name>
         <url-pattern>/alterar_usuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirMenu</servlet-name>
+        <url-pattern>/excluir_menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirPerfil</servlet-name>
+        <url-pattern>/excluir_perfil.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <url-pattern>/excluir_usuario.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

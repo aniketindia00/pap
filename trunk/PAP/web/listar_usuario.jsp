@@ -22,7 +22,7 @@
         <title>JSP Page</title>
         <script type="text/javascript" language="JavaScript">
             function confirma(id){
-                var url="deletar_usuario.do?id="+id;
+                var url="excluir_usuario.do?id="+id;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");
