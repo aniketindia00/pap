@@ -53,5 +53,23 @@ public class CarroDAO extends DataBaseDAO {
 
     }
 
+        public Carro carregaPorId(int id) throws SQLException{
+        Carro c = new Carro();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM carro WHERE id=?";
+        pst =conn.prepareStatement(sql);
+        pst.setInt(1,id);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+            c.setId(rs.getInt("id"));
+            c.setIdCliente(rs.getInt("id_cliente"));
+            c.setModelo(rs.getString("modelo"));
+            c.setAno(rs.getString("ano"));
+            c.setMarca(rs.getString("marca"));
+        }
+        return c;
+
+    }
+
 
 }
