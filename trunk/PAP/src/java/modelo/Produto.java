@@ -1,26 +1,19 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package modelo;
 
 /**
  *
- * @author DaviDBL
+ * @author Daniel
  */
 public class Produto {
     private int id;
     private String nome;
-    private String cod_barras;
+    private String codBarras;
     private double preco;
-
-    public Produto() {
-    }
-
-    public Produto(int id, String nome, String cod_barras, double preco) {
-        this.id = id;
-        this.nome = nome;
-        this.cod_barras = cod_barras;
-        this.preco = preco;
-    }
-
-
 
     public int getId() {
         return id;
@@ -38,12 +31,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getCod_barras() {
-        return cod_barras;
+    public String getCodBarras() {
+        return codBarras;
     }
 
-    public void setCod_barras(String cod_barras) {
-        this.cod_barras = cod_barras;
+    public void setCodBarras(String codBarras) {
+        this.codBarras = codBarras;
     }
 
     public double getPreco() {
@@ -53,4 +46,17 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
+    public Produto() {
+    }
+
+    public Produto(int id, String nome, String codBarras, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.codBarras = codBarras;
+        this.preco = preco;
+    }
+
+    
+
 }
