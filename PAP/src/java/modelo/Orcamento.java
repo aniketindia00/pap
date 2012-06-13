@@ -17,7 +17,8 @@ public class Orcamento {
     private String data;
     private String hora;
     private Double valor;
-    private ArrayList<Produto> produto;
+    private int idCliente;
+    private ArrayList<Produto> produtos;
     private Cliente cliente;
 
     public int getId() {
@@ -52,12 +53,12 @@ public class Orcamento {
         this.valor = valor;
     }
 
-    public ArrayList<Produto> getProduto() {
-        return produto;
+    public ArrayList<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setProduto(ArrayList<Produto> produto) {
-        this.produto = produto;
+    public void setProdutos(ArrayList<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public Cliente getCliente() {
@@ -66,6 +67,14 @@ public class Orcamento {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     
