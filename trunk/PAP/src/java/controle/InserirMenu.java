@@ -59,7 +59,7 @@ public class InserirMenu extends HttpServlet {
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Menu inserido com sucesso!');");
+                out.print(" alert('Registros inseridos com sucesso!');");
                 out.print(" window.open('listar_menu.jsp','_parent');");
                 out.print("</script>");
 
