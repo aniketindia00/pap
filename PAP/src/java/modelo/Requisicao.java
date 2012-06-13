@@ -10,7 +10,7 @@ public class Requisicao {
     private int id;
     private String data;
     private double valor;
-    private int cpfMecanico;
+    private String cpfMecanico;
     private Mecanico mecanico;
     private ArrayList<Produto> produtos;
 
@@ -67,11 +67,11 @@ public class Requisicao {
         this.produtos = produtos;
     }
 
-    public int getCpfMecanico() {
+    public String getCpfMecanico() {
         return cpfMecanico;
     }
 
-    public void setCpfMecanico(int cpfMecanico) {
+    public void setCpfMecanico(String cpfMecanico) {
         this.cpfMecanico = cpfMecanico;
     }
 
