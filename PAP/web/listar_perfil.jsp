@@ -74,7 +74,7 @@
                                     <%out.print(p.getPerfil());%>
                                 </td>
                                 <td>
-                                    <a href="form_gerenciar_menu_perfil.jsp?id=<%out.print(p.getId());%>"><img src="imagens/edit.png"></a>
+                                    <a href="form_gerenciar_menu_perfil.jsp?id=<%out.print(p.getId());%>"><img src="imagens/gerenciar.png"></a>
                                     <a href="form_alterar_perfil.jsp?id=<%out.print(p.getId());%>&perfil=<%out.print(p.getPerfil());%>"><img src="imagens/edit.png"></a>
                                     <a href="#" onclick="confirma(<%out.print(p.getId());%>)"><img src="imagens/delete.png"></a>
                                 </td>
