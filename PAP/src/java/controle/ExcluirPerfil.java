@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Menu;
-import modelo.MenuDAO;
+import modelo.Perfil;
+import modelo.PerfilDAO;
 
 /**
  *
  * @author André
  */
-public class DeletarMenu extends HttpServlet {
+public class ExcluirPerfil extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,30 +34,30 @@ public class DeletarMenu extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-    if(session.getAttribute("menu") == null){
+    if(session.getAttribute("perfil") == null){
        response.sendRedirect("index.jsp?erro=1");
     }else{
             // TODO output your page here
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InserirMenu</title>");
+            out.println("<title>Servlet InserirPerfil</title>");
             out.println("</head>");
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                Menu m = new Menu();
-                m.setId(id);
+                Perfil p = new Perfil();
+                p.setId(id);
 
-                MenuDAO mDB = new MenuDAO();
+                PerfilDAO pDB = new PerfilDAO();
 
-                mDB.conectar();
-                mDB.excluir(m);
-                mDB.desconectar();
+                pDB.conectar();
+                pDB.excluir(p);
+                pDB.desconectar();
 
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Menu deletado com sucesso!');");
-                out.print(" window.open('listar_menu.jsp','_parent');");
+                out.print(" alert('Perfil deletado com sucesso!');");
+                out.print(" window.open('listar_perfil.jsp','_parent');");
                 out.print("</script>");
 
 
