@@ -32,7 +32,7 @@
                         <form action="inserir_menu.do" method="POST" >
                             <table width="500">
                                 <tr>
-                                    <td>Menu:</td>
+                                    <td>Nome:</td>
                                     <td><input type="text" size="45" name="menu"/> </td>
                                 </tr>
                                 <tr>
