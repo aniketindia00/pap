@@ -35,18 +35,10 @@ public class InserirProdutoSessao extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet InserirProdutoSessao</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet InserirProdutoSessao at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            */
+
             try {
                 ArrayList<Produto> produtos = new ArrayList<Produto>();
+                int igual = 0;
                 if(session.getAttribute("produtos") != null){
                 produtos =(ArrayList<Produto>) session.getAttribute("produtos");
                 }
@@ -55,13 +47,23 @@ public class InserirProdutoSessao extends HttpServlet {
                 pDB.conectar();
                 Produto p = pDB.carregaPorId(id);
                 pDB.desconectar();
+                for(Produto p1:produtos){
+                if(p1.getId() == p.getId()){
+                igual = 1;
+                }
+                }
+                if(igual == 1){
+                response.sendRedirect("produtos_orcamento.jsp");
+                }else{
                 produtos.add(p);
                 session.removeAttribute("produtos");
                 session.setAttribute("produtos",produtos);
                 response.sendRedirect("produtos_orcamento.jsp");
+                }
             } catch (Exception e) {
                 out.print(e);
             }
+
         } finally { 
             out.close();
         }
