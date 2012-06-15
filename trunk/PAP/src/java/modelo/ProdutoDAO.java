@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -63,12 +64,12 @@ public class ProdutoDAO extends DataBaseDAO {
     public Produto carregaPorId(int id) throws SQLException{
         Produto pd = new Produto();
         PreparedStatement pst;
-        String sql ="SELECT * FROM menu WHERE id=?";
+        String sql ="SELECT * FROM produto WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setInt(1,id);
         ResultSet rs = pst.executeQuery();
         if(rs.next()){
-        pd.setId(rs.getInt("id_produto"));
+        pd.setId(rs.getInt("id"));
         pd.setNome(rs.getString("nome"));
         pd.setCodBarras(rs.getString("cod_barras"));
         pd.setPreco(rs.getDouble("preco"));
@@ -199,6 +200,31 @@ public class ProdutoDAO extends DataBaseDAO {
         }
         return listaN;
 
+    }
+
+    public ArrayList<Produto> listaResumida(int qnt, String coluna, String query) throws SQLException{
+        int aux = qnt;
+        ArrayList<Produto> lista = new ArrayList<Produto>();
+        PreparedStatement pst;
+        if(!coluna.equalsIgnoreCase("id")){
+        query="%"+query+"%";
+        }
+        String sql= "SELECT * FROM produto WHERE "+coluna+" LIKE '"+query+"'";
+        pst = conn.prepareStatement(sql);
+        //pst.setString(1, coluna);
+        //pst.setString(2, query);
+        ResultSet rs = pst.executeQuery();
+        rs.last();
+        int rows = rs.getRow();
+        if(rows<qnt){
+        aux  = rows;
+        }
+        for(int i = 1; i <= aux; i++){
+            rs.absolute(i);
+            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            lista.add(p);
+        }
+        return lista;
     }
 
 

@@ -50,6 +50,14 @@
         <servlet-name>AlterarUsuario</servlet-name>
         <servlet-class>controle.AlterarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InserirProdutoSessao</servlet-name>
+        <servlet-class>controle.InserirProdutoSessao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProdutoSessao</servlet-name>
+        <servlet-class>controle.ExcluirProdutoSessao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -93,6 +101,14 @@
     <servlet-mapping>
         <servlet-name>ExcluirUsuario</servlet-name>
         <url-pattern>/excluir_usuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirProdutoSessao</servlet-name>
+        <url-pattern>/inserir_produto_sessao.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProdutoSessao</servlet-name>
+        <url-pattern>/excluir_produto_sessao.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
