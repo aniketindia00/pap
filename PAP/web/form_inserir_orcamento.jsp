@@ -37,7 +37,7 @@
                             <option value="preco">Preço</option>
                             <option value="id">Id</option>
                         </select>
-                        <input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value); refreshPage('produtos2', 'produtos_orcamento.jsp');" >
+                        <input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
                         <div id="produtos">
                             Não há nenhum produto
                         </div>
