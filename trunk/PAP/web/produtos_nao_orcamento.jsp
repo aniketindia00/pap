@@ -29,15 +29,15 @@
                     }
                     ProdutoDAO pDB = new ProdutoDAO();
                     pDB.conectar();
-                    ArrayList<Produto> lista = pDB.listaResumida(10, coluna, query);
+                    ArrayList<Produto> lista = pDB.listaResumida(1000, coluna, query);
                     pDB.desconectar();
-                    for(Produto p1:produtos){
-                        for(Produto p2:lista){
-                        if(p1.getId() == p2.getId()){
-                        aux.add(p2);
-                        }
-                    }
-                    }
+//                    for(Produto p1:produtos){
+//                        for(Produto p2:lista){
+//                        if(p1.getId() == p2.getId()){
+//                        aux.add(p2);
+//                        }
+//                    }
+//                   }
                     lista.removeAll(aux);
                     for(Produto p:lista){%>
 
