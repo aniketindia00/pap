@@ -23,7 +23,7 @@
         <td colspan="2"><h3 align="center" >Dados do Carro</h3></td>
     </tr>
     <tr>
-        <td><label for="id_carro">Carros: </label></td>
+        <td><label for="id_carro">Carro Existente: </label></td>
         <td><select name="id_carro" size="1">
                 <option value="0">
                     Selecione um carro
@@ -32,10 +32,25 @@
                 <%for (Carro c : carros) {%>
 
                 <option value="<%=c.getId()%>">
-                    <%=c.getMarca()+" "+c.getModelo()+", "+c.getAno()%>
+                    <%=c.getMarca() + " " + c.getModelo() + ", " + c.getAno()%>
                 </option>
                 <%}%>
             </select></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><font class="subTitle">Novo Carro</font></td>
+    </tr>
+    <tr>
+        <td><label for="modelo">Modelo: </label></td>
+        <td><input id="modelo" name="modelo" size="30%"></td>
+    </tr>
+    <tr>
+        <td><label for="marca">Marca: </label></td>
+        <td><input id="marca" name="marca" size="30%"></td>
+    </tr>
+    <tr>
+        <td><label for="ano">Ano: </label></td>
+        <td><input id="ano" name="ano" size="30%"></td>
     </tr>
 </table>
 
