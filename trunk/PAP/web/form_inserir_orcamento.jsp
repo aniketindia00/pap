@@ -11,9 +11,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/projeto.css" rel="stylesheet" type="text/css">
+        <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <title>JSP Page</title>
+    <script type="text/javascript">
+	$(function() {
+		$( "#nome" ).autocomplete({
+			source: "clientes.jsp",
+			minLength: 2,
+                        select:function( event, ui ) {
+                            $('#telefone').val(ui.item.telefone);
+                        }
+		});
+	});
+</script>
+
     </head>
     <body>
         <div align="center">
@@ -28,6 +42,14 @@
                         <%@include file="menu.jsp" %>
                     </td>
                     <td width="610" height="510" valign="top">
+                        <div>
+                            <label for="nome">Nome: </label>
+                            <input id="nome" name="nome" size="45">
+                            <input id="telefone" name="telefone" size="45">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
                         <div id="produtos2">
                             <%@include file="produtos_orcamento.jsp" %>
                         </div>
