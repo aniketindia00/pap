@@ -82,5 +82,22 @@ public class ClienteDAO extends DataBaseDAO {
 
     }
 
+    public ArrayList<Cliente> autocompletar(String query) throws SQLException{
+        ArrayList<Cliente> lista = new ArrayList<Cliente>();
+        PreparedStatement pst;
+        query = "%"+query+"%";
+        String sql= "SELECT * FROM cliente WHERE nome LIKE '"+query+"'";
+        pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+        Cliente c = new Cliente();
+        c.setId(rs.getInt("id"));
+        c.setTelefone(rs.getString("telefone"));
+        c.setNome(rs.getString("nome"));
+        lista.add(c);
+        }
+        return lista;
+    }
+
 
 }
