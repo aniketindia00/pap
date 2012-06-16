@@ -26,6 +26,11 @@ html,body {
         min-width: 1024px;
 }
 
+font.subTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .content{ /* bottom padding for footer */
     padding-bottom:2em;
     min-height: 600px;
@@ -73,6 +78,10 @@ html,body {
 
 .minStdHeight{
     min-height: 300px;
+}
+
+.min200height{
+     min-height: 200px;
 }
 
 div.clear{
