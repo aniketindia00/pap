@@ -29,7 +29,7 @@
                     }
                 });
 
-                $("a").button().click(function(){window.open('listar_perfil.jsp','_parent');});
+                $("a").button().click(function(){return false;});
             });
         </script>
 
