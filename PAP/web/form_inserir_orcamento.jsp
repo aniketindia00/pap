@@ -52,24 +52,27 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td width="80%" height="100%" valign="top">
-                            <table align="center" border="1" width="100%">
+                            <table align="center" border="1" class="fill">
                                 <tr>
-                                    <td><table align="center">
-                                            <tr>
-                                                <td colspan="2"><h3 align="center" >Dados do Cliente</h3></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="nome">Nome: </label></td>
-                                                <td><input id="nome" name="nome" size="30%" ><td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="telefone">Telefone: </label></td>
-                                                <td><input id="telefone" name="telefone" size="30%"></td>
-                                            </tr>
-                                        </table>
+                                    <td>
+                                        <div id="cliente" class="min200height" >
+                                            <table align="center">
+                                                <tr>
+                                                    <td colspan="2"><h3 align="center" >Dados do Cliente</h3></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="nome">Nome: </label></td>
+                                                    <td><input id="nome" name="nome" size="30%" ><td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="telefone">Telefone: </label></td>
+                                                    <td><input id="telefone" name="telefone" size="30%"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </td>
                                     <td>
-                                        <div id="carros" >
+                                        <div id="carros" class="min200height" >
                                             <table align="center">
                                                 <tr>
                                                     <td colspan="2"><h3 align="center" >Dados do Carro</h3></td>
@@ -95,7 +98,7 @@
                                         <table align="center" class="fill">
                                             <tr>
                                                 <td class="minStdHeight" colspan="2">
-                                                   <h4>Ola</h4>
+                                                    <h4>Ola</h4>
                                                     <div class="box fillall" id="produtos2">
                                                         <%@include file="produtos_orcamento.jsp" %>
                                                     </div></td>
@@ -127,7 +130,7 @@
                 </table>
             </div>
             <div class="footer">
-                <button aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="button"><span class="ui-button-text">A button element</span></button>
+                <button id="button" value="listar_perfil.jsp">ASD</button>
             </div>
         </div>
     </body>
