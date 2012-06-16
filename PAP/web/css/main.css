@@ -1,0 +1,85 @@
+/* 
+    Document   : main
+    Created on : 16/06/2012, 12:44:52
+    Author     : PC
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+html,body {
+	margin:0;
+	padding:0;
+	height:100%; /* needed for container min-height */
+}
+.container {
+	position:relative; /* needed for footer positioning*/
+	margin:0 auto; /* center, not in IE5 */
+        background:#f0f0f0;
+	height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+	min-height:100%; /* real browsers */
+        max-width: 1280px;
+        min-width: 1024px;
+}
+
+.content{ /* bottom padding for footer */
+    padding-bottom:2em;
+    min-height: 600px;
+}
+
+.footer {
+	position:absolute;
+	width:100%;
+	bottom:0; /* stick to bottom */
+	background:#ddd;
+	border-top:6px double gray;
+}
+
+.header{
+
+}
+
+.box{
+
+   border: 6px 6px 6px 6px;
+   border-color: #cccccc;
+   border-style: double;
+
+}
+
+.fill{
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.fillall{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 200px;
+    max-height: 100%;
+}
+
+.leftAlg{
+    text-align: left;
+}
+
+.rightAlg{
+    text-align: right;
+}
+
+.minStdHeight{
+    min-height: 300px;
+}
+
+div.clear{
+    clear: both;
+}
+
+root { 
+    display: block;
+}
+

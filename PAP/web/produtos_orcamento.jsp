@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<table align="center">
+<table align="center" class="fillall">
 <%
                 try {
                     ArrayList<Produto> produtos = new ArrayList<Produto>();
@@ -21,7 +21,7 @@
 
                     <tr>
                         <td><%=p.getId()%></td>
-                        <td><%=p.getNome()%></td>
+                        <td width="60%"><%=p.getNome()%></td>
                         <td><%=p.getPreco()%></td>
                         <td><%=p.getCodBarras()%></td>
                         <td><a href="#" onclick="refreshPage('produtos2','excluir_produto_sessao.do?id=<%=p.getId()%>');">del</a></td>

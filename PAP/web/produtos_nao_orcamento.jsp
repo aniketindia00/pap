@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<table align="center">
+<table align="center" class="fill">
 <%
                 try {
                     String coluna;
@@ -29,7 +29,7 @@
                     }
                     ProdutoDAO pDB = new ProdutoDAO();
                     pDB.conectar();
-                    ArrayList<Produto> lista = pDB.listaResumida(1000, coluna, query);
+                    ArrayList<Produto> lista = pDB.listaResumida(10, coluna, query);
                     pDB.desconectar();
 //                    for(Produto p1:produtos){
 //                        for(Produto p2:lista){
@@ -43,7 +43,7 @@
 
                     <tr>
                         <td><%=p.getId()%></td>
-                        <td><%=p.getNome()%></td>
+                        <td ><%=p.getNome()%></td>
                         <td><%=p.getPreco()%></td>
                         <td><%=p.getCodBarras()%></td>
                         <td><a href="#" onclick="refreshPage('produtos2','inserir_produto_sessao.do?id=<%=p.getId()%>');">add</a></td>

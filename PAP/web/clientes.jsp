@@ -1,3 +1,4 @@
+<%@page import="net.sf.json.JSONObject"%>
 <%
 try{
 response.setHeader("Content-Type", "application/json");
@@ -6,9 +7,16 @@ ClienteDAO cDB= new ClienteDAO();
 cDB.conectar();
 ArrayList<Cliente> lista = cDB.autocompletar(q);
 cDB.desconectar();
+
 JSONArray jlist = new JSONArray();
 for(Cliente c:lista){
-jlist.add(c);
+JSONObject jo = new JSONObject();
+jo.put("value", c.getNome());
+jo.put("label", c.getNome());
+jo.put("telefone", c.getTelefone());
+jo.put("nome", c.getNome());
+jo.put("id", c.getId());
+jlist.add(jo);
 }
 jlist.write(out);
 } catch(Exception e){
