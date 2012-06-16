@@ -44,7 +44,7 @@
                     <tr>
                         <td><%=p.getId()%></td>
                         <td ><%=p.getNome()%></td>
-                        <td><%=p.getPreco()%></td>
+                        <td>R$ <%=p.getPreco()%></td>
                         <td><%=p.getCodBarras()%></td>
                         <td><a href="#" onclick="refreshPage('produtos2','inserir_produto_sessao.do?id=<%=p.getId()%>');">add</a></td>
                     </tr>
