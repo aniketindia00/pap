@@ -36,8 +36,8 @@
     </head>
     <body>
         <div class="container">
-            <div class="header">
-                <table class="fill" border="1">
+            <div class="header box ui-corner-all">
+                <table class="fill" >
                     <tr>
                         <td colspan="2">
                             <%@include file="banner.jsp" %>
@@ -46,16 +46,16 @@
                 </table>
             </div>
             <div class="content fillall">
-                <table class="fillall" border="1">
+                <table class="fillall" >
                     <tr>
-                        <td width="15%" height="100%" valign="top">
+                        <td class="box ui-corner-all" width="15%" height="100%" valign="top">
                             <%@include file="menu.jsp" %>
                         </td>
                         <td width="80%" height="100%" valign="top">
-                            <table align="center" border="1" class="fill">
+                            <table align="center" class="fill">
                                 <tr>
-                                    <td>
-                                        <div id="cliente" class="min200height" >
+                                    <td width="50%">
+                                        <div id="cliente" class="min200height box ui-corner-all" >
                                             <table align="center">
                                                 <tr>
                                                     <td colspan="2"><h3 align="center" >Dados do Cliente</h3></td>
@@ -71,8 +71,8 @@
                                             </table>
                                         </div>
                                     </td>
-                                    <td>
-                                        <div id="carros" class="min200height" >
+                                    <td width="50%">
+                                        <div id="carros" class="min200height box ui-corner-all" >
                                             <table align="center">
                                                 <tr>
                                                     <td colspan="2"><h3 align="center" >Dados do Carro</h3></td>
@@ -97,13 +97,16 @@
                                     <td colspan="2" align="center" >
                                         <table align="center" class="fill">
                                             <tr>
-                                                <td class="minStdHeight" colspan="2">
-                                                    <h4>Ola</h4>
-                                                    <div class="box fillall" id="produtos2">
+                                                <td class="" colspan="2">
+                                                    <font class="subTitle">Produtos Adicionados:</font>
+                                                    <div class="box minStdHeight ui-corner-all" id="produtos2">
                                                         <%@include file="produtos_orcamento.jsp" %>
                                                     </div></td>
                                             </tr>
                                             <tr>
+                                                <td>
+                                                    <font class="subTitle">Procurar Produtos:</font>
+                                                </td>
                                                 <td>
                                                     <select id="coluna"  >
                                                         <option value="nome" >Nome</option>
@@ -111,12 +114,12 @@
                                                         <option value="preco">Preço</option>
                                                         <option value="id">Id</option>
                                                     </select>
-                                                </td>
-                                                <td><input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
+                                                
+                                                <input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
                                                 </td>
                                             </tr>
                                             <tr class="fill">
-                                                <td colspan="2" class="minStdHeight" ><div class="box fillall" id="produtos">
+                                                <td colspan="2"><div class="box minStdHeight ui-corner-all" id="produtos">
                                                         Não há nenhum produto
                                                     </div></td>
 
@@ -130,7 +133,7 @@
                 </table>
             </div>
             <div class="footer">
-                <button id="button" value="listar_perfil.jsp">ASD</button>
+                <%@include file="rodape.jsp" %>
             </div>
         </div>
     </body>

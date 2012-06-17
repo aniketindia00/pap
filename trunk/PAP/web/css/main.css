@@ -26,9 +26,14 @@ html,body {
         min-width: 1024px;
 }
 
-font.subTitle{
+.subTitle{
     font-size: 20px;
     font-weight: bold;
+
+}
+
+.centerAlg{
+    text-align: center;
 }
 
 .content{ /* bottom padding for footer */
@@ -77,11 +82,15 @@ font.subTitle{
 }
 
 .minStdHeight{
-    min-height: 300px;
+    min-height: 250px;
 }
 
 .min200height{
      min-height: 200px;
+}
+
+.minButtonWidth{
+   min-width: 130px;
 }
 
 div.clear{
