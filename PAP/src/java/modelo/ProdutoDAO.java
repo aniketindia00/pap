@@ -40,7 +40,7 @@ public class ProdutoDAO extends DataBaseDAO {
         pst = conn.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Produto pd = new Produto(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            Produto pd = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
             lista.add(pd);
         }
         return lista;
@@ -50,7 +50,7 @@ public class ProdutoDAO extends DataBaseDAO {
     public void alterar(Produto pd) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="UPDATE produto SET nome=?, cod_barras=?, preco=?  WHERE id_produto=?";
+        String sql ="UPDATE produto SET nome=?, cod_barras=?, preco=?  WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1,pd.getNome());
         pst.setString(2,pd.getCodBarras());
