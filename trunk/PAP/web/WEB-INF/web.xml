@@ -72,6 +72,10 @@
         <servlet-name>ExcluirProdutoSessao</servlet-name>
         <servlet-class>controle.ExcluirProdutoSessao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InserirOrcamento</servlet-name>
+        <servlet-class>controle.InserirOrcamento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -123,6 +127,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirProdutoSessao</servlet-name>
         <url-pattern>/excluir_produto_sessao.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirOrcamento</servlet-name>
+        <url-pattern>/inserir_orcamento.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

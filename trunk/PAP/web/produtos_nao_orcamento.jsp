@@ -46,7 +46,7 @@
                         <td ><%=p.getNome()%></td>
                         <td>R$ <%=p.getPreco()%></td>
                         <td><%=p.getCodBarras()%></td>
-                        <td><a href="#" onclick="refreshPage('produtos2','inserir_produto_sessao.do?id=<%=p.getId()%>');">add</a></td>
+                        <td><a href="#" onclick="refreshPage('produtos2','inserir_produto_sessao.do?id=<%=p.getId()%>');"><img src="imagens/add.png"/></a></td>
                     </tr>
 
 <%}

@@ -60,6 +60,28 @@ public class ClienteDAO extends DataBaseDAO {
 
     }
 
+        public Cliente carregaPorNomeTelefone(String nome,String telefone) throws SQLException, Exception{
+        Cliente c = new Cliente();
+        CarroDAO cDB = new CarroDAO();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM cliente WHERE nome=? AND telefone=?";
+        pst =conn.prepareStatement(sql);
+        pst.setString(1,nome);
+        pst.setString(2,telefone);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+            c.setId(rs.getInt("id"));
+            c.setNome(rs.getString("nome"));
+            c.setTelefone(rs.getString("telefone"));
+            cDB.conectar();
+            c.setCarros(cDB.carrosCliente(c.getId()));
+            cDB.desconectar();
+            return c;
+        }else{
+        return null;
+        }
+    }
+
     public void excluir(Cliente c) throws SQLException{
 
         PreparedStatement pst;
