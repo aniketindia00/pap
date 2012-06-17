@@ -8,8 +8,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.CarroDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
 <%
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
@@ -20,7 +18,7 @@
 %>
 <table align="center">
     <tr>
-        <td colspan="2"><h3 align="center" >Dados do Carro</h3></td>
+        <td colspan="2" align="center"><font class="subTitle" >Dados do Carro</font></td>
     </tr>
     <tr>
         <td><label for="id_carro">Carro Existente: </label></td>
