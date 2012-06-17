@@ -4,6 +4,10 @@
     Author     : 129526
 --%>
 
+<%@page import="modelo.Orcamento"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.TimeZone"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -54,6 +58,16 @@
                         </td>
                         <td width="80%" height="100%" valign="top">
                             <form action="form_inserir_orcamento.jsp" method="POST">
+                                <%
+                                            TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
+                                            String horaF = "HH:mm:ss";
+                                            String dataF = "dd/MM/yyyy";
+                                            String data = new SimpleDateFormat(dataF).format(new Date());
+                                            String hora = new SimpleDateFormat(horaF).format(new Date());
+                                            Orcamento o = new Orcamento();
+                                            o.setDataEmissao(data);
+                                            o.setHoraEmissao(hora);
+                                %>
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="50%">
