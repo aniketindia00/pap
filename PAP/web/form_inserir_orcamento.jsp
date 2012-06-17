@@ -53,6 +53,7 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td width="80%" height="100%" valign="top">
+                            <form action="form_inserir_orcamento.jsp" method="POST">
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="50%">
@@ -115,8 +116,8 @@
                                                         <option value="preco">Preço</option>
                                                         <option value="id">Id</option>
                                                     </select>
-                                                
-                                                <input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
+
+                                                    <input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
                                                 </td>
                                             </tr>
                                             <tr class="fill">
@@ -125,10 +126,13 @@
                                                     </div></td>
 
                                             </tr>
-
                                         </table>
                                     </td></tr>
+                                <tr>
+                                    <td><input type="reset" value="Limpar"><input type="submit" value="Salvar e Imprimir" ></td>
+                                </tr>
                             </table>
+                                                    </form>
                         </td>
                     </tr>
                 </table>

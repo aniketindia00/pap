@@ -15,4 +15,3 @@ out.print("  <a href='sair.jsp'>(Sair)</a></font>");
 }catch(Exception e){
 }
 %>
-<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturn-1-w"><span class="ui-icon ui-icon-arrowreturn-1-w"></span></li>
