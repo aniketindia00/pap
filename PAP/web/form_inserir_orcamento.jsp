@@ -19,6 +19,7 @@
         <title>JSP Page</title>
         <script type="text/javascript">
             $(function() {
+
                 $( "#nome" ).autocomplete({
                     source: "clientes.jsp",
                     minLength: 2,
