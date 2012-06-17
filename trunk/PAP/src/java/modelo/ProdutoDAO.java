@@ -23,11 +23,10 @@ public class ProdutoDAO extends DataBaseDAO {
     public void inserir(Produto pd) throws SQLException{
 
         PreparedStatement pst;
-        String sql = "INSERT INTO produto (id_produto, nome, cod_barras, preco) values(?,?,?,?)";
+        String sql = "INSERT INTO produto (nome, cod_barras, preco) values(?,?,?)";
         pst = conn.prepareStatement(sql);
-        pst.setInt(1,pd.getId());
-        pst.setString(2, pd.getNome());
-        pst.setString(3, pd.getCodBarras());
+        pst.setString(1, pd.getNome());
+        pst.setString(2, pd.getCodBarras());
         pst.setDouble(3, pd.getPreco());
         pst.execute();
 
