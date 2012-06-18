@@ -48,7 +48,6 @@
                         <table align="center" >
                             <tr>
                                 <td align="left" ><h1>Lista de Mecânicos</h1></td>
-                                <td align="right" ><a href="form_inserir_mecanico.jsp">Inserir Mecânico</a></td>
                             </tr>
                         </table>
 
