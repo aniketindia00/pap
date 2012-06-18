@@ -11,7 +11,7 @@
 try{
 Usuario usr = (Usuario) session.getAttribute("user");
 out.print("<font class=\"leftAlg\">Bem Vindo "+usr.getNome());
-out.print("  <a href='sair.jsp'>(Sair)</a></font>");
+out.print("  <a class='button' href='sair.jsp'>(Sair)</a></font>");
 }catch(Exception e){
 }
 %>

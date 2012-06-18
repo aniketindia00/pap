@@ -125,7 +125,7 @@
                                             </tr>
                                             <tr class="fill">
                                                 <td colspan="2"><div class="box minStdHeight ui-corner-all" id="produtos">
-                                                        Não há nenhum produto
+                                                        <%@include file="produtos.jsp" %>
                                                     </div></td>
 
                                             </tr>

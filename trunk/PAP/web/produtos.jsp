@@ -20,7 +20,7 @@
                     query = request.getParameter("query");
                     }else{
                     coluna = "nome";
-                    query = " ";
+                    query = "";
                     }
                     ProdutoDAO pDB = new ProdutoDAO();
                     pDB.conectar();
