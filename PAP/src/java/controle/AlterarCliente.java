@@ -40,18 +40,18 @@ public class AlterarCliente extends HttpServlet {
             out.println("<body>");
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
-                String cliente = request.getParameter("cliente");
-
+                String nome = request.getParameter("nome");
+                String telefone = request.getParameter("telefone");
+                
                 ClienteDAO cDB = new ClienteDAO();
 
                 cDB.conectar();
 
                 Cliente c = new Cliente();
 
-                c.setCarros();
                 c.setId(id);
-                c.setNome(cliente);
-                c.setTelefone(cliente);
+                c.setNome(nome);
+                c.setTelefone(telefone);
                 cDB.alterar(c);
 
                 cDB.desconectar();
