@@ -105,3 +105,18 @@ root {
     display: block;
 }
 
+div.pecas{
+    width: 654px;
+    min-height: 284px;
+    max-height: 285px;
+}
+
+table.impressao{
+    background-image:url('../imagens/pointerImp.png');
+    background-position: center;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    table-layout: fixed;
+}
+
