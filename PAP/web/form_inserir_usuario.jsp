@@ -21,6 +21,35 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
+        <script type="text/javascript"> function validar(){
+            if(document.dados.tx_nome.value=="" || document.dados.tx_nome.value.length < 8)
+            {
+                alert( "Preencha campo Nome corretamente!" );
+                document.dados.tx_nome.focus();
+                return false;
+            }
+            if (document.dados.tx_telefone.value=="")
+            {
+                alert( "Preencha o campo Telefone corretamente!" );
+                document.dados.tx_telefone.focus();
+                return false;
+            }
+               if (document.dados.tx_id_perfil.value=="")
+            {
+                alert( "Selecione o Perfil para o Usuario!" );
+                document.dados.tx_id_perfil.focus();
+                return false;
+            }
+                if (document.dados.tx_senha.value=="")
+            {
+                alert( "Digite uma senha." );
+                document.dados.tx_senha.focus();
+                return false;
+            }
+           
+            return true;
+        }     
+        </script>
     </head>
     <body>
         <div align="center">
