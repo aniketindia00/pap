@@ -61,7 +61,7 @@ public class InserirMecanico extends HttpServlet {
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros inseridos com sucesso!');");
-                out.print(" window.open('listar_mecanico.jsp','_parent');");
+                out.print(" window.open('listar_requisicao.jsp','_parent');");
                 out.print("</script>");
 
 
