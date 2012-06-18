@@ -20,6 +20,7 @@
         <script type="text/javascript" src="js/ajax.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/teste.js"></script>
         <title>JSP Page</title>
         <script type="text/javascript">
             $(function() {
@@ -33,8 +34,6 @@
                         refreshPage('carros','carros.jsp?id='+ui.item.id);
                     }
                 });
-
-                $("a").button();
             });
         </script>
 

@@ -9,7 +9,7 @@
 <%@page import="modelo.ProdutoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
@@ -45,72 +45,42 @@
 
                     </td>
                     <td width="610" height="510" valign="top">
+
                         <table align="center" >
                             <tr>
                                 <td align="left" ><h1>Lista de Produtos</h1></td>
                                 <td align="right" ><a href="form_inserir_produto.jsp">Inserir Produto</a></td>
                             </tr>
+                            <tr>
+                                <td><select id="coluna"  >
+                                        <option value="nome" >Nome</option>
+                                        <option value="cod_barras">Codigo de Barras</option>
+                                        <option value="preco">Preço</option>
+                                        <option value="id">Id</option>
+                                    </select></td>
+                                <td>
+                                    <input type="text" onkeyup="refreshPage('produtos','produtos_listar.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
+                                </td>
+                            </tr>
                         </table>
                         <div id="produtos">
-                        <table border="1" align="center" >
-                            <tr>
-                                <td>ID</td>
-                                <td>Nome</td>
-                                <td>Código de Barras</td>
-                                <td>Preço</td>
-                                <td width="20px">Opções</td>
-                            </tr>
-
-
-                            <%
-                            try{
-                                ProdutoDAO pDB = new ProdutoDAO();
-                                pDB.conectar();
-                                ArrayList<Produto> lista = pDB.listar();
-                            for(Produto p:lista){%>
-
-                            <tr>
-                                <td>
-                                    <%=p.getId()%>
-                                </td>
-                                <td>
-                                    <%=p.getNome()%>
-                                </td>
-                                <td>
-                                    <%=p.getCodBarras()%>
-                                </td>
-                                <td>
-                                    <%=p.getPreco()%>
-                                </td>
-                                <td>
-                                    <a href="form_alterar_produto.jsp?id=<%=p.getId()%>"><img src="imagens/edit.png"></a>
-                                    <a href="#" onclick="confirma(<%=p.getId()%>)" ><img src="imagens/delete.png"></a>
-                                </td>
-                            </tr>
-
-                            <% }
-                            pDB.desconectar();
-         }catch (Exception e) {
-               out.println(e);
-}
-                            %>
-                        </table>
+                            <%@include file="produtos_listar.jsp" %>
                         </div>
                     </td>
                 </tr>
             </table>
         </div>
-<%
+        <%
 
-    if(logged){
-    Usuario uP = new Usuario();
-    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
-       response.sendRedirect("index.jsp?erro=1");
-    }else{
-    session.setAttribute("produto",true);
-    }
-    }
+                    if (logged) {
+                        Usuario uP = new Usuario();
+                        if (!uP.temPermissao(request.getRequestURI(), request.getContextPath(), user)) {
+                            response.sendRedirect("index.jsp?erro=1");
+                        } else {
+                            session.setAttribute("produto", true);
+                        }
+                    }
 
-%>
+        %>
     </body>
 </html>
