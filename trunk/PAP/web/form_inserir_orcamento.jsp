@@ -58,16 +58,6 @@
                         </td>
                         <td width="80%" height="100%" valign="top">
                             <form action="form_inserir_orcamento.jsp" method="POST">
-                                <%
-                                            TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
-                                            String horaF = "HH:mm:ss";
-                                            String dataF = "dd/MM/yyyy";
-                                            String data = new SimpleDateFormat(dataF).format(new Date());
-                                            String hora = new SimpleDateFormat(horaF).format(new Date());
-                                            Orcamento o = new Orcamento();
-                                            o.setDataEmissao(data);
-                                            o.setHoraEmissao(hora);
-                                %>
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="50%">
