@@ -15,11 +15,6 @@
                 try {
                     String coluna;
                     String query;
-                    ArrayList<Produto> produtos = new ArrayList<Produto>();
-                    ArrayList<Produto> aux = new ArrayList<Produto>();
-                    if(session.getAttribute("produtos") != null){
-                    produtos =(ArrayList<Produto>) session.getAttribute("produtos");
-                    }
                     if(request.getParameter("coluna") != null){
                     coluna = request.getParameter("coluna");
                     query = request.getParameter("query");
@@ -38,7 +33,6 @@
 //                        }
 //                    }
 //                   }
-                    lista.removeAll(aux);
                     for(Produto p:lista){%>
 
                     <tr>
