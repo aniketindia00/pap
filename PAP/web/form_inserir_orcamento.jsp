@@ -121,7 +121,7 @@
                                                         <option value="id">Id</option>
                                                     </select>
 
-                                                    <input type="text" onkeyup="refreshPage('produtos','produtos_nao_orcamento.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
+                                                    <input type="text" onkeyup="refreshPage('produtos','produtos.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
                                                 </td>
                                             </tr>
                                             <tr class="fill">
