@@ -38,6 +38,11 @@ public class InserirMenu extends HttpServlet {
        response.sendRedirect("index.jsp?erro=1");
     }else{
             // TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet InserirMenu</title>");
+            out.println("</head>");
+            out.println("<body>");
             try {
 
                 String menu = request.getParameter("menu");

@@ -51,6 +51,7 @@
                                 <td align="right" ><a href="form_inserir_produto.jsp">Inserir Produto</a></td>
                             </tr>
                         </table>
+                        <div id="produtos">
                         <table border="1" align="center" >
                             <tr>
                                 <td>ID</td>
@@ -94,6 +95,7 @@
 }
                             %>
                         </table>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -102,11 +104,11 @@
 
     if(logged){
     Usuario uP = new Usuario();
-    /*if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
+    if(!uP.temPermissao(request.getRequestURI(),request.getContextPath(), user)){
        response.sendRedirect("index.jsp?erro=1");
     }else{
-    session.setAttribute("usuario",true);
-    }*/
+    session.setAttribute("produto",true);
+    }
     }
 
 %>
