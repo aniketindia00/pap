@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : listar_mecanico
     Created on : 17/06/2012, 22:45:17
     Author     : Daniel
@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de menus</title>
+        <title>Lista de Mecânicos</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
