@@ -45,8 +45,8 @@
     <tr>
         <td><%=p.getId()%></td>
         <td ><%=p.getNome()%></td>
-        <td>R$ <%=p.getCodBarras()%></td>
-        <td><%=p.getPreco()%></td>
+        <td><%=p.getCodBarras()%></td>
+        <td>R$ <%=p.getPreco()%></td>
         <td>
             <a href="form_alterar_produto.jsp?id=<%=p.getId()%>"><img src="imagens/edit.png"></a>
             <a href="#" onclick="confirma(<%=p.getId()%>)" ><img src="imagens/delete.png"></a>
