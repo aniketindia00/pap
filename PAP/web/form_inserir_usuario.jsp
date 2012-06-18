@@ -21,29 +21,30 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
-        <script type="text/javascript"> function validar(){
-            if(document.dados.tx_nome.value=="" || document.dados.tx_nome.value.length < 8)
+        <script type="text/javascript">
+            function validar(){
+            if(document.nome.value=="")
             {
                 alert( "Preencha campo Nome corretamente!" );
-                document.dados.tx_nome.focus();
+                document.nome.focus();
                 return false;
             }
-            if (document.dados.tx_telefone.value=="")
+            if (document.telefone.value=="")
             {
                 alert( "Preencha o campo Telefone corretamente!" );
-                document.dados.tx_telefone.focus();
+                document.telefone.focus();
                 return false;
             }
-               if (document.dados.tx_id_perfil.value=="")
+            if (document.id_perfil.value=="")
             {
                 alert( "Selecione o Perfil para o Usuario!" );
-                document.dados.tx_id_perfil.focus();
+                document.id_perfil.focus();
                 return false;
             }
-                if (document.dados.tx_senha.value=="")
+            if (document.senha.value=="")
             {
                 alert( "Digite uma senha." );
-                document.dados.tx_senha.focus();
+                document.senha.focus();
                 return false;
             }
            
@@ -66,7 +67,7 @@
                     <td width="610" height="510" valign="top">
                         <h1>Inserir Usuário</h1>
                         <table align="center" width="500">
-                            <form action="inserir_usuario.do" method="POST" >
+                            <form action="inserir_usuario.do" method="POST" onsubmit="return validar()" >
                                 <%
 
                                             try {
