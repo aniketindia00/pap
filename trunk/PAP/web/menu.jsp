@@ -12,7 +12,7 @@ try{
     for(Menu mp:user.getPerfil().getMenus()){
 
     out.print("<tr><td class=\"fill\">"
-            + "<a href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
+            + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
             + "<img src='"+mp.getIcone()+"'>"+mp.getMenu()+"</div></a></td></tr>" );
     }
     logged = true;
