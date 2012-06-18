@@ -96,10 +96,6 @@
         <servlet-name>ExcluirMecanico</servlet-name>
         <servlet-class>controle.ExcluirMecanico</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>InserirMecanico</servlet-name>
-        <servlet-class>controle.InserirMecanico</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -175,10 +171,6 @@
     <servlet-mapping>
         <servlet-name>ExcluirMecanico</servlet-name>
         <url-pattern>/excluir_mecanico.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>InserirMecanico</servlet-name>
-        <url-pattern>/inserir_mecanico.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
