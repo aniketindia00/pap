@@ -61,7 +61,7 @@ public class AlterarMecanico extends HttpServlet {
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");
-                out.print(" window.open('listar_mecanico.jsp','_parent');");
+                out.print(" window.open('listar_requisicao.jsp','_parent');");
                 out.print("</script>");
 
             } catch (Exception e) {
