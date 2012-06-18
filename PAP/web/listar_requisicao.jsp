@@ -83,7 +83,7 @@
                                 </td>
                                 <td>
                                     <a href="form_alterar_mecanico.jsp?cpf=<%out.print(m.getCpf());%>"><img src="imagens/edit.png"></a>
-                                    <a href="#" onclick="confirma(<%out.print(m.getCpf());%>)" ><img src="imagens/delete.png"></a>
+                                    <a href="#" onclick="confirma('<%out.print(m.getCpf());%>')" ><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 
