@@ -34,21 +34,28 @@
         </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1" align="center" >
+        <div class="container" align="center">
+        <div class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+        </div>
+                    <div class="content">
+                    <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
-
-                        <h1>Vincular Menus</h1>
-                        <br>
+                    <td class="fill box ui-corner-all" valign="top">
+                        <table  align="center" >
+                            <tr>
+                                <td align="left" ><h1>Vincular Menus</h1></td>
+                            </tr>
+                        </table>
                         <form name="form_gerenciar_menu" action="gerenciar_menu_perfil.do">
 
                             <%
@@ -102,9 +109,11 @@
 
                                             </table>
                                           </form>
-                                                <br>
-                            <h1>Menus Vinculados</h1>
-                            <br>
+                            <table  align="center" >
+                            <tr>
+                                <td align="left" ><h1>Menus Vinculados</h1></td>
+                            </tr>
+                        </table>
                             <table border="1" align="center" >
                             <tr>
                                 <td>Id</td>
@@ -138,6 +147,7 @@
                     </td>
                 </tr>
             </table>
+        </div>
         </div>
 <%
 
