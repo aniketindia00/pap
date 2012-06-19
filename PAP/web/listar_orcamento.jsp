@@ -4,6 +4,9 @@
     Author     : Daniel
 --%>
 
+<%@page import="modelo.OrcamentoDAO"%>
+<%@page import="modelo.Cliente"%>
+<%@page import="modelo.ClienteDAO"%>
 <%@page import="modelo.Requisicao"%>
 <%@page import="modelo.RequisicaoDAO"%>
 <%@page import="modelo.Mecanico"%>
@@ -24,8 +27,8 @@
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
         <script type="text/javascript" language="JavaScript">
-            function confirma(cpf){
-                var url="excluir_mecanico.do?cpf="+cpf;
+            function confirma(id){
+                var url="excluir_cliente.do?id="+id;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");
@@ -71,37 +74,35 @@
 
                             <table class="fill box ui-corner-all tablePad" align="center" >
                                 <tr>
-                                    <td width="20%">CPF</td>
-                                    <td width="20%">Nome</td>
-                                    <td width="20%">Oficina</td>
-                                    <td width="20%">Telefone</td>
-                                    <td width="20%">Opções</td>
+                                    <td width="25%">Id</td>
+                                    <td width="25%">Nome</td>
+                                    <td width="25%">Telefone</td>
+                                    <td width="25%">Opções</td>
                                 </tr>
                             </table>
                             <div class="accordion">
                                 <%
                                             try {
-                                                MecanicoDAO mDB = new MecanicoDAO();
-                                                mDB.conectar();
-                                                ArrayList<Mecanico> lista = mDB.listar();
-                                                RequisicaoDAO rDB = new RequisicaoDAO();
-                                                rDB.conectar();
+                                                ClienteDAO cDB = new ClienteDAO();
+                                                cDB.conectar();
+                                                ArrayList<Cliente> lista = cDB.listar();
+                                                OrcamentoDAO oDB = new OrcamentoDAO();
+                                                oDB.conectar();
 
 
-                                                for (Mecanico m : lista) {%>
+                                                for (Cliente c : lista) {%>
 
 
 
                                 <h3><a href="#">
                                         <table  class="fill" align="center" >
                                             <tr>
-                                                <td width="20%"><%out.print(m.getCpf());%></td>
-                                                <td width="20%"><%out.print(m.getNome());%></td>
-                                                <td width="20%"><%out.print(m.getOficina());%></td>
-                                                <td width="20%"><%out.print(m.getTelefone());%></td>
-                                                <td width="20%">
-                                                    <button class="button" href="form_alterar_mecanico.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_mecanico.jsp?cpf=<%=m.getCpf()%>','_parent');"><img src="imagens/edit.png"></button>
-                                                    <button class="button" onclick="confirma('<%=m.getCpf()%>')"><img src="imagens/delete.png"></button>
+                                                <td width="25%"><%out.print(c.getId());%></td>
+                                                <td width="25%"><%out.print(c.getNome());%></td>
+                                                <td width="25%"><%out.print(c.getTelefone());%></td>
+                                                <td width="25%">
+                                                    <button class="button" href="form_alterar_cliente.jsp?id=<%=c.getId()%>" onclick="window.open('form_alterar_cliente.jsp?cpf=<%=c.getId()%>','_parent');"><img src="imagens/edit.png"></button>
+                                                    <button class="button" onclick="confirma(<%=c.getId()%>)"><img src="imagens/delete.png"></button>
                                                 </td>
                                             </tr>
                                         </table></a></h3>
@@ -109,7 +110,7 @@
                                     <table  class="fill box ui-corner-all" align="center" >
                                         <tr bgcolor="#aaa" >
                                             <td>Id</td>
-                                            <td>Cpf Mecanico</td>
+                                            <td>Id Cliente</td>
                                             <td>Data Emissão</td>
                                             <td>Hora Emissão</td>
                                             <td>Valor</td>

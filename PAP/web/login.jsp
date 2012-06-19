@@ -22,7 +22,7 @@
     <body>
         <div class="container" align="center" >
             <form action="efetuar_login.do" method="POST">
-                <div class="content">
+                <div class="content loginBox">
                     <table align="center" class="loginBox box ui-corner-all" >
                         <tr>
                             <td>Usuário: </td>
