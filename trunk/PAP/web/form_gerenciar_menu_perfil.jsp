@@ -114,7 +114,7 @@
                                 <td align="left" ><h1>Menus Vinculados</h1></td>
                             </tr>
                         </table>
-                            <table border="1" align="center" >
+                            <table class="box ui-corner-all" align="center" >
                             <tr>
                                 <td>Id</td>
                                 <td>Menu</td>
