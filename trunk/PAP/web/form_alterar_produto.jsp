@@ -21,22 +21,44 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
+        <script type="text/javascript">
+            function validaForm(){
+
+            var form_alterar_perfil=document.form_alterar_perfil;
+                var campo_perfil=form_alterar_perfil.perfil;
+
+                if(campo_perfil.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_perfil.focus();
+                    return false;
+                }
+                return true;
+        }
+        </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1">
+        <div class="container" align="center">
+        <div class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+        </div>
+                    <div class="content">
+                    <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
-
-                        <h1 align="center" > Alterar Produto </h1>
+                    <td class="fill box ui-corner-all" valign="top">
+                        <table  align="center" >
+                            <tr>
+                                <td align="left" ><h1>Alterar Produto</h1></td>
+                            </tr>
+                        </table>
                         <%
 
                                         try {
@@ -89,5 +111,6 @@
                 </tr>
             </table>
         </div>
+      </div>
     </body>
 </html>
