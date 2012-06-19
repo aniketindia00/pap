@@ -23,7 +23,7 @@
         <div class="container" align="center" >
             <form action="efetuar_login.do" method="POST">
                 <div class="content">
-                    <table align="center" class="box ui-corner-all" >
+                    <table align="center" class="loginBox box ui-corner-all" >
                         <tr>
                             <td>Usuário: </td>
                             <td><input type="text" name="user"/></td>
