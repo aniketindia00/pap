@@ -4,6 +4,7 @@
     Author     : Daniel
 --%>
 
+<%@page import="modelo.Usuario"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.TimeZone"%>
@@ -25,16 +26,23 @@
 
     <body nLoad="javascript:window.print()">
         <%
+
+                boolean logged = false;
+                Usuario user = null;
+                try{
+
+                    user = (Usuario) session.getAttribute("user");
+                    logged = true;
+
+                }catch(Exception e){
+                response.sendRedirect("login.jsp");
+                }
+
+
+
                 int id = Integer.parseInt(request.getParameter("id"));
 
-                TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
-                String horaF = "HH:mm:ss";
-                String dataF = "dd/MM/yyyy";
-                String data = new SimpleDateFormat(dataF).format(new Date());
-                String hora = new SimpleDateFormat(horaF).format(new Date());
-                Orcamento o = new Orcamento();
-                o.setDataEmissao(data);
-                o.setHoraEmissao(hora);
+                
 %>
         <table class="impressao" width="657" border="2" cellspacing="0" cellpadding="0" align="center"><!-- tabela geral-->
             <tr><td>
@@ -45,8 +53,8 @@
                     <td width="85%"colspan="3" align="center"> <h2>Orçamento</h2></td></tr>
                 <tr>
                 <tr>
-                    <td align="right" width="90px">Data: <%=data%> &nbsp;</td>
-                    <td align="right">Hora: <%=hora%> &nbsp;</td>
+                    <td align="right" width="90px">Data: DATA &nbsp;</td>
+                    <td align="right">Hora: HORA &nbsp;</td>
                 </tr>
             </table>
             <br />
@@ -103,7 +111,7 @@
                     <td width="15%" align="center" >R$ 56,00 </td>
                 </tr>
             </table><!-- tabela pecas-->
-            <table width="654"  border="1" cellspacing="0" cellpadding="0" align="center">
+            <table class="subtotal" width="654"  border="1" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="85%" colspan="3"><b>SUBTOTAL</b></td>
                     <td width="15%" align="center"> R$ 56,00 </td>
