@@ -63,6 +63,7 @@ public class RequisicaoDAO extends DataBaseDAO{
     public Requisicao carregaPorId(int id) throws SQLException, Exception{
         Requisicao r = new Requisicao();
         ProdutoDAO pDB = new ProdutoDAO();
+        MecanicoDAO mDB = new MecanicoDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM requisicao WHERE id=?";
         pst =conn.prepareStatement(sql);
@@ -77,6 +78,9 @@ public class RequisicaoDAO extends DataBaseDAO{
         pDB.conectar();
         r.setProdutos(pDB.produtosRequisicao(r.getId()));
         pDB.desconectar();
+        mDB.conectar();
+        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
+        mDB.desconectar();
         }
         return r;
 
@@ -86,6 +90,7 @@ public class RequisicaoDAO extends DataBaseDAO{
         ArrayList<Requisicao> lista = new ArrayList<Requisicao>();
         Requisicao r = new Requisicao();
         ProdutoDAO pDB = new ProdutoDAO();
+        MecanicoDAO mDB = new MecanicoDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM requisicao";
         pst =conn.prepareStatement(sql);
@@ -99,6 +104,9 @@ public class RequisicaoDAO extends DataBaseDAO{
         pDB.conectar();
         r.setProdutos(pDB.produtosRequisicao(r.getId()));
         pDB.desconectar();
+        mDB.conectar();
+        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
+        mDB.desconectar();
         lista.add(r);
         }
         return lista;
