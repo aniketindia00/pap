@@ -36,8 +36,17 @@ html,body {
     text-align: center;
 }
 
+.tablePad{
+    padding-left: 10px;
+}
+
+.accordion{
+
+}
+
 .content{ /* bottom padding for footer */
     padding-bottom:2em;
+    padding-left: 5px;
     padding-right: 10px;
     min-height: 400px;
 }
