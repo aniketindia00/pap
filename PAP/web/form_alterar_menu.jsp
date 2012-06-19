@@ -27,10 +27,10 @@
         <script language="javascript" >
             function validaForm(){
 
-                var form_inserir_menu=document.form_inserir_menu;
-                var campo_menu=form_inserir_menu.menu;
-                var campo_icone=form_inserir_menu.icone;
-                var campo_link=form_inserir_menu.link;
+                var form_alterar_menu=document.form_alterar_menu;
+                var campo_menu=form_alterar_menu.menu;
+                var campo_icone=form_alterar_menu.icone;
+                var campo_link=form_alterar_menu.link;
 
 
                 if(campo_menu.value==""){
@@ -75,7 +75,7 @@
                                 <td align="left" ><h1>Alterar Menu</h1></td>
                             </tr>
                         </table>
-                        <form action="alterar_menu.do" method="POST" >
+                        <form name="form_alterar_menu" action="alterar_menu.do" method="POST" onsubmit="return ValidaForm();">
                             <table width="500" align="center">
                                 <%
                                     int id = 0;
