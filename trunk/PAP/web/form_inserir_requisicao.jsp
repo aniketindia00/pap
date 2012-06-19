@@ -51,10 +51,10 @@
             <div class="content fillall">
                 <table class="fillall" >
                     <tr>
-                        <td class="box ui-corner-all" width="15%" height="100%" valign="top">
+                        <td class="box ui-corner-all" valign="top">
                             <%@include file="menu.jsp" %>
                         </td>
-                        <td width="80%" height="100%" valign="top">
+                        <td class="fill" valign="top">
                             <form action="form_inserir_requisicao.jsp" method="POST">
                             <table align="center" class="fill">
                                 <tr>

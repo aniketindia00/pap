@@ -2,7 +2,7 @@
 <%@page import="modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<table class="fillall">
+<table class="menu" >
 <%
 boolean logged = false;
 Usuario user = null;
@@ -11,7 +11,7 @@ try{
     user = (Usuario) session.getAttribute("user");
     for(Menu mp:user.getPerfil().getMenus()){
 
-    out.print("<tr><td class=\"fill\">"
+    out.print("<tr><td >"
             + "<a class='button' href='"+mp.getLink()+"'><div align='justify' class=\"minButtonWidth\">"
             + "<img src='"+mp.getIcone()+"'>"+mp.getMenu()+"</div></a></td></tr>" );
     }
