@@ -20,18 +20,23 @@
         <script type="text/javascript" src="js/teste.js"></script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1">
+        <div class="container" align="center">
+            <div class="header">
+            <table class="fill box ui-corner-all">
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+            </div>
+                    <div class="content">
+                <table class="fill">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all tableMin" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
+                    <td class="fill box ui-corner-all" valign="top">
                         <%
                         try{
                         if(request.getParameter("erro").equalsIgnoreCase("1")){
@@ -46,6 +51,10 @@
                     </td>
                 </tr>
             </table>
+        </div>
+                        <div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
         </div>
     </body>
 </html>
