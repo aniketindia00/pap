@@ -90,7 +90,6 @@ public class OrcamentoDAO extends DataBaseDAO{
 
         public ArrayList<Orcamento> listar() throws SQLException, Exception{
         ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
-        Orcamento o = new Orcamento();
         ProdutoDAO pDB = new ProdutoDAO();
         ClienteDAO cDB = new ClienteDAO();
         PreparedStatement pst;
@@ -98,6 +97,36 @@ public class OrcamentoDAO extends DataBaseDAO{
         pst =conn.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
+        Orcamento o = new Orcamento();
+        o.setId(rs.getInt("id"));
+        o.setDataEmissao(rs.getString("data_emissao"));
+        o.setHoraEmissao(rs.getString("hora_emissao"));
+        o.setValor(rs.getDouble("valor"));
+        o.setIdCliente(rs.getInt("id_cliente"));
+        o.setIdCarro(rs.getInt("id_carro"));
+        pDB.conectar();
+        o.setProdutos(pDB.produtosOrcamento(o.getId()));
+        pDB.desconectar();
+        cDB.conectar();
+        o.setCliente(cDB.carregaPorId(o.getIdCliente()));
+        cDB.desconectar();
+        lista.add(o);
+        }
+        return lista;
+
+    }
+    public ArrayList<Orcamento> orcamentosCliente(int id_cliente) throws SQLException, Exception {
+
+        ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
+        ProdutoDAO pDB = new ProdutoDAO();
+        ClienteDAO cDB = new ClienteDAO();
+        PreparedStatement pst;
+        String sql = "SELECT * FROM orcamento WHERE id_cliente=?";
+        pst = conn.prepareStatement(sql);
+        pst.setInt(1,id_cliente);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+        Orcamento o = new Orcamento();
         o.setId(rs.getInt("id"));
         o.setDataEmissao(rs.getString("data_emissao"));
         o.setHoraEmissao(rs.getString("hora_emissao"));

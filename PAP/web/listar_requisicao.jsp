@@ -100,7 +100,7 @@
                                                 <td width="20%"><%out.print(m.getOficina());%></td>
                                                 <td width="20%"><%out.print(m.getTelefone());%></td>
                                                 <td width="20%">
-                                                    <button class="button" href="form_alterar_mecanico.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_mecanico.jsp?cpf=<%=m.getCpf()%>','_parent');"><img src="imagens/edit.png"></button>
+                                                    <button class="button" href="form_alterar_mecanico.jsp?cpf=<%=m.getCpf()%>" onclick="window.open('form_alterar_mecanico.jsp?cpf=<%=m.getCpf()%>','_parent');"><img src="imagens/edit.png"></button>
                                                     <button class="button" onclick="confirma('<%=m.getCpf()%>')"><img src="imagens/delete.png"></button>
                                                 </td>
                                             </tr>
@@ -126,7 +126,7 @@
                                             <td ><%out.print(r.getHoraEmissao());%></td>
                                             <td ><%out.print(r.getValor());%></td>
                                             <td >
-                                                <button class="button" href="form_alterar_requisicao.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/edit.png"></button>
+                                                <button class="button" href="form_alterar_requisicao.jsp?id=<%=r.getId()%>" onclick="window.open('form_alterar_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/edit.png"></button>
                                                 <button class="button" onclick="confirmaReq(<%=r.getId()%>)"><img src="imagens/delete.png"></button>
                                             </td>
                                         </tr>

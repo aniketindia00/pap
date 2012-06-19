@@ -4,6 +4,7 @@
     Author     : Daniel
 --%>
 
+<%@page import="modelo.Orcamento"%>
 <%@page import="modelo.OrcamentoDAO"%>
 <%@page import="modelo.Cliente"%>
 <%@page import="modelo.ClienteDAO"%>
@@ -101,7 +102,7 @@
                                                 <td width="25%"><%out.print(c.getNome());%></td>
                                                 <td width="25%"><%out.print(c.getTelefone());%></td>
                                                 <td width="25%">
-                                                    <button class="button" href="form_alterar_cliente.jsp?id=<%=c.getId()%>" onclick="window.open('form_alterar_cliente.jsp?cpf=<%=c.getId()%>','_parent');"><img src="imagens/edit.png"></button>
+                                                    <button class="button" href="form_alterar_cliente.jsp?id=<%=c.getId()%>" onclick="window.open('form_alterar_cliente.jsp?id=<%=c.getId()%>','_parent');"><img src="imagens/edit.png"></button>
                                                     <button class="button" onclick="confirma(<%=c.getId()%>)"><img src="imagens/delete.png"></button>
                                                 </td>
                                             </tr>
@@ -116,19 +117,19 @@
                                             <td>Valor</td>
                                             <td>Opções</td>
                                         </tr>
-                                        <%ArrayList<Requisicao> listaR = rDB.requisicoesMecanico(m.getCpf());
-                                                                                for (Requisicao r : listaR) {%>
+                                        <%ArrayList<Orcamento> listaC = oDB.orcamentosCliente(c.getId());
+                                                                                for (Orcamento o : listaC) {%>
 
 
                                         <tr>
-                                            <td ><%out.print(r.getId());%></td>
-                                            <td ><%out.print(r.getCpfMecanico());%></td>
-                                            <td ><%out.print(r.getDataEmissao());%></td>
-                                            <td ><%out.print(r.getHoraEmissao());%></td>
-                                            <td ><%out.print(r.getValor());%></td>
+                                            <td ><%out.print(o.getId());%></td>
+                                            <td ><%out.print(o.getIdCliente());%></td>
+                                            <td ><%out.print(o.getDataEmissao());%></td>
+                                            <td ><%out.print(o.getHoraEmissao());%></td>
+                                            <td ><%out.print(o.getValor());%></td>
                                             <td >
-                                                <button class="button" href="form_alterar_requisicao.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/edit.png"></button>
-                                                <button class="button" onclick="confirmaReq(<%=r.getId()%>)"><img src="imagens/delete.png"></button>
+                                                <button class="button" href="form_alterar_orcamento.jsp?id=<%=o.getId()%>" onclick="window.open('form_alterar_orcamento.jsp?id=<%=o.getId()%>','_parent');"><img src="imagens/edit.png"></button>
+                                                <button class="button" onclick="confirmaOrc(<%=o.getId()%>)"><img src="imagens/delete.png"></button>
                                             </td>
                                         </tr>
 
@@ -139,8 +140,8 @@
 
 
                                 <% }
-                                                mDB.desconectar();
-                                                rDB.desconectar();
+                                                cDB.desconectar();
+                                                oDB.desconectar();
                                             } catch (Exception e) {
                                                 out.println(e);
                                             }
