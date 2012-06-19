@@ -96,6 +96,10 @@
                 </tr>
             </table>
         </div>
+                    <div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
+         </div>               
 <%
     if(logged){
     if(session.getAttribute("menu") == null){
@@ -104,6 +108,6 @@
     }
 
 %>
-        </div>
+        
     </body>
 </html>
