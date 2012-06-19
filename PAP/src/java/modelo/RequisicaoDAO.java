@@ -63,7 +63,6 @@ public class RequisicaoDAO extends DataBaseDAO{
     public Requisicao carregaPorId(int id) throws SQLException, Exception{
         Requisicao r = new Requisicao();
         ProdutoDAO pDB = new ProdutoDAO();
-        MecanicoDAO mDB = new MecanicoDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM requisicao WHERE id=?";
         pst =conn.prepareStatement(sql);
@@ -78,9 +77,6 @@ public class RequisicaoDAO extends DataBaseDAO{
         pDB.conectar();
         r.setProdutos(pDB.produtosRequisicao(r.getId()));
         pDB.desconectar();
-        mDB.conectar();
-        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
-        mDB.desconectar();
         }
         return r;
 
@@ -90,7 +86,6 @@ public class RequisicaoDAO extends DataBaseDAO{
         ArrayList<Requisicao> lista = new ArrayList<Requisicao>();
         Requisicao r = new Requisicao();
         ProdutoDAO pDB = new ProdutoDAO();
-        MecanicoDAO mDB = new MecanicoDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM requisicao";
         pst =conn.prepareStatement(sql);
@@ -104,10 +99,32 @@ public class RequisicaoDAO extends DataBaseDAO{
         pDB.conectar();
         r.setProdutos(pDB.produtosRequisicao(r.getId()));
         pDB.desconectar();
-        mDB.conectar();
-        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
-        mDB.desconectar();
         lista.add(r);
+        }
+        return lista;
+
+    }
+
+        public ArrayList<Requisicao> requisicoesMecanico(String cpf_mecanico) throws SQLException, Exception {
+
+        ArrayList<Requisicao> lista = new ArrayList<Requisicao>();
+        ProdutoDAO pDB = new ProdutoDAO();
+        PreparedStatement pst;
+        String sql = "SELECT * FROM requisicao WHERE cpf_mecanico=?";
+        pst = conn.prepareStatement(sql);
+        pst.setString(1,cpf_mecanico);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            Requisicao r = new Requisicao();
+            r.setId(rs.getInt("id"));
+            r.setDataEmissao(rs.getString("data_emissao"));
+            r.setHoraEmissao(rs.getString("hora_emissao"));
+            r.setValor(rs.getDouble("valor"));
+            r.setCpfMecanico(rs.getString("cpf_mecanico"));
+            pDB.conectar();
+            r.setProdutos(pDB.produtosRequisicao(r.getId()));
+            pDB.desconectar();
+            lista.add(r);
         }
         return lista;
 
