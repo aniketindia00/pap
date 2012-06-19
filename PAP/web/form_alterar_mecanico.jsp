@@ -76,7 +76,7 @@
                     %>
                                 <tr>
                                     <td>CPF: </td>
-                                    <td><input type="text" name="cpf" value="<%out.print(m.getCpf());%>"/> </td>
+                                    <td><input type="text" name="cpf" readonly value="<%out.print(m.getCpf());%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td>Nome: </td>
@@ -116,7 +116,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("mecanico") == null){
+    if(session.getAttribute("requisicao") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

@@ -26,6 +26,14 @@ html,body {
         min-width: 1024px;
 }
 
+.leftAlg{
+    text-align: left;
+}
+
+.rightAlg{
+    text-align: right;
+}
+
 .subTitle{
     font-size: 20px;
     font-weight: bold;
