@@ -78,4 +78,23 @@ public class MecanicoDAO extends DataBaseDAO{
         pst.setString(4,me.getCpf());
         pst.execute();
      }
+
+    public ArrayList<Mecanico> autocompletar(String query) throws SQLException{
+        ArrayList<Mecanico> lista = new ArrayList<Mecanico>();
+        PreparedStatement pst;
+        query = "%"+query+"%";
+        String sql= "SELECT * FROM mecanico WHERE nome LIKE '"+query+"'";
+        pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+        Mecanico m = new Mecanico();
+        m.setCpf(rs.getString("cpf"));
+        m.setNome(rs.getString("nome"));
+        m.setOficina(rs.getString("oficina"));
+        m.setTelefone(rs.getString("telefone"));
+        lista.add(m);
+        }
+        return lista;
+    }
+
 }
