@@ -12,18 +12,16 @@ public class Requisicao {
     private String horaEmissao;
     private double valor;
     private String cpfMecanico;
-    private Mecanico mecanico;
     private ArrayList<Produto> produtos;
 
     public Requisicao() {
     }
 
-    public Requisicao(int id, String dataEmissao, String horaEmissao, double valor, Mecanico mecanico, ArrayList<Produto> produtos) {
+    public Requisicao(int id, String dataEmissao, String horaEmissao, double valor, ArrayList<Produto> produtos) {
         this.id = id;
         this.dataEmissao = dataEmissao;
         this.horaEmissao = horaEmissao;
         this.valor = valor;
-        this.mecanico = mecanico;
         this.produtos = produtos;
     }
 
@@ -43,14 +41,6 @@ public class Requisicao {
 
     public void setValor(double valor) {
         this.valor = valor;
-    }
-
-    public Mecanico getMecanico() {
-        return mecanico;
-    }
-
-    public void setMecanico(Mecanico mecanico) {
-        this.mecanico = mecanico;
     }
 
     public ArrayList<Produto> getProdutos() {
