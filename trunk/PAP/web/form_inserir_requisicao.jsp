@@ -125,6 +125,15 @@
             <div class="footer">
                 <%@include file="rodape.jsp" %>
             </div>
+            <%
+
+    if(logged){
+        if(session.getAttribute("requisicao") == null){
+       response.sendRedirect("index.jsp?erro=1");
+    }
+    }
+
+%>
         </div>
     </body>
 </html>

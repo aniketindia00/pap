@@ -118,7 +118,7 @@
             <%
 
     if(logged){
-    if(session.getAttribute("usuario") == null){
+    if(session.getAttribute("produto") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }
