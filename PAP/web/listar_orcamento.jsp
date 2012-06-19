@@ -158,7 +158,7 @@
                             if (!uP.temPermissao(request.getRequestURI(), request.getContextPath(), user)) {
                                 response.sendRedirect("index.jsp?erro=1");
                             } else {
-                                session.setAttribute("menu", true);
+                                session.setAttribute("orcamento", true);
                             }
                         }
 
