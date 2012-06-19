@@ -16,7 +16,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de Mecânicos</title>
+        <title>Lista de Orçamentos</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
@@ -31,8 +31,8 @@
                     window.open(url,"_parent");
                 }
             }
-            function confirmaReq(id){
-                var url="excluir_requisicao.do?id="+id;
+            function confirmaOrc(id){
+                var url="excluir_orcamento.do?id="+id;
                 var resposta=confirm("Tem certeza que deseja excluir?\nclique em ok para confirmar ou em cancelar para desistir");
                 if(resposta){
                     window.open(url,"_parent");
@@ -64,7 +64,7 @@
                         <td class="fill" valign="top">
                             <table class="tableDist" align="center" >
                                 <tr>
-                                    <td align="left"><h1>Lista de Mecânicos</h1></td>
+                                    <td align="left"><h1>Lista de Orçamentos</h1></td>
                                     <td align="right"><a class="button" href="form_inserir_requisicao.jsp">Inserir Requisição</a></td>
                                 </tr>
                             </table>
