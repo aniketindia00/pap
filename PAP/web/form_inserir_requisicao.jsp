@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : form_inserir_requisicao
     Created on : 18/06/2012, 16:15:37
     Author     : Daniel
@@ -17,7 +17,7 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
-        <title>JSP Page</title>
+        <title>Inserir Requisição</title>
         <script type="text/javascript">
             $(function() {
 
@@ -30,7 +30,7 @@
                         $("#oficina").val(ui.item.oficina);
                         $("#cpf").val(ui.item.cpf);
 
-                        
+
                     }
                 });
             });
