@@ -23,13 +23,25 @@
                 <td width="60%"><%=p.getNome()%></td>
                 <td>R$ <%=p.getPreco()%></td>
                 <td><%=p.getCodBarras()%></td>
-                <td>Qnt. <input type="text" size="2"></td>
+                <td>Qnt. <input type="text" name='prod<%=p.getId()%>' onkeyup="calcular()" size="2"></td>
                 <td><a href="#" onclick="refreshPage('produtos2','excluir_produto_sessao.do?id=<%=p.getId()%>');"><img src="imagens/delete.png"/></a></td>
             </tr>
 
+
+
+            <script type="text/javascript">
+                $(function calcular() {
+                    $("#valor").val(
+                    <%for(Produto p1 : produtos){%>
+                    ($('#prod<%=p1.getId()%>').val()*<%=p1.getPreco() %>)+
+                    <%}%>
+            0)
+            });
+            </script>
             <%}
                         } catch (Exception e) {
                             out.print(e);
                         }
             %>
         </table>
+        
