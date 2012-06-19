@@ -88,7 +88,7 @@
                                                 rDB.conectar();
 
 
-                                            for (Mecanico m : lista) {%>
+                                                for (Mecanico m : lista) {%>
 
 
 
@@ -108,38 +108,38 @@
                                 <div>
                                     <table  class="fill box ui-corner-all" align="center" >
                                         <tr bgcolor="#aaa" >
-                                    <td>Id</td>
-                                    <td>Cpf Mecanico</td>
-                                    <td>Data Emissão</td>
-                                    <td>Hora Emissão</td>
-                                    <td>Valor</td>
-                                    <td>Opções</td>
-                                </tr>
-                                <%ArrayList<Requisicao> listaR = rDB.requisicoesMecanico(m.getCpf());
-                                for(Requisicao r:listaR){%>
+                                            <td>Id</td>
+                                            <td>Cpf Mecanico</td>
+                                            <td>Data Emissão</td>
+                                            <td>Hora Emissão</td>
+                                            <td>Valor</td>
+                                            <td>Opções</td>
+                                        </tr>
+                                        <%ArrayList<Requisicao> listaR = rDB.requisicoesMecanico(m.getCpf());
+                                                                                for (Requisicao r : listaR) {%>
 
-                                
-                                            <tr>
-                                                <td ><%out.print(r.getId());%></td>
-                                                <td ><%out.print(r.getCpfMecanico());%></td>
-                                                <td ><%out.print(r.getDataEmissao());%></td>
-                                                <td ><%out.print(r.getHoraEmissao());%></td>
-                                                <td ><%out.print(r.getValor());%></td>
-                                                <td >
-                                                    <button class="button" href="form_alterar_requisicao.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/edit.png"></button>
-                                                    <button class="button" onclick="confirmaReq(<%=r.getId()%>)"><img src="imagens/delete.png"></button>
-                                                </td>
-                                            </tr>
-                                       
 
-                                <%}%>
-                                             </table>
+                                        <tr>
+                                            <td ><%out.print(r.getId());%></td>
+                                            <td ><%out.print(r.getCpfMecanico());%></td>
+                                            <td ><%out.print(r.getDataEmissao());%></td>
+                                            <td ><%out.print(r.getHoraEmissao());%></td>
+                                            <td ><%out.print(r.getValor());%></td>
+                                            <td >
+                                                <button class="button" href="form_alterar_requisicao.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/edit.png"></button>
+                                                <button class="button" onclick="confirmaReq(<%=r.getId()%>)"><img src="imagens/delete.png"></button>
+                                            </td>
+                                        </tr>
+
+
+                                        <%}%>
+                                    </table>
                                 </div>
 
 
                                 <% }
-                                mDB.desconectar();
-                                rDB.desconectar();
+                                                mDB.desconectar();
+                                                rDB.desconectar();
                                             } catch (Exception e) {
                                                 out.println(e);
                                             }

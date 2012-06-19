@@ -61,7 +61,7 @@
                                 <td align="right" ><a class="button" href="form_inserir_usuario.jsp">Inserir Usuário</a></td>
                             </tr>
                         </table>
-                        <table border="1" align="center" >
+                        <table class="fill box ui-corner-all"  align="center" >
                             <tr>
                                 <td>Id</td>
                                 <td>Nome</td>
