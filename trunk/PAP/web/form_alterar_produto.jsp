@@ -111,6 +111,18 @@
                 </tr>
             </table>
         </div>
+                    <div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
       </div>
+            <%
+
+    if(logged){
+    if(session.getAttribute("usuario") == null){
+       response.sendRedirect("index.jsp?erro=1");
+    }
+    }
+
+%>
     </body>
 </html>
