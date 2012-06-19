@@ -22,13 +22,14 @@ public class OrcamentoDAO extends DataBaseDAO{
     public void inserir(Orcamento o) throws SQLException{
 
         PreparedStatement pst;
-        String sql = "INSERT INTO orcamento (id, id_cliente, data_emissao, hora_emissao, valor) values(?,?,?,?,?)";
+        String sql = "INSERT INTO orcamento (id, id_cliente, data_emissao, hora_emissao, valor,id_carro) values(?,?,?,?,?,?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1,o.getId());
         pst.setInt(2, o.getIdCliente());
         pst.setString(3, o.getDataEmissao());
         pst.setString(4, o.getDataEmissao());
         pst.setDouble(5, o.getValor());
+        pst.setInt(6, o.getIdCarro());
         pst.execute();
 
     }
@@ -36,13 +37,14 @@ public class OrcamentoDAO extends DataBaseDAO{
     public void alterar(Orcamento o) throws SQLException{
 
         PreparedStatement pst;
-        String sql ="UPDATE orcamento SET id_cliente=?, data_emissao=?, hora_emissao=?, valor=?  WHERE id=?";
+        String sql ="UPDATE orcamento SET id_cliente=?, data_emissao=?, hora_emissao=?, valor=?, id_carro=?  WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setInt(1, o.getIdCliente());
         pst.setString(2, o.getDataEmissao());
         pst.setString(3, o.getHoraEmissao());
         pst.setDouble(4, o.getValor());
-        pst.setInt(5, o.getId());
+        pst.setInt(5, o.getIdCarro());
+        pst.setInt(6, o.getId());
         pst.execute();
 
     }
@@ -74,6 +76,7 @@ public class OrcamentoDAO extends DataBaseDAO{
         o.setHoraEmissao(rs.getString("hora_emissao"));
         o.setValor(rs.getDouble("valor"));
         o.setIdCliente(rs.getInt("id_cliente"));
+        o.setIdCarro(rs.getInt("id_carro"));
         pDB.conectar();
         o.setProdutos(pDB.produtosRequisicao(o.getId()));
         pDB.desconectar();
@@ -100,6 +103,7 @@ public class OrcamentoDAO extends DataBaseDAO{
         o.setHoraEmissao(rs.getString("hora_emissao"));
         o.setValor(rs.getDouble("valor"));
         o.setIdCliente(rs.getInt("id_cliente"));
+        o.setIdCarro(rs.getInt("id_carro"));
         pDB.conectar();
         o.setProdutos(pDB.produtosRequisicao(o.getId()));
         pDB.desconectar();

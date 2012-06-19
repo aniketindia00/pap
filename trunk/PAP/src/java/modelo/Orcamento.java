@@ -18,6 +18,7 @@ public class Orcamento {
     private String horaEmissao;
     private Double valor;
     private int idCliente;
+    private int idCarro;
     private ArrayList<Produto> produtos;
     private Cliente cliente;
 
@@ -76,6 +77,14 @@ public class Orcamento {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public int getIdCarro() {
+        return idCarro;
+    }
+
+    public void setIdCarro(int idCarro) {
+        this.idCarro = idCarro;
     }
 
     
