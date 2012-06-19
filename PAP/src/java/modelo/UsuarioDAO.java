@@ -13,13 +13,12 @@ public class UsuarioDAO extends DataBaseDAO {
     public void inserir(Usuario u) throws SQLException{
 
         PreparedStatement pst;
-        String sql = "INSERT INTO usuario (id_perfil,nome,login,senha,telefone) values(?,?,?,?,?)";
+        String sql = "INSERT INTO usuario (nome,login,senha,telefone) values(?,?,?,?)";
         pst = conn.prepareStatement(sql);
-        pst.setInt(1,u.getIdPerfil());
-        pst.setString(2, u.getNome());
-        pst.setString(3, u.getLogin());
-        pst.setString(4, u.getSenha());
-        pst.setString(5, u.getTelefone());
+        pst.setString(1, u.getNome());
+        pst.setString(2, u.getLogin());
+        pst.setString(3, u.getSenha());
+        pst.setString(4, u.getTelefone());
         pst.execute();
 
     }
