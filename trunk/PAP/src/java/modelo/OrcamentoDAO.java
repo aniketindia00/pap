@@ -62,7 +62,6 @@ public class OrcamentoDAO extends DataBaseDAO{
         public Orcamento carregaPorId(int id) throws SQLException, Exception{
         Orcamento o = new Orcamento();
         ProdutoDAO pDB = new ProdutoDAO();
-        ClienteDAO cDB = new ClienteDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM orcamento WHERE id=?";
         pst =conn.prepareStatement(sql);
@@ -77,9 +76,6 @@ public class OrcamentoDAO extends DataBaseDAO{
         pDB.conectar();
         o.setProdutos(pDB.produtosRequisicao(o.getId()));
         pDB.desconectar();
-        cDB.conectar();
-        o.setCliente(cDB.carregaPorId(o.getIdCliente()));
-        cDB.desconectar();
         }
         return o;
 
@@ -89,7 +85,6 @@ public class OrcamentoDAO extends DataBaseDAO{
         ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
         Orcamento o = new Orcamento();
         ProdutoDAO pDB = new ProdutoDAO();
-        ClienteDAO cDB = new ClienteDAO();
         PreparedStatement pst;
         String sql ="SELECT * FROM orcamento";
         pst =conn.prepareStatement(sql);
@@ -103,9 +98,6 @@ public class OrcamentoDAO extends DataBaseDAO{
         pDB.conectar();
         o.setProdutos(pDB.produtosRequisicao(o.getId()));
         pDB.desconectar();
-        cDB.conectar();
-        o.setCliente(cDB.carregaPorId(o.getIdCliente()));
-        cDB.desconectar();
         lista.add(o);
         }
         return lista;
