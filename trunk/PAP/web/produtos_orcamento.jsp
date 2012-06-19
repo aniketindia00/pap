@@ -31,11 +31,9 @@
 
             <script type="text/javascript">
                 $(function calcular() {
-                    $("#valor").val(
-                    <%for(Produto p1 : produtos){%>
+                    $("#valor").val(<%for(Produto p1 : produtos){%>
                     ($('#prod<%=p1.getId()%>').val()*<%=p1.getPreco() %>)+
-                    <%}%>
-            0)
+                    <%}%>0)
             });
             </script>
             <%}
