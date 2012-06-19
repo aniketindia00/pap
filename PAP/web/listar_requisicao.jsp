@@ -29,6 +29,10 @@
                     window.open(url,"_parent");
                 }
             }
+
+            $(function() {
+		$( ".accordion" ).accordion();
+	});
         </script>
     </head>
     <body>
@@ -43,7 +47,7 @@
                 </table>
                     </div>
                     <div class="content">
-                        <table >
+                        <table class="fill tableMin" >
                 <tr>
                     <td class="box ui-corner-all"  valign="top">
                         <%@include file="menu.jsp" %>
@@ -56,16 +60,16 @@
                             </tr>
                         </table>
 
-                        <table class="fill box ui-corner-all" align="center" >
+                        <table class="fill box ui-corner-all tablePad" align="center" >
                             <tr>
-                                <td>CPF</td>
-                                <td>Nome</td>
-                                <td>Oficina</td>
-                                <td>Telefone</td>
-                                <td>Opções</td>
+                                <td width="20%">CPF</td>
+                                <td width="20%">Nome</td>
+                                <td width="20%">Oficina</td>
+                                <td width="20%">Telefone</td>
+                                <td width="20%">Opções</td>
                             </tr>
-
-
+                            </table>
+                            <div class="accordion">
                             <%
                             try{
                                 MecanicoDAO mDB = new MecanicoDAO();
@@ -73,24 +77,25 @@
                                 ArrayList<Mecanico> lista = mDB.listar();
                             for(Mecanico m:lista){%>
 
+                                    
+
+                            <h3><a href="#">
+                            <table class="fill" align="center" >
                             <tr>
-                                <td>
-                                    <%out.print(m.getCpf());%>
-                                </td>
-                                <td>
-                                    <%out.print(m.getNome());%>
-                                </td>
-                                <td>
-                                    <%out.print(m.getOficina());%>
-                                </td>
-                                <td>
-                                    <%out.print(m.getTelefone());%>
-                                </td>
-                                <td>
-                                    <a class="button" title="Alterar" href="form_alterar_mecanico.jsp?cpf=<%out.print(m.getCpf());%>"><img src="imagens/edit.png"></a>
-                                    <a class="button" title="Excluir" href="#" onclick="confirma('<%out.print(m.getCpf());%>')" ><img src="imagens/delete.png"></a>
+                                <td width="20%"><%out.print(m.getCpf());%></td>
+                                <td width="20%"><%out.print(m.getNome());%></td>
+                                <td width="20%"><%out.print(m.getOficina());%></td>
+                                <td width="20%"><%out.print(m.getTelefone());%></td>
+                                <td width="20%">
+                                    <button class="button" href="form_alterar_mecanico.jsp?id=<%=m.getCpf()%>" onclick="window.open('form_alterar_mecanico.jsp?cpf=<%=m.getCpf()%>','_parent');"><img src="imagens/edit.png"></button>
+                                <button class="button" onclick="confirma('<%=m.getCpf()%>')"><img src="imagens/delete.png"></button>
                                 </td>
                             </tr>
+                            </table></a></h3>
+                                    <div>
+ola
+                                        </div>
+                            
 
                             <% }
 
@@ -98,8 +103,8 @@
                out.println(e);
 }
                             %>
-                        </table>
-                    </td>
+                            </div>
+                            </td>
                 </tr>
             </table>
         </div>
