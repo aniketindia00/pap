@@ -24,14 +24,39 @@
         <script type="text/javascript">
             function validaForm(){
 
-            var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.perfil;
+            var form_inserir_usuario=document.form_inserir_usuario;
+                var campo_nome=form_inserir_usuario.nome;
+                var campo_id_perfil=form_inserir_usuario.id_perfil;
+                var campo_telefone=form_inserir_usuario.telefone;
+                var campo_login=form_inserir_usuario.login;
+                var campo_senha=form_inserir_usuario.senha;
 
-                if(campo_perfil.value==""){
+                if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    campo_nome.focus();
                     return false;
                 }
+                if(campo_id_perfil.value=="0"){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_id_perfil.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+                if(campo_login.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_login.focus();
+                    return false;
+                }
+                if(campo_senha.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_senha.focus();
+                    return false;
+                }
+
                 return true;
         }     
         </script>
@@ -60,7 +85,7 @@
                             </tr>
                         </table>
                         <table align="center" width="500">
-                            <form name="form_inserir_usuario" action="inserir_usuario.do" method="POST" onsubmit="return validar()" >
+                            <form name="form_inserir_usuario" action="inserir_usuario.do" method="POST" onsubmit="return validaForm()" >
                                 <%
 
                                             try {
