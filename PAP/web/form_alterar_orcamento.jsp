@@ -154,6 +154,7 @@
                                         </td></tr>
                                     <tr>
                                         <td><input type="reset" value="Limpar"><input type="submit" value="Salvar e Imprimir" ></td>
+                                        <td align="right">Valor Total <input type="text" id="valor" ></td>
                                     </tr>
                                 </table>
                             </form>
