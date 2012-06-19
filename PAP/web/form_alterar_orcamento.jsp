@@ -4,6 +4,8 @@
     Author     : 129526
 --%>
 
+<%@page import="modelo.Carro"%>
+<%@page import="modelo.OrcamentoDAO"%>
 <%@page import="modelo.Orcamento"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -56,90 +58,130 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" height="100%" valign="top">
+                            <%
+                                        int id = 0;
+                                        Orcamento o = new Orcamento();
+                                        try {
+                                            id = Integer.parseInt(request.getParameter("id"));
+
+                                            OrcamentoDAO oDB = new OrcamentoDAO();
+
+                                            ArrayList<Carro> carros1 = new ArrayList<Carro>();
+                                            oDB.conectar();
+                                            o = oDB.carregaPorId(id);
+                                            ArrayList<Carro> carros = o.getCliente().getCarros();
+                                            session.setAttribute("produtos", o.getProdutos());
+                            %>
                             <form action="form_inserir_orcamento.jsp" method="POST">
-                            <table align="center" class="fill">
-                                <tr>
-                                    <td width="50%">
-                                        <div id="cliente" class="min200height box ui-corner-all" >
-                                            <table align="center">
+                                <table align="center" class="fill">
+                                    <tr>
+                                        <td width="50%">
+                                            <div id="cliente" class="min200height box ui-corner-all" >
+                                                <table align="center">
+                                                    <tr>
+                                                        <td colspan="2"><h3 align="center" >Dados do Cliente</h3></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="nome">Nome: </label></td>
+                                                        <td><input id="nome" name="nome" size="30%" value="<%=o.getCliente().getNome()%>"><td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="telefone">Telefone: </label></td>
+                                                        <td><input id="telefone" name="telefone" size="30%" value="<%=o.getCliente().getTelefone()%>"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                        <td width="50%">
+                                            <div id="carros" class="min200height box ui-corner-all" >
+                                                <table align="center">
+                                                    <tr>
+                                                        <td colspan="2"><h3 align="center" >Dados do Carro</h3></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><select name="id_carro" size="1">
+
+                                                                <%for (Carro c : carros) {%>
+                                                                <%if (c.getId() == o.getIdCarro()) {%>
+                                                                <option value="<%=c.getId() %>">
+                                                                    <%=c.getMarca()+" "+c.getModelo()+", "+c.getAno() %>
+                                                                </option>
+                                                                <%} else { carros1.add(c);}
+                                                                                        }
+                                                                                        for (Carro c1 : carros1) {%>
+                                                                <option value="<%=c1.getId() %>">
+                                                                    <%=c1.getMarca()+" "+c1.getModelo()+", "+c1.getAno() %>
+                                                                </option>
+                                                                <%}%>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="modelo">Modelo: </label></td>
+                                                        <td><input id="modelo" name="modelo" size="30%"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="marca">Marca: </label></td>
+                                                        <td><input id="marca" name="marca" size="30%"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label for="ano">Ano: </label></td>
+                                                        <td><input id="ano" name="ano" size="30%"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center" >
+                                            <table align="center" class="fill">
                                                 <tr>
-                                                    <td colspan="2"><h3 align="center" >Dados do Cliente</h3></td>
+                                                    <td class="" colspan="2">
+                                                        <font class="subTitle">Produtos Adicionados:</font>
+                                                        <div class="box minStdHeight ui-corner-all" id="produtos2">
+                                                            <%@include file="produtos_orcamento.jsp" %>
+                                                        </div></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label for="nome">Nome: </label></td>
-                                                    <td><input id="nome" name="nome" size="30%" ><td>
+                                                    <td>
+                                                        <font class="subTitle">Procurar Produtos:</font>
+                                                    </td>
+                                                    <td>
+                                                        <select id="coluna"  >
+                                                            <option value="nome" >Nome</option>
+                                                            <option value="cod_barras">Codigo de Barras</option>
+                                                            <option value="preco">Preço</option>
+                                                            <option value="id">Id</option>
+                                                        </select>
+
+                                                        <input type="text" onkeyup="refreshPage('produtos','produtos.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td><label for="telefone">Telefone: </label></td>
-                                                    <td><input id="telefone" name="telefone" size="30%"></td>
+                                                <tr class="fill">
+                                                    <td colspan="2"><div class="box minStdHeight ui-corner-all" id="produtos">
+                                                            <%@include file="produtos.jsp" %>
+                                                        </div></td>
                                                 </tr>
                                             </table>
-                                        </div>
-                                    </td>
-                                    <td width="50%">
-                                        <div id="carros" class="min200height box ui-corner-all" >
-                                            <table align="center">
-                                                <tr>
-                                                    <td colspan="2"><h3 align="center" >Dados do Carro</h3></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="modelo">Modelo: </label></td>
-                                                    <td><input id="modelo" name="modelo" size="30%"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="marca">Marca: </label></td>
-                                                    <td><input id="marca" name="marca" size="30%"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="ano">Ano: </label></td>
-                                                    <td><input id="ano" name="ano" size="30%"></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center" >
-                                        <table align="center" class="fill">
-                                            <tr>
-                                                <td class="" colspan="2">
-                                                    <font class="subTitle">Produtos Adicionados:</font>
-                                                    <div class="box minStdHeight ui-corner-all" id="produtos2">
-                                                        <%@include file="produtos_orcamento.jsp" %>
-                                                    </div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <font class="subTitle">Procurar Produtos:</font>
-                                                </td>
-                                                <td>
-                                                    <select id="coluna"  >
-                                                        <option value="nome" >Nome</option>
-                                                        <option value="cod_barras">Codigo de Barras</option>
-                                                        <option value="preco">Preço</option>
-                                                        <option value="id">Id</option>
-                                                    </select>
-
-                                                    <input type="text" onkeyup="refreshPage('produtos','produtos.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
-                                                </td>
-                                            </tr>
-                                            <tr class="fill">
-                                                <td colspan="2"><div class="box minStdHeight ui-corner-all" id="produtos">
-                                                        <%@include file="produtos.jsp" %>
-                                                    </div></td>
-
-                                            </tr>
-                                        </table>
-                                    </td></tr>
-                                <tr>
-                                    <td><input type="reset" value="Limpar"><input type="submit" value="Salvar e Imprimir" ></td>
-                                </tr>
-                            </table>
-                                                    </form>
+                                        </td></tr>
+                                    <tr>
+                                        <td><input type="reset" value="Limpar"><input type="submit" value="Salvar e Imprimir" ></td>
+                                    </tr>
+                                </table>
+                            </form>
                         </td>
                     </tr>
                 </table>
             </div>
+            <%
+                            oDB.desconectar();
+
+                        } catch (Exception e) {
+
+                            out.println(e);
+
+                        }
+            %>
             <div class="footer fill">
                 <%@include file="rodape.jsp" %>
             </div>
