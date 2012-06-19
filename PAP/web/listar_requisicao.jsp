@@ -58,7 +58,7 @@
             <div class="content">
                 <table class="fill tableMin" >
                     <tr>
-                        <td class="box ui-corner-all"  valign="top">
+                        <td class="menu box ui-corner-all"  valign="top">
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" valign="top">
