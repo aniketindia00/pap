@@ -24,12 +24,24 @@
         <script type="text/javascript">
             function validaForm(){
 
-            var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.perfil;
+            var form_inserir_produto=document.form_inserir_produto;
+                var campo_nome=form_inserir_produto.nome;
+                var campo_codBarras=form_inserir_produto.cod_barras;
+                var campo_preco=form_inserir_produto.preco;
 
-                if(campo_perfil.value==""){
+                if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
                     campo_perfil.focus();
+                    return false;
+                }
+                if(campo_codBarras.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_codBarras.focus();
+                    return false;
+                }
+                if(campo_preco.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_preco.focus();
                     return false;
                 }
                 return true;
@@ -60,7 +72,7 @@
                             </tr>
                         </table>
                         <table align="center" width="500">
-                            <form action="inserir_produto.do" method="POST" >
+                            <form name="form_inserir_produto" action="inserir_produto.do" method="POST" onsubmit="return validaForm()" >
                                 <%
 
                                             try {
@@ -72,7 +84,7 @@
 
                                 <tr>
                                     <td>Nome:</td>
-                                    <td><input type="text" size="45" name="nome"/> </td>
+                                    <td><input type="text" size="45" name="nome" /> </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -103,6 +115,7 @@
                 </tr>
             </table>
         </div>
+    </div>
 <%
 
     /*if(logged){
