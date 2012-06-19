@@ -114,7 +114,7 @@ public class ProdutoDAO extends DataBaseDAO {
         ArrayList<Produto> lista = new ArrayList<Produto>();
         PreparedStatement pst;
         String sql = "SELECT p.* FROM produto as p, "
-                + "produto_orcamento as po "
+                + "orcamento_produto as po "
                 + "WHERE po.id_orcamento=? "
                 + "AND po.id_produto = p.id";
         pst = conn.prepareStatement(sql);
@@ -132,7 +132,7 @@ public class ProdutoDAO extends DataBaseDAO {
 
         ArrayList<Produto> listaN = new ArrayList<Produto>();
         PreparedStatement pst;
-        String sql = "SELECT * FROM produto as p WHERE id NOT IN(SELECT id_produto FROM produto_orcamento WHERE id_orcamento=?)";
+        String sql = "SELECT * FROM produto as p WHERE id NOT IN(SELECT id_produto FROM orcamento_produto WHERE id_orcamento=?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1,id_orcamento);
         ResultSet rs = pst.executeQuery();
