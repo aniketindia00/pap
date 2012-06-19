@@ -26,22 +26,50 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
+        <script language="javascript" >
+            function validaForm(){
+
+                var form_alterar_cliente=document.form_alterar_cliente;
+                var campo_perfil=form_alterar_cliente.perfil;
+                var campo_telefone=form_alterar_cliente.telefone;
+
+                if(campo_perfil.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_perfil.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1">
+        <div class="container" align="center">
+        <div class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+        </div>
+                    <div class="content">
+                    <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
-
-                        <h1 align="center" > Alterar Dados </h1>
+                    <td class="fill box ui-corner-all" valign="top">
+                        <table  align="center" >
+                            <tr>
+                                <td align="left" ><h1>Alterar Cliente</h1></td>
+                            </tr>
+                        </table>
                         <%
 
                                         try {
@@ -58,7 +86,7 @@
 
                         if(c.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_cliente" action="alterar_cliente.do" method="POST">
+                            <form name="form_alterar_cliente" action="alterar_cliente.do" method="POST" onsubmit="return validaForm();">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(c.getId());%>"/> </td>
@@ -90,6 +118,7 @@
                 </tr>
             </table>
         </div>
+</div>
 <%
 
     if(logged){
