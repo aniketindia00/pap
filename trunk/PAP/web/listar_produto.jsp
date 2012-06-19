@@ -32,24 +32,29 @@
         </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1" align="center" >
+        <div class="container" align="center">
+            <div class="fill" class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+            </table>
+                    </div>
+                <div class="content" >
+                 <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
 
                     </td>
-                    <td width="610" height="510" valign="top">
+                    <td class="fill" valign="top">
 
-                        <table align="center" >
+                        <table class="tableDist" align="center" >
                             <tr>
                                 <td align="left" ><h1>Lista de Produtos</h1></td>
-                                <td align="right" ><a href="form_inserir_produto.jsp">Inserir Produto</a></td>
+                                <td align="right" > <a class="button" href="form_inserir_produto.jsp">Inserir Produto</a></td>
                             </tr>
                             <tr>
                                 <td><select id="coluna"  >
@@ -57,18 +62,22 @@
                                         <option value="cod_barras">Codigo de Barras</option>
                                         <option value="preco">Preço</option>
                                         <option value="id">Id</option>
-                                    </select></td>
-                                <td>
+                                    </select>
                                     <input type="text" onkeyup="refreshPage('produtos','produtos_listar.jsp?coluna='+document.getElementById('coluna').value+'&query='+this.value);" >
                                 </td>
                             </tr>
                         </table>
-                        <div id="produtos">
+                        <div id="produtos" class="fill box ui-corner-all">
                             <%@include file="produtos_listar.jsp" %>
                         </div>
                     </td>
                 </tr>
+                
             </table>
+                        </div>
+                        <div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
         </div>
         <%
 

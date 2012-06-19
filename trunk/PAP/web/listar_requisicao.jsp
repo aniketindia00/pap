@@ -32,26 +32,31 @@
         </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1" align="center" >
+        <div class="container" align="center">
+            <div class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+                    </div>
+                    <div class="content">
+                        <table >
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all"  valign="top">
                         <%@include file="menu.jsp" %>
-
                     </td>
-                    <td width="610" height="510" valign="top">
-                        <table align="center" >
+                    <td class="fill" valign="top">
+                        <table class="tableDist" align="center" >
                             <tr>
-                                <td align="left" ><h1>Lista de Mecânicos</h1></td>
+                                <td align="left"><h1>Lista de Mecânicos</h1></td>
+                                <td align="right"><a class="button" href="form_inserir_requisicao.jsp">Inserir Requisição</a></td>
                             </tr>
                         </table>
 
-                        <table border="1" align="center" >
+                        <table class="fill box ui-corner-all" align="center" >
                             <tr>
                                 <td>CPF</td>
                                 <td>Nome</td>
@@ -82,8 +87,8 @@
                                     <%out.print(m.getTelefone());%>
                                 </td>
                                 <td>
-                                    <a href="form_alterar_mecanico.jsp?cpf=<%out.print(m.getCpf());%>"><img src="imagens/edit.png"></a>
-                                    <a href="#" onclick="confirma('<%out.print(m.getCpf());%>')" ><img src="imagens/delete.png"></a>
+                                    <a class="button" title="Alterar" href="form_alterar_mecanico.jsp?cpf=<%out.print(m.getCpf());%>"><img src="imagens/edit.png"></a>
+                                    <a class="button" title="Excluir" href="#" onclick="confirma('<%out.print(m.getCpf());%>')" ><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 
@@ -110,5 +115,9 @@
     }
 
 %>
+<div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
+</div>
     </body>
 </html>

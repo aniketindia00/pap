@@ -95,7 +95,7 @@
                                                     <td>
                                                         <input type="text" hidden="true" value="<%=p.getId()%>" name="id_perfil">
                                                         <input type="text" hidden="true" value="1" name="op">
-                                                        <input type="submit" value="Vincular">
+                                                        <input class="button" type="submit" value="Vincular">
                                                     </td>
                                                 </tr>
 
@@ -122,7 +122,7 @@
                                     <%out.print(m.getMenu());%>
                                 </td>
                                 <td align="center">
-                                    <a href="#" onclick="confirma(<%out.print(m.getId());%>,<%out.print(p.getId());%>,2)"><img src="imagens/delete.png"></a>
+                                    <a href="#" class="button" onclick="confirma(<%out.print(m.getId());%>,<%out.print(p.getId());%>,2)"><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 

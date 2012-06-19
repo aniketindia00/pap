@@ -68,8 +68,8 @@
                                     <td><input type="text" name="perfil" value="<%out.print(p.getPerfil());%>"/> </td>
                                 </tr>
                                 <tr>
-                                    <td><input type="reset" value="Limpar"/> </td>
-                                    <td><input type="submit" value="Alterar" /></td>
+                                    <td><input class="button" type="reset" value="Limpar"/> </td>
+                                    <td><input class="button" type="submit" value="Alterar" /></td>
                                 </tr>
                             </form>
                         </table>

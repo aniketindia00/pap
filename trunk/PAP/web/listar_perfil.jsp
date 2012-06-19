@@ -35,25 +35,30 @@
         </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1" align="center" >
+        <div class="container" align="center">
+            <div class="header">
+            <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+             </table>
+             </div>
+             <div class="content">
+             <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
-                        <table align="center" >
+                    <td class="fill" valign="top">
+                        <table class="tableDist" align="center" >
                             <tr>
                                 <td align="left" ><h1>Lista de Perfis</h1></td>
-                                <td align="right" ><a href="form_inserir_perfil.jsp">Inserir Perfil</a></td>
+                                <td align="right" ><a class="button" href="form_inserir_perfil.jsp">Inserir Perfil</a></td>
                             </tr>
                         </table>
-                        <table border="1" align="center" >
+                        <table class="box ui-corner-all" align="center" >
                             <tr>
                                 <td>Id</td>
                                 <td>Perfil</td>
@@ -80,9 +85,9 @@
                                     <%out.print(p.getPerfil());%>
                                 </td>
                                 <td>
-                                    <a href="form_gerenciar_menu_perfil.jsp?id=<%out.print(p.getId());%>"><img src="imagens/gerenciar.png"></a>
-                                    <a href="form_alterar_perfil.jsp?id=<%out.print(p.getId());%>&perfil=<%out.print(p.getPerfil());%>"><img src="imagens/edit.png"></a>
-                                    <a href="#" onclick="confirma(<%out.print(p.getId());%>)"><img src="imagens/delete.png"></a>
+                                    <a class="button" href="form_gerenciar_menu_perfil.jsp?id=<%out.print(p.getId());%>"><img src="imagens/gerenciar.png"></a>
+                                    <a class="button" href="form_alterar_perfil.jsp?id=<%out.print(p.getId());%>&perfil=<%out.print(p.getPerfil());%>"><img src="imagens/edit.png"></a>
+                                    <a class="button" href="#" onclick="confirma(<%out.print(p.getId());%>)"><img src="imagens/delete.png"></a>
                                 </td>
                             </tr>
 
@@ -104,6 +109,10 @@
                     </td>
                 </tr>
             </table>
+           </div>
+                        <div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
         </div>
 <%
 
