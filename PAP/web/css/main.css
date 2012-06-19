@@ -86,9 +86,15 @@ html,body {
 .fill{
     max-width: 100%;
     min-width: 100%;
+    width: 100%;
+}
+
+.menu{
+    width: 150px;
 }
 
 .fillall{
+    width: 100%;
     max-width: 100%;
     min-width: 100%;
     min-height: 200px;
@@ -115,7 +121,7 @@ root {
     display: block;
 }
 
-div.pecas{
+/* div.pecas{
     width: 654px;
     min-height: 284px;
     max-height: 285px;
@@ -128,5 +134,5 @@ table.impressao{
     background-attachment: fixed;
     background-repeat: no-repeat;
     table-layout: fixed;
-}
+}*/
 
