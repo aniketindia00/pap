@@ -18,24 +18,46 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
+        <script language="javascript" >
+            function validaForm(){
 
+                var form_inserir_perfil=document.form_inserir_perfil;
+                var campo_perfil=form_inserir_perfil.perfil;
+
+                if(campo_perfil.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_perfil.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1">
+        <div class="container" align="center">
+        <div class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+        </div>
+                    <div class="content">
+                    <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
-                        <h1>Novo Perfil</h1>
-                        <form action="inserir_perfil.do" method="GET" >
-                            <table width="500">
+                    <td class="fill box ui-corner-all" valign="top">
+                        <table  align="center" >
+                            <tr>
+                                <td align="left" ><h1>Novo Perfil</h1></td>
+                            </tr>
+                        </table>
+                        <form name="form_inserir_perfil" action="inserir_perfil.do" method="GET" onsubmit="return validaForm();">
+                            <table align="center">
                                 <tr>
                                     <td>Perfil:</td>
                                     <td><input type="text" size="45" name="perfil"/> </td>
@@ -51,6 +73,7 @@
                 </tr>
             </table>
         </div>
+    </div>
 <%
 
     if(logged){
