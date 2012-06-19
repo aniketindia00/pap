@@ -7,7 +7,10 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.TimeZone;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Cliente;
 import modelo.ClienteDAO;
+import modelo.Orcamento;
 import modelo.OrcamentoDAO;
 import modelo.Produto;
 
@@ -63,6 +67,16 @@ public class InserirOrcamento extends HttpServlet {
 
                 OrcamentoDAO oDB = new OrcamentoDAO();
                 oDB.conectar();
+
+                TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
+                String horaF = "HH:mm:ss";
+                String dataF = "dd/MM/yyyy";
+                String data = new SimpleDateFormat(dataF).format(new Date());
+                String hora = new SimpleDateFormat(horaF).format(new Date());
+                Orcamento o = new Orcamento();
+                o.setDataEmissao(data);
+                o.setHoraEmissao(hora);
+
                 oDB.desconectar();
             } catch (Exception e) {
             }
