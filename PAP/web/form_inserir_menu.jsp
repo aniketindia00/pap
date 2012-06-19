@@ -63,14 +63,14 @@
                     <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td class="fill" valign="top">
-                        <table class="tableDist" align="center" >
+                    <td class="fill box ui-corner-all" valign="top">
+                        <table  align="center" >
                             <tr>
                                 <td align="left" ><h1>Novo Menu</h1></td>
                             </tr>
                         </table>
                         <form name="form_inserir_menu" action="inserir_menu.do" method="POST" onsubmit="return validaForm();">
-                        <table class="fill box ui-corner-all" align="center" >
+                        <table align="center" >
                                 <tr>
                                     <td>Nome:</td>
                                     <td><input type="text" size="45" name="menu"/> </td>
