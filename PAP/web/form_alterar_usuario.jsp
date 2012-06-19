@@ -143,6 +143,10 @@
                 </tr>
             </table>
         </div>
+                        <div class="footer fill">
+                <%@include file="rodape.jsp" %>
+            </div>
+</div>
 <%
 
     if(logged){
