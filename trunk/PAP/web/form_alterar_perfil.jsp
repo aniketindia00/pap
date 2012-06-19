@@ -26,6 +26,20 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
+        <script language="javascript" >
+            function validaForm(){
+
+                var form_alterar_perfil=document.form_alterar_perfil;
+                var campo_perfil=form_alterar_perfil.perfil;
+
+                if(campo_perfil.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_perfil.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </head>
     <body>
         <div align="center">
@@ -58,7 +72,7 @@
 
                         if(p.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST">
+                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validaForm();">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(p.getId());%>"/> </td>
