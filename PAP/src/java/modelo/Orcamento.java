@@ -19,7 +19,6 @@ public class Orcamento {
     private Double valor;
     private int idCliente;
     private ArrayList<Produto> produtos;
-    private Cliente cliente;
 
     public int getId() {
         return id;
@@ -61,13 +60,6 @@ public class Orcamento {
         this.produtos = produtos;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 
     public int getIdCliente() {
         return idCliente;
