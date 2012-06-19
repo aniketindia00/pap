@@ -116,18 +116,6 @@
                                                             </select>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td><label for="modelo">Modelo: </label></td>
-                                                        <td><input id="modelo" name="modelo" size="30%"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label for="marca">Marca: </label></td>
-                                                        <td><input id="marca" name="marca" size="30%"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><label for="ano">Ano: </label></td>
-                                                        <td><input id="ano" name="ano" size="30%"></td>
-                                                    </tr>
                                                 </table>
                                             </div>
                                         </td>
