@@ -116,7 +116,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("perfil") == null){
+    if(session.getAttribute("mecanico") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

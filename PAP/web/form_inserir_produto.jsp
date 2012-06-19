@@ -121,11 +121,11 @@
 </div>
 <%
 
-    /*if(logged){
-    if(session.getAttribute("usuario") == null){
+    if(logged){
+        if(session.getAttribute("produto") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
-    }*/
+    }
 
 %>
     </body>
