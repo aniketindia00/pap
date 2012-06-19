@@ -63,7 +63,7 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><input type="submit" value="Inserir"/> </td>
+                                    <td><input class="button" type="submit" value="Inserir"/> </td>
                                 </tr>
                             </form>
                         </table>

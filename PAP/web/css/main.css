@@ -38,7 +38,16 @@ html,body {
 
 .content{ /* bottom padding for footer */
     padding-bottom:2em;
-    min-height: 600px;
+    padding-right: 10px;
+    min-height: 400px;
+}
+
+.tableMin{
+    height: 470px;
+}
+
+.tableDist{
+    width: 45%;
 }
 
 .footer {
@@ -75,14 +84,6 @@ html,body {
     min-width: 100%;
     min-height: 200px;
     max-height: 100%;
-}
-
-.leftAlg{
-    text-align: left;
-}
-
-.rightAlg{
-    text-align: right;
 }
 
 .minStdHeight{

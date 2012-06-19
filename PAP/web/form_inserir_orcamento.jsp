@@ -52,10 +52,10 @@
             <div class="content fillall">
                 <table class="fillall" >
                     <tr>
-                        <td class="box ui-corner-all" width="15%" height="100%" valign="top">
+                        <td class="box ui-corner-all" height="100%" valign="top">
                             <%@include file="menu.jsp" %>
                         </td>
-                        <td width="80%" height="100%" valign="top">
+                        <td class="fill" height="100%" valign="top">
                             <form action="form_inserir_orcamento.jsp" method="POST">
                             <table align="center" class="fill">
                                 <tr>
@@ -140,7 +140,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="footer">
+            <div class="footer fill">
                 <%@include file="rodape.jsp" %>
             </div>
         </div>

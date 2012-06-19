@@ -85,7 +85,7 @@
 
                                 <tr>
                                     <td></td>
-                                    <td><input type="submit" value="Alterar"/> </td>
+                                    <td><input class="button" type="submit" value="Alterar"/> </td>
                                 </tr>
                             </table>
 

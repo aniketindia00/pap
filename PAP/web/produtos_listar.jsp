@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-<table align="center" class="fill" border="1">
+<table class="fill">
     <tr>
         <td>ID</td>
         <td>Nome</td>
@@ -31,7 +31,7 @@
                     }
                     ProdutoDAO pDB = new ProdutoDAO();
                     pDB.conectar();
-                    ArrayList<Produto> lista = pDB.listaResumida(10, coluna, query);
+                    ArrayList<Produto> lista = pDB.listaResumida(13, coluna, query);
                     pDB.desconectar();
     //                    for(Produto p1:produtos){
     //                        for(Produto p2:lista){

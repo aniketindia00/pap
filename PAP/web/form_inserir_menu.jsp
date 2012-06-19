@@ -52,7 +52,7 @@
                                 
                                 <tr>
                                     <td></td>
-                                    <td><input type="submit" value="inserir"/> </td>
+                                    <td><input class="button" type="submit" value="inserir"/> </td>
                                 </tr>
                             </table>
 
