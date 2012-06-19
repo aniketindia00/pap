@@ -29,8 +29,8 @@
         <script language="javascript" >
             function validaForm(){
 
-                var form_inserir_perfil=document.form_inserir_perfil;
-                var campo_perfil=form_inserir_perfil.perfil;
+                var form_alterar_perfil=document.form_alterar_perfil;
+                var campo_perfil=form_alterar_perfil.perfil;
 
                 if(campo_perfil.value==""){
                     alert("Todos os campos devem ser preenchidos!");
