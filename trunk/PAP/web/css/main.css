@@ -93,6 +93,10 @@ html,body {
     width: 150px;
 }
 
+.loginBox{
+    padding-top: 300px;
+}
+
 .fillall{
     width: 100%;
     max-width: 100%;
