@@ -18,6 +18,33 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
+        <script language="javascript" >
+            function validaForm(){
+
+                var form_inserir_menu=document.form_inserir_menu;
+                var campo_menu=form_inserir_menu.menu;
+                var campo_icone=form_inserir_menu.icone;
+                var campo_link=form_inserir_menu.link;
+
+
+                if(campo_menu.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_menu.focus();
+                    return false;
+                }
+                if(campo_icone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_icone.focus();
+                    return false;
+                }
+                if(campo_link.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_link.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </head>
     <body>
         <div align="center">
@@ -34,7 +61,7 @@
                     <td width="610" height="510" valign="top">
 
                         <h1>Novo Menu</h1>
-                        <form action="inserir_menu.do" method="POST" >
+                        <form name="form_inserir_menu" action="inserir_menu.do" method="POST" onsubmit="return validaForm();">
                             <table width="500">
                                 <tr>
                                     <td>Nome:</td>
