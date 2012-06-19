@@ -78,7 +78,7 @@ public class OrcamentoDAO extends DataBaseDAO{
         o.setIdCliente(rs.getInt("id_cliente"));
         o.setIdCarro(rs.getInt("id_carro"));
         pDB.conectar();
-        o.setProdutos(pDB.produtosRequisicao(o.getId()));
+        o.setProdutos(pDB.produtosOrcamento(o.getId()));
         pDB.desconectar();
         cDB.conectar();
         o.setCliente(cDB.carregaPorId(o.getIdCliente()));
@@ -105,7 +105,7 @@ public class OrcamentoDAO extends DataBaseDAO{
         o.setIdCliente(rs.getInt("id_cliente"));
         o.setIdCarro(rs.getInt("id_carro"));
         pDB.conectar();
-        o.setProdutos(pDB.produtosRequisicao(o.getId()));
+        o.setProdutos(pDB.produtosOrcamento(o.getId()));
         pDB.desconectar();
         cDB.conectar();
         o.setCliente(cDB.carregaPorId(o.getIdCliente()));
