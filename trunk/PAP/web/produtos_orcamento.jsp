@@ -23,6 +23,7 @@
                 <td width="60%"><%=p.getNome()%></td>
                 <td>R$ <%=p.getPreco()%></td>
                 <td><%=p.getCodBarras()%></td>
+                <td>Qnt. <input type="text" size="2"></td>
                 <td><a href="#" onclick="refreshPage('produtos2','excluir_produto_sessao.do?id=<%=p.getId()%>');"><img src="imagens/delete.png"/></a></td>
             </tr>
 
