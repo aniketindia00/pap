@@ -47,22 +47,30 @@
         </script>
     </head>
     <body>
-        <div align="center">
-            <table width="760" height="660" border="1">
+        <div class="container" align="center">
+        <div class="header">
+                <table class="fill box ui-corner-all" align="center" >
                 <tr>
                     <td colspan="2">
                         <%@include file="banner.jsp" %>
                     </td>
                 </tr>
+                </table>
+        </div>
+                    <div class="content">
+                    <table class="fill tableMin">
                 <tr>
-                    <td width="150" height="510" valign="top">
+                    <td class="box ui-corner-all" valign="top">
                         <%@include file="menu.jsp" %>
                     </td>
-                    <td width="610" height="510" valign="top">
-
-                        <h1>Novo Menu</h1>
+                    <td class="fill" valign="top">
+                        <table class="tableDist" align="center" >
+                            <tr>
+                                <td align="left" ><h1>Novo Menu</h1></td>
+                            </tr>
+                        </table>
                         <form name="form_inserir_menu" action="inserir_menu.do" method="POST" onsubmit="return validaForm();">
-                            <table width="500">
+                        <table class="fill box ui-corner-all" align="center" >
                                 <tr>
                                     <td>Nome:</td>
                                     <td><input type="text" size="45" name="menu"/> </td>
@@ -96,5 +104,6 @@
     }
 
 %>
+        </div>
     </body>
 </html>
