@@ -155,7 +155,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("menu") == null){
+    if(session.getAttribute("perfil") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }
