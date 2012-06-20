@@ -125,6 +125,7 @@ public class AlterarOrcamento extends HttpServlet {
                 caDB.desconectar();
                 oDB.desconectar();
             } catch (Exception e) {
+                out.print(e);
             }
             out.println("</body>");
             out.println("</html>");
