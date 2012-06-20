@@ -63,7 +63,7 @@
                                         <div id="cliente" class="min200height box ui-corner-all" >
                                             <table align="center">
                                                 <tr>
-                                                    <td colspan="2"><h3 align="center" >Dados do Cliente</h3><input type="text" id="id" name="id" hidden /></td>
+                                                    <td colspan="2"><h3 align="center" >Dados do Cliente</h3><input type="text" value="0" id="id" name="id" hidden /></td>
 
                                                 </tr>
                                                 <tr>

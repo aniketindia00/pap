@@ -58,9 +58,9 @@
                             <form action="form_inserir_requisicao.jsp" method="POST">
                             <table align="center" class="fill">
                                 <tr>
-                                    <td width="100%">
-                                        <div id="cliente" class="min200height box ui-corner-all" >
-                                            <table align="center">
+                                    <td class="fill">
+                                        <div id="mecanico" class="min200height fill box ui-corner-all" >
+                                            <table class="fill" align="center">
                                                 <tr>
                                                     <td colspan="4"><h3 align="center" >Dados do Mecânico</h3></td>
                                                 </tr>
