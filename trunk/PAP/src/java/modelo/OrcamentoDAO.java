@@ -87,6 +87,37 @@ public class OrcamentoDAO extends DataBaseDAO{
         return o;
 
     }
+        
+        
+        public Orcamento carregaPorDataHoraValor(String data, String hora, double valor) throws SQLException, Exception{
+        Orcamento o = new Orcamento();
+        ProdutoDAO pDB = new ProdutoDAO();
+        ClienteDAO cDB = new ClienteDAO();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM requisicao WHERE data_emisssao=? AND hora_emissao=? AND valor=?";
+        pst =conn.prepareStatement(sql);
+        pst.setString(1,data);
+        pst.setString(2,hora);
+        pst.setDouble(3,valor);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+        o.setId(rs.getInt("id"));
+        o.setDataEmissao(rs.getString("data_emissao"));
+        o.setHoraEmissao(rs.getString("hora_emissao"));
+        o.setValor(rs.getDouble("valor"));
+        o.setIdCliente(rs.getInt("id_cliente"));
+        o.setIdCarro(rs.getInt("id_carro"));
+        pDB.conectar();
+        o.setProdutos(pDB.produtosOrcamento(o.getId()));
+        pDB.desconectar();
+        cDB.conectar();
+        o.setCliente(cDB.carregaPorId(o.getIdCliente()));
+        cDB.desconectar();
+        }
+        return o;
+
+    }
+
 
         public ArrayList<Orcamento> listar() throws SQLException, Exception{
         ArrayList<Orcamento> lista = new ArrayList<Orcamento>();
