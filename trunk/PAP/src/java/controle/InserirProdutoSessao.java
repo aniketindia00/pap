@@ -37,31 +37,45 @@ public class InserirProdutoSessao extends HttpServlet {
         try {
 
             try {
+                int quantidade = 0;
                 ArrayList<Produto> produtos = new ArrayList<Produto>();
                 int igual = 0;
+                Produto p2 = null;
                 if(session.getAttribute("produtos") != null){
                 produtos =(ArrayList<Produto>) session.getAttribute("produtos");
+                }
+                if(request.getParameter("qnt").equalsIgnoreCase("")){
+                quantidade = 0;
+                }else{
+                quantidade = Integer.parseInt(request.getParameter("qnt"));
                 }
                 int id = Integer.parseInt(request.getParameter("id"));
                 ProdutoDAO pDB = new ProdutoDAO();
                 pDB.conectar();
                 Produto p = pDB.carregaPorId(id);
+                p.setQuantidade(quantidade);
                 pDB.desconectar();
                 for(Produto p1:produtos){
                 if(p1.getId() == p.getId()){
                 igual = 1;
+                p2 = p1;
                 }
                 }
                 if(igual == 1){
-                response.sendRedirect("produtos_orcamento.jsp");
+                if(p2 != null){
+                produtos.remove(p2);
+                produtos.add(p);
+                }
+                response.sendRedirect(request.getParameter("div")+".jsp");
                 }else{
                 produtos.add(p);
                 session.removeAttribute("produtos");
                 session.setAttribute("produtos",produtos);
-                response.sendRedirect("produtos_orcamento.jsp");
+                response.sendRedirect(request.getParameter("div")+".jsp");
+                
                 }
             } catch (Exception e) {
-                out.print(e);
+                response.sendRedirect(request.getParameter("div")+".jsp");
             }
 
         } finally { 
