@@ -31,7 +31,7 @@
                     source: "clientes.jsp",
                     minLength: 2,
                     select:function( event, ui ) {
-
+                        $("#id").val(ui.item.id);
                         $("#telefone").val(ui.item.telefone);
                         refreshPage('carros','carros.jsp?id='+ui.item.id);
                     }
@@ -79,7 +79,7 @@
                                             <div id="cliente" class="min200height box ui-corner-all" >
                                                 <table align="center">
                                                     <tr>
-                                                        <td colspan="2"><h3 align="center" >Dados do Cliente</h3></td>
+                                                        <td colspan="2"><h3 align="center" >Dados do Cliente<input type="text" value="0" id="id" name="id" hidden /></h3></td>
                                                     </tr>
                                                     <tr>
                                                         <td><label for="nome">Nome: </label></td>

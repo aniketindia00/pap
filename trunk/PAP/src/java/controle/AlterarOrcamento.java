@@ -29,7 +29,7 @@ import modelo.ProdutoDAO;
  *
  * @author André
  */
-public class InserirOrcamento extends HttpServlet {
+public class AlterarOrcamento extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -67,7 +67,7 @@ public class InserirOrcamento extends HttpServlet {
                 if(cDB.carregaPorNomeTelefone(nome, telefone) == null || cDB.carregaPorId(id) == null){
                 c.setNome(nome);
                 c.setTelefone(telefone);
-                cDB.inserir(c);
+                cDB.alterar(c);
                 }else{
                 c = cDB.carregaPorNomeTelefone(nome, telefone);
                 }
@@ -86,7 +86,7 @@ public class InserirOrcamento extends HttpServlet {
                 ca.setIdCliente(cDB.carregaPorNomeTelefone(nome, telefone).getId());
                 ca.setMarca(marca);
                 ca.setModelo(modelo);
-                caDB.inserir(ca);
+                caDB.alterar(ca);
                 }else{
                 ca = caDB.carregaPorId(id_carro);
                 }
@@ -110,7 +110,7 @@ public class InserirOrcamento extends HttpServlet {
                 valor += (p.getPreco() * p.getQuantidade());
                 }
                 o.setValor(valor);
-                oDB.inserir(o);
+                oDB.alterar(o);
 
                 ProdutoDAO pDB = new ProdutoDAO();
 
