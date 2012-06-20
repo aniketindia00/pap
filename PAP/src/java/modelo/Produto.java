@@ -14,6 +14,7 @@ public class Produto {
     private String nome;
     private String codBarras;
     private double preco;
+    private int quantidade;
 
     public int getId() {
         return id;
@@ -55,6 +56,14 @@ public class Produto {
         this.nome = nome;
         this.codBarras = codBarras;
         this.preco = preco;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     

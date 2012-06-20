@@ -8,7 +8,18 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html>
+    <head>
+        <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/teste.js"></script>
+    </head>
+    <body onload="refreshPage('valor','valor_total.jsp');" >
 
+        
         <table align="center" class="fillall">
             <%
                         try {
@@ -23,23 +34,14 @@
                 <td width="60%"><%=p.getNome()%></td>
                 <td>R$ <%=p.getPreco()%></td>
                 <td><%=p.getCodBarras()%></td>
-                <td>Qnt. <input type="text" name='prod<%=p.getId()%>' onkeyup="calcular()" size="2"></td>
-                <td><a href="#" onclick="refreshPage('produtos2','excluir_produto_sessao.do?id=<%=p.getId()%>');"><img src="imagens/delete.png"/></a></td>
+                <td>Qnt. <input type="text" value="<%=p.getQuantidade()%>" onkeyup="refreshPage('valor','inserir_produto_sessao.do?div=valor_total&id=<%=p.getId()%>&qnt='+this.value);" size="2"></td>
+                <td><a href="#" onclick="refreshPage('produtos2','excluir_produto_sessao.do?id=<%=p.getId()%>'); refreshPage('valor','valor_total.jsp');"><img src="imagens/delete.png"/></a></td>
             </tr>
 
-
-
-            <script type="text/javascript">
-                $(function calcular() {
-                    $("#valor").val(<%for(Produto p1 : produtos){%>
-                    ($('#prod<%=p1.getId()%>').val()*<%=p1.getPreco() %>)+
-                    <%}%>0)
-            });
-            </script>
             <%}
                         } catch (Exception e) {
                             out.print(e);
                         }
             %>
         </table>
-        
+        </body>
