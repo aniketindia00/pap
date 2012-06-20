@@ -47,7 +47,7 @@
                         }catch (Exception e){
                         }
                         %>
-                        Principal
+                        <center><img width="540" heigth="380" src="imagens/middle.png"></center>
                     </td>
                 </tr>
             </table>
