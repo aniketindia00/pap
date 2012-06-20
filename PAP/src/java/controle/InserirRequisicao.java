@@ -74,6 +74,7 @@ public class InserirRequisicao extends HttpServlet {
                 m.setOficina(oficina);
                 m.setTelefone(telefone);
                 r.setMecanico(m);
+                mDB.inserir(m);
                 }else{
                 m = mDB.carregaPorCpf(cpf);
                 }
@@ -95,11 +96,8 @@ public class InserirRequisicao extends HttpServlet {
                 r.setHoraEmissao(hora);
 
                 r.setCpfMecanico(cpf);
-                
 
                 rDB.inserir(r);
-
-                
 
                 ProdutoDAO pDB = new ProdutoDAO();
 
