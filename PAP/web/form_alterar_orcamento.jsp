@@ -23,7 +23,7 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
-        <title>Alterar Orçamento</title>
+        <title>Formulário de Alteração - Orçamento</title>
         <script type="text/javascript">
             $(function() {
 

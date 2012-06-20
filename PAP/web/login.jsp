@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login - Pointer Auto-Peças</title>
         <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/ajax.js"></script>
