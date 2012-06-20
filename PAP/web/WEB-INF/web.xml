@@ -112,6 +112,10 @@
         <servlet-name>AlterarRequisicao</servlet-name>
         <servlet-class>controle.AlterarRequisicao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarOrcamento</servlet-name>
+        <servlet-class>controle.AlterarOrcamento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -203,6 +207,10 @@
     <servlet-mapping>
         <servlet-name>AlterarRequisicao</servlet-name>
         <url-pattern>/alterar_requisicao.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarOrcamento</servlet-name>
+        <url-pattern>/alterar_orcamento.co</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

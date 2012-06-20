@@ -89,16 +89,16 @@ public class OrcamentoDAO extends DataBaseDAO{
     }
         
         
-        public Orcamento carregaPorDataHoraValor(String data, String hora, double valor) throws SQLException, Exception{
+        public Orcamento carregaPorDataHoraCliente(String data, String hora, int id_cliente) throws SQLException, Exception{
         Orcamento o = new Orcamento();
         ProdutoDAO pDB = new ProdutoDAO();
         ClienteDAO cDB = new ClienteDAO();
         PreparedStatement pst;
-        String sql ="SELECT * FROM requisicao WHERE data_emisssao=? AND hora_emissao=? AND valor=?";
+        String sql ="SELECT * FROM orcamento WHERE data_emissao=? AND hora_emissao=? AND id_cliente=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1,data);
         pst.setString(2,hora);
-        pst.setDouble(3,valor);
+        pst.setInt(3,id_cliente);
         ResultSet rs = pst.executeQuery();
         if(rs.next()){
         o.setId(rs.getInt("id"));

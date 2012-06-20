@@ -74,7 +74,7 @@ public class CarroDAO extends DataBaseDAO {
         public Carro carregaPorModeloAnoMarca(String modelo, String ano, String marca) throws SQLException{
         Carro c = new Carro();
         PreparedStatement pst;
-        String sql ="SELECT * FROM carro WHERE modelo=?, ano=?, marca=?";
+        String sql ="SELECT * FROM carro WHERE modelo=? AND ano=? AND  marca=?";
         pst =conn.prepareStatement(sql);
         pst.setString(1,modelo);
         pst.setString(2,ano);

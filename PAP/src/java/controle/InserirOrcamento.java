@@ -52,9 +52,15 @@ public class InserirOrcamento extends HttpServlet {
             out.println("<body>");
             try {
                 double valor = 0;
+                int id = 0;
+                int id_carro = 0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-                int id = Integer.parseInt(request.getParameter("id"));
-                int id_carro = Integer.parseInt(request.getParameter("id_carro"));
+                if(request.getParameter("id") != null){
+                id = Integer.parseInt(request.getParameter("id"));
+                }
+                if(request.getParameter("id_carro") != null){
+                id_carro = Integer.parseInt(request.getParameter("id_carro"));
+                }
                 String nome = request.getParameter("nome");
                 String telefone = request.getParameter("telefone");
                 String modelo = request.getParameter("modelo");
@@ -113,10 +119,12 @@ public class InserirOrcamento extends HttpServlet {
                 oDB.inserir(o);
 
                 ProdutoDAO pDB = new ProdutoDAO();
-
+                int id_orcamento = oDB.carregaPorDataHoraCliente(data, hora, o.getIdCliente()).getId();
+                out.print(id_orcamento);
                 pDB.conectar();
-                for(Produto p:produtos){
-                    pDB.vincularProdutoOrcamento(p.getId(), oDB.carregaPorDataHoraValor(data, hora, valor).getId());
+                for(Produto p1:produtos){
+                    pDB.vincularProdutoOrcamento(p1.getId(), id_orcamento);
+                    out.print(p1.getId());
                 }
                 pDB.desconectar();
 
@@ -125,6 +133,7 @@ public class InserirOrcamento extends HttpServlet {
                 caDB.desconectar();
                 oDB.desconectar();
             } catch (Exception e) {
+                out.print(e);
             }
             out.println("</body>");
             out.println("</html>");
