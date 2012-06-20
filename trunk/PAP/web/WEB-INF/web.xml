@@ -96,6 +96,14 @@
         <servlet-name>ExcluirMecanico</servlet-name>
         <servlet-class>controle.ExcluirMecanico</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirRequisicao</servlet-name>
+        <servlet-class>controle.ExcluirRequisicao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirOrcamento</servlet-name>
+        <servlet-class>controle.ExcluirOrcamento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -171,6 +179,14 @@
     <servlet-mapping>
         <servlet-name>ExcluirMecanico</servlet-name>
         <url-pattern>/excluir_mecanico.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirRequisicao</servlet-name>
+        <url-pattern>/excluir_requisicao.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirOrcamento</servlet-name>
+        <url-pattern>/excluir_orcamento.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
