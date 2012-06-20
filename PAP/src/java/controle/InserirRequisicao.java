@@ -53,7 +53,7 @@ public class InserirRequisicao extends HttpServlet {
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                 String cpf = request.getParameter("cpf");
 
-                int valor=0;
+                double valor=0;
                 
                 String nome = request.getParameter("nome");
                 String oficina = request.getParameter("oficina");
@@ -99,15 +99,17 @@ public class InserirRequisicao extends HttpServlet {
 
                 rDB.inserir(r);
 
-                rDB.desconectar();
+                
 
                 ProdutoDAO pDB = new ProdutoDAO();
 
                 pDB.conectar();
                 for(Produto p:produtos){
-                    pDB.vincularProdutoRequisicao(valor, valor);
+                    pDB.vincularProdutoRequisicao(p.getId(), rDB.carregaPorDataHoraValor(data, hora, valor).getId());
                 }
                 pDB.desconectar();
+
+                rDB.desconectar();
 
                 mDB.desconectar();
                 
