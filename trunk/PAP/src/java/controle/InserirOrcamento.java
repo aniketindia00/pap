@@ -52,7 +52,7 @@ public class InserirOrcamento extends HttpServlet {
             try {
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                 int id = Integer.parseInt(request.getParameter("id"));
-                int id_carro = Integer.parseInt(request.getParameter("id"));
+                int id_carro = Integer.parseInt(request.getParameter("id_carro"));
                 String nome = request.getParameter("nome");
                 String telefone = request.getParameter("telefone");
                 String modelo = request.getParameter("modelo");
