@@ -21,7 +21,7 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
         <script type="text/javascript" src="js/teste.js"></script>
-        <title>Inserir Orçamento</title>
+        <title>Formulário de Insersão - Orçamento</title>
         <script type="text/javascript">
             $(function() {
 
@@ -56,7 +56,7 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" height="100%" valign="top">
-                            <form action="form_inserir_orcamento.jsp" method="POST">
+                            <form action="inserir_orcamento.do" method="POST">
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="50%">
