@@ -26,12 +26,21 @@
                     TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
                     DateFormat horaF = new SimpleDateFormat("HH:mm:ss");
                     DateFormat dataF = new SimpleDateFormat("dd/MM/yyyy");
+                    DateFormat dataMysql = new SimpleDateFormat("yyyy/MM/dd");
 
                     Date date = new Date();
 
-                    out.print(horaF.format(date));
+                    
+                    String hora = horaF.format(date);
+                    out.print("Hora Normal: "+hora);
                     out.print("<br />");
-                    out.print(dataF.format(date));
+                    String dataNormal = dataF.format(date);
+                    out.print("Data Formato Brasil: "+dataNormal);
+                    out.print("<br />");
+                    String dataBancoDados = dataMysql.format(date);
+                    out.print("Data Formato Banco de Dados MySQL: "+dataBancoDados);
+                    out.print("<br />");
+
 
 %>
     </body>
