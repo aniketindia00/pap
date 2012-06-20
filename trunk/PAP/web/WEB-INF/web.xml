@@ -104,6 +104,10 @@
         <servlet-name>ExcluirOrcamento</servlet-name>
         <servlet-class>controle.ExcluirOrcamento</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InserirRequisicao</servlet-name>
+        <servlet-class>controle.InserirRequisicao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -187,6 +191,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirOrcamento</servlet-name>
         <url-pattern>/excluir_orcamento.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirRequisicao</servlet-name>
+        <url-pattern>/inserir_requisicao.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
