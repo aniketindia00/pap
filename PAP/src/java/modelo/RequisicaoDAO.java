@@ -85,6 +85,34 @@ public class RequisicaoDAO extends DataBaseDAO{
 
     }
 
+        public Requisicao carregaPorDataHoraValor(String data, String hora, double valor) throws SQLException, Exception{
+        Requisicao r = new Requisicao();
+        ProdutoDAO pDB = new ProdutoDAO();
+        MecanicoDAO mDB = new MecanicoDAO();
+        PreparedStatement pst;
+        String sql ="SELECT * FROM requisicao WHERE data_emisssao=? AND hora_emissao=? AND valor=?";
+        pst =conn.prepareStatement(sql);
+        pst.setString(1,data);
+        pst.setString(2,hora);
+        pst.setDouble(3,valor);
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+        r.setId(rs.getInt("id"));
+        r.setDataEmissao(rs.getString("data_emissao"));
+        r.setHoraEmissao(rs.getString("hora_emissao"));
+        r.setValor(rs.getDouble("valor"));
+        r.setCpfMecanico(rs.getString("cpf_mecanico"));
+        pDB.conectar();
+        r.setProdutos(pDB.produtosRequisicao(r.getId()));
+        pDB.desconectar();
+        mDB.conectar();
+        r.setMecanico(mDB.carregaPorCpf(r.getCpfMecanico()));
+        mDB.desconectar();
+        }
+        return r;
+
+    }
+
         public ArrayList<Requisicao> listar() throws SQLException, Exception{
         ArrayList<Requisicao> lista = new ArrayList<Requisicao>();
         Requisicao r = new Requisicao();

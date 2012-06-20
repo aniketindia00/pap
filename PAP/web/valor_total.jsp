@@ -7,7 +7,7 @@
 <%@page import="modelo.Produto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% int valor=0;
+<% double valor=0;
 try {
 
             ArrayList<Produto> produtos = new ArrayList<Produto>();
