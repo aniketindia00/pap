@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.Carro;
+import modelo.CarroDAO;
 import modelo.Cliente;
 import modelo.ClienteDAO;
 import modelo.Orcamento;
@@ -50,6 +52,7 @@ public class InserirOrcamento extends HttpServlet {
             try {
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                 int id = Integer.parseInt(request.getParameter("id"));
+                int id_carro = Integer.parseInt(request.getParameter("id"));
                 String nome = request.getParameter("nome");
                 String telefone = request.getParameter("telefone");
                 String modelo = request.getParameter("modelo");
@@ -68,6 +71,17 @@ public class InserirOrcamento extends HttpServlet {
 
                 out.print(c.getNome());
                 cDB.desconectar();
+
+                CarroDAO caDB = new CarroDAO();
+
+                caDB.conectar();
+                Carro ca = new Carro();
+
+                if(id_carro == 0){
+
+                }
+
+                caDB.desconectar();
 /*
                 OrcamentoDAO oDB = new OrcamentoDAO();
                 oDB.conectar();
