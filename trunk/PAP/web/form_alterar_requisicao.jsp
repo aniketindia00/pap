@@ -81,7 +81,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><label for="cpf">CPF: </label></td>
-                                                    <td><input id="cpf" name="cpf" size="30%" value="<%=r.getMecanico().getCpf() %>"></td>
+                                                    <td><input readonly id="cpf" name="cpf" size="30%" value="<%=r.getMecanico().getCpf() %>"></td>
                                                     <td><label for="nome">Nome: </label></td>
                                                     <td><input id="nome" name="nome" size="30%" value="<%=r.getMecanico().getNome() %>"></td>
                                                 </tr>

@@ -108,6 +108,10 @@
         <servlet-name>InserirRequisicao</servlet-name>
         <servlet-class>controle.InserirRequisicao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarRequisicao</servlet-name>
+        <servlet-class>controle.AlterarRequisicao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -195,6 +199,10 @@
     <servlet-mapping>
         <servlet-name>InserirRequisicao</servlet-name>
         <url-pattern>/inserir_requisicao.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarRequisicao</servlet-name>
+        <url-pattern>/alterar_requisicao.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
