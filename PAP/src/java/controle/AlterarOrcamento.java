@@ -116,7 +116,7 @@ public class AlterarOrcamento extends HttpServlet {
 
                 pDB.conectar();
                 for(Produto p:produtos){
-                    pDB.vincularProdutoOrcamento(p.getId(), oDB.carregaPorDataHoraValor(data, hora, valor).getId());
+                   // pDB.vincularProdutoOrcamento(p.getId(), oDB.carregaPorDataHoraValor(data, hora, valor).getId());
                 }
                 pDB.desconectar();
 
