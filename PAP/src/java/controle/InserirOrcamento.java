@@ -49,6 +49,7 @@ public class InserirOrcamento extends HttpServlet {
             out.println("<body>");
             try {
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
+                int id = Integer.parseInt(request.getParameter("id"));
                 String nome = request.getParameter("nome");
                 String telefone = request.getParameter("telefone");
                 String modelo = request.getParameter("modelo");
@@ -57,14 +58,17 @@ public class InserirOrcamento extends HttpServlet {
 
                 ClienteDAO cDB = new ClienteDAO();
                 cDB.conectar();
-                if(cDB.carregaPorNomeTelefone(nome, telefone) == null){
                 Cliente c = new Cliente();
+                if(cDB.carregaPorNomeTelefone(nome, telefone) == null || cDB.carregaPorId(id) == null){
                 c.setNome(nome);
                 c.setTelefone(telefone);
-
+                }else{
+                c = cDB.carregaPorNomeTelefone(nome, telefone);
                 }
-                cDB.desconectar();
 
+                out.print(c.getNome());
+                cDB.desconectar();
+/*
                 OrcamentoDAO oDB = new OrcamentoDAO();
                 oDB.conectar();
 
@@ -77,7 +81,7 @@ public class InserirOrcamento extends HttpServlet {
                 o.setDataEmissao(data);
                 o.setHoraEmissao(hora);
 
-                oDB.desconectar();
+                oDB.desconectar(); */
             } catch (Exception e) {
             }
             out.println("</body>");
