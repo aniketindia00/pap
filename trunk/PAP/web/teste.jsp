@@ -4,6 +4,10 @@
     Author     : PC
 --%>
 
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.TimeZone"%>
 <%@page import="modelo.ProdutoDAO"%>
 <%@page import="modelo.Produto"%>
 <%@page import="java.util.ArrayList"%>
@@ -19,29 +23,15 @@
     <body>
         <%
 
-        ArrayList<Produto> produtos = new ArrayList<Produto>();
-        ArrayList<Produto> aux = new ArrayList<Produto>();
-        if(session.getAttribute("produtos") != null){
-        produtos =(ArrayList<Produto>) session.getAttribute("produtos");
-        }
+                    TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
+                    DateFormat horaF = new SimpleDateFormat("HH:mm:ss");
+                    DateFormat dataF = new SimpleDateFormat("dd/MM/yyyy");
 
-        ProdutoDAO pDB = new ProdutoDAO();
-        pDB.conectar();
-        ArrayList<Produto> lista = pDB.listaResumida(10,"nome"," ");
-        pDB.desconectar();
+                    Date date = new Date();
 
-        out.print(lista);
-
-        for(Produto p1:produtos){
-            for(Produto p2:lista){
-            if(p1.getId() == p2.getId()){
-            aux.add(p2);
-            }
-        }
-        }
-        lista.removeAll(aux);
-
-        out.print("<br>"+lista);
+                    out.print(horaF.format(date));
+                    out.print("<br />");
+                    out.print(dataF.format(date));
 
 %>
     </body>
