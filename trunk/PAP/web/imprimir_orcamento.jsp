@@ -112,7 +112,7 @@
 
             <tr>
                 <td colspan="4">
-                    <%@include file="produtos_orcamento_impressao.jsp" %>
+                    <%@include file="produtos_impressao.jsp" %>
                 </td>
             </tr>
         </table><!-- tabela pecas-->
