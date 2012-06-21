@@ -154,7 +154,7 @@
                                         </td></tr>
                                     <tr>
                                         <td><input type="reset" value="Limpar"><input type="submit" value="Salvar e Imprimir" ></td>
-                                        <td align="right"><div id="valor" ><%@include file="valor_total.jsp" %></div></td>
+                                        
                                     </tr>
                                 </table>
                             </form>

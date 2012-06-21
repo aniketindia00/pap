@@ -34,7 +34,7 @@
                 }
                     %>
                         <tr>
-                            <td colspan="5" align="right" ><div id="valor" >Valor Total <input type="text" value="<%=valor%>" ></div></td>
+                            <td bgcolor="#666" colspan="5" align="right" ><div id="valor" >Valor Total <input type="text" value="<%=valor%>" ></div></td>
                         </tr>
                     <%
                 for (Produto p : produtos) {%>
