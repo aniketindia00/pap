@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Produto;
+import modelo.ProdutoDAO;
 import modelo.Requisicao;
 import modelo.RequisicaoDAO;
 
@@ -39,13 +41,18 @@ public class ExcluirRequisicao extends HttpServlet {
             out.println("<body>");
 
             try {
-                String id = request.getParameter("id");
+                int id = Integer.parseInt(request.getParameter("id"));
                 Requisicao r = new Requisicao();
-                r.setId(Integer.parseInt(id));
 
                 RequisicaoDAO rDB = new RequisicaoDAO();
 
                 rDB.conectar();
+                r = rDB.carregaPorId(id);
+                ProdutoDAO pDB = new ProdutoDAO();
+                pDB.conectar();
+                for(Produto p:r.getProdutos()){
+                pDB.desvincularProdutoRequisicao(p.getId(),id);
+                }
                 rDB.excluir(r);
                 rDB.desconectar();
 
