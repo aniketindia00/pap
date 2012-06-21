@@ -133,8 +133,8 @@ public class AlterarOrcamento extends HttpServlet {
                 oDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Registros alterados com sucesso!');");
-                out.print(" window.open('listar_orcamento.jsp','_parent');");
+                out.print(" alert('Registros alterados com sucesso! Imprimindo...');");
+                out.print(" window.open('imprimir_orcamento.jsp?id="+id+"','_parent');");
                 out.print("</script>");
             } catch (Exception e) {
                 out.print(e);
