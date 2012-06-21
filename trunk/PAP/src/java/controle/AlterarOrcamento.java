@@ -107,11 +107,6 @@ public class AlterarOrcamento extends HttpServlet {
                 o.setIdCliente(cDB.carregaPorNomeTelefone(nome, telefone).getId());
                 o.setIdCarro(caDB.carregaPorModeloAnoMarca(modelo, ano, marca).getId());
                 o.setProdutos(produtos);
-                for(Produto p:produtos){
-                valor += (p.getPreco() * p.getQuantidade());
-                }
-                o.setValor(valor);
-                oDB.alterar(o);
 
                 ProdutoDAO pDB = new ProdutoDAO();
 
@@ -124,6 +119,13 @@ public class AlterarOrcamento extends HttpServlet {
                 }
                 pDB.desconectar();
 
+                for(Produto p:pDB.produtosOrcamento(id)){
+                valor += (p.getPreco() * p.getQuantidade());
+                }
+                o.setValor(valor);
+                oDB.alterar(o);
+
+                
 
                 cDB.desconectar();
                 caDB.desconectar();
