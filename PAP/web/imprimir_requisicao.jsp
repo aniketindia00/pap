@@ -38,9 +38,9 @@
         $('#reimp').prepend('<a id="print" class="button" href="#">Click aqui para reimprimir</a>');
                 $('a#print').click(function() {
             $('a#print').hide(); //antes de imprimir escondo o link
-            $('a#valor').hide(); //antes de imprimir escondo o link
+            $('a#voltar').hide(); //antes de imprimir escondo o link
             window.print();
-            $('a#valor').show(); //depois que imprimir exibe.
+            $('a#voltar').show(); //depois que imprimir exibe.
             $('a#print').show(); //depois que imprimir exibe.
             return false;
         });
