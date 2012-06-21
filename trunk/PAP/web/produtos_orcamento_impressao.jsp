@@ -21,6 +21,12 @@
 
 
         <table align="center" class="fillall">
+            <tr>
+            <td width="60%">Nome</td>
+                <td>Preco</td>
+                <td>Quantidade</td>
+                <td>Total do Produto</td>
+            </tr>
             <%
                         try {
                             double valor = 0;
@@ -28,10 +34,6 @@
                             if (session.getAttribute("produtos") != null) {
                                 produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                             }
-
-                for(Produto p:produtos){
-                    valor += (p.getPreco() * p.getQuantidade());
-                }
                    
                 for (Produto p : produtos) {%>
 
@@ -39,7 +41,8 @@
                 
                 <td width="60%"><%=p.getNome()%></td>
                 <td>R$ <%=p.getPreco()%></td>
-                <td><input type="text" value="<%=p.getQuantidade()%>"  onkeyup="refreshPage('valor','inserir_produto_sessao.do?div=valor_total&id=<%=p.getId()%>&qnt='+this.value);" size="2"></td>
+                <td><%=p.getQuantidade()%></td>
+                <td><%=p.getPreco()*p.getQuantidade()%></td>
             </tr>
 
             <%}
