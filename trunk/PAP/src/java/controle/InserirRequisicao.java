@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +28,7 @@ import modelo.RequisicaoDAO;
  * @author DaviDBL
  */
 public class InserirRequisicao extends HttpServlet {
-   
+
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -37,7 +37,7 @@ public class InserirRequisicao extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
@@ -45,7 +45,7 @@ public class InserirRequisicao extends HttpServlet {
 
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InserirRequisicao</title>");  
+            out.println("<title>Servlet InserirRequisicao</title>");
             out.println("</head>");
             out.println("<body>");
 
@@ -53,8 +53,8 @@ public class InserirRequisicao extends HttpServlet {
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                 String cpf = request.getParameter("cpf");
 
-                double valor=0;
-                
+                double valor = 0;
+
                 String nome = request.getParameter("nome");
                 String oficina = request.getParameter("oficina");
                 String telefone = request.getParameter("telefone");
@@ -65,34 +65,46 @@ public class InserirRequisicao extends HttpServlet {
                 MecanicoDAO mDB = new MecanicoDAO();
 
                 mDB.conectar();
-                
+
                 Requisicao r = new Requisicao();
-                
-                if(mDB.carregaPorCpf(cpf) == null){
-                m.setCpf(cpf);
-                m.setNome(nome);
-                m.setOficina(oficina);
-                m.setTelefone(telefone);
-                r.setMecanico(m);
-                mDB.inserir(m);
-                }else{
-                m = mDB.carregaPorCpf(cpf);
+
+                if (mDB.carregaPorCpf(cpf) == null) {
+                    m.setCpf(cpf);
+                    m.setNome(nome);
+                    m.setOficina(oficina);
+                    m.setTelefone(telefone);
+                    r.setMecanico(m);
+                    mDB.inserir(m);
+                } else {
+                    m = mDB.carregaPorCpf(cpf);
                 }
 
-                for(Produto p:produtos){
-                valor += (p.getPreco() * p.getQuantidade());
+                for (Produto p : produtos) {
+                    valor += (p.getPreco() * p.getQuantidade());
                 }
-                
+
                 r.setValor(valor);
                 r.setProdutos(produtos);
 
                 TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
-                String horaF = "HH:mm:ss";
-                String dataF = "dd/MM/yyyy";
-                String data = new SimpleDateFormat(dataF).format(new Date());
-                String hora = new SimpleDateFormat(horaF).format(new Date());
- 
-                r.setDataEmissao(data);
+                DateFormat horaF = new SimpleDateFormat("HH:mm:ss");
+                DateFormat dataF = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dataMysql = new SimpleDateFormat("yyyy/MM/dd");
+
+                Date date = new Date();
+
+
+                String hora = horaF.format(date);
+                //out.print("Hora Normal: "+hora);
+                //out.print("<br />");
+                String dataNormal = dataF.format(date);
+                //out.print("Data Formato Brasil: "+dataNormal);
+                //out.print("<br />");
+                String dataBancoDados = dataMysql.format(date);
+                //out.print("Data Formato Banco de Dados MySQL: "+dataBancoDados);
+                //out.print("<br />");
+
+                r.setDataEmissao(dataBancoDados);
                 r.setHoraEmissao(hora);
 
                 r.setCpfMecanico(cpf);
@@ -102,15 +114,15 @@ public class InserirRequisicao extends HttpServlet {
                 ProdutoDAO pDB = new ProdutoDAO();
 
                 pDB.conectar();
-                for(Produto p:produtos){
-                    pDB.vincularProdutoRequisicao(p.getId(), rDB.carregaPorDataHoraValor(data, hora, valor).getId());
+                for (Produto p : produtos) {
+                    //pDB.vincularProdutoRequisicao(p.getId(), rDB.carregaPorDataHoraValor(data, hora, valor).getId());
                 }
                 pDB.desconectar();
 
                 rDB.desconectar();
 
                 mDB.desconectar();
-                
+
             } catch (Exception e) {
                 out.print(e);
             }
@@ -118,10 +130,10 @@ public class InserirRequisicao extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
 
-        } finally { 
+        } finally {
             out.close();
         }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -133,9 +145,9 @@ public class InserirRequisicao extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
-    } 
+    }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -146,7 +158,7 @@ public class InserirRequisicao extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -158,5 +170,4 @@ public class InserirRequisicao extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
