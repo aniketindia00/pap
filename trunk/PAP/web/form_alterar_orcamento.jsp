@@ -73,7 +73,7 @@
                                             session.setAttribute("produtos", o.getProdutos());
                             %>
                             <form action="alterar_orcamento.do" method="POST">
-                                <input type="text" value="0" id="id" name="id" hidden />
+                                <input type="text" value="<%=id%>" id="id" name="id" hidden />
                                 <table align="center" class="fill">
                                     <tr>
                                         <td width="50%">
