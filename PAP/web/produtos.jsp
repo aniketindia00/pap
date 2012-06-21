@@ -43,7 +43,7 @@
                         <td ><%=p.getNome()%></td>
                         <td>R$ <%=p.getPreco()%></td>
                         <td><%=p.getCodBarras()%></td>
-                        <td><a href="#" onclick="refreshPage('produtos2','inserir_produto_sessao.do?div=produtos_orcamento&id=<%=p.getId()%>&qnt=1'); refreshPage('valor','valor_total.jsp');"><img src="imagens/add.png"/></a></td>
+                        <td><a href="#" onclick="refreshPage('produtos2','inserir_produto_sessao.do?div=produtos_adicionados&id=<%=p.getId()%>&qnt=1'); refreshPage('valor','valor_total.jsp');"><img src="imagens/add.png"/></a></td>
                     </tr>
 
 <%}

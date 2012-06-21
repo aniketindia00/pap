@@ -25,12 +25,11 @@
             <%
                         try {
                             double valor = 0;
-                            ArrayList<Produto> produtos = new ArrayList<Produto>();
-                            if (session.getAttribute("produtos") != null) {
-                                produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-                            }
-                   
-                for (Produto p : produtos) {%>
+                int id_orcamento =(Integer) session.getAttribute("id_orcamento");
+                ProdutoDAO pDB = new ProdutoDAO();
+
+                pDB.conectar();
+                for(Produto p:pDB.produtosOrcamento(id_orcamento)){%>
 
             <tr>
                 

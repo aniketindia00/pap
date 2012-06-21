@@ -58,7 +58,7 @@
                         if(request.getParameter("id") != null){
                             id = Integer.parseInt(request.getParameter("id"));
                         }
-
+                        session.setAttribute("id_orcamento", id);
 
                         OrcamentoDAO oDB = new OrcamentoDAO();
                         CarroDAO carDB = new CarroDAO();
@@ -115,7 +115,7 @@
 
             <tr>
                 <td colspan="4">
-                    <%@include file="produtos_impressao.jsp" %>
+                    <%@include file="produtos_orcamento_impressao.jsp" %>
                 </td>
             </tr>
         </table><!-- tabela pecas-->
@@ -134,7 +134,7 @@
 <%
                             oDB.desconectar();
                             carDB.desconectar();
-                            session.removeAttribute("produtos");
+                            session.removeAttribute("id_orcamento");
                         } catch (Exception e) {
 
                             out.println(e);

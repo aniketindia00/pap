@@ -88,7 +88,7 @@ public class AlterarRequisicao extends HttpServlet {
                    pDB.desvincularProdutoRequisicao(p.getId(), id);
                 }
                    for(Produto p:produtos){
-                   pDB.vincularProdutoRequisicao(p.getId(), id);
+                   pDB.vincularProdutoRequisicao(p.getId(), id, p.getQuantidade());
                 }
 
                 for(Produto p:produtos){
@@ -124,6 +124,7 @@ public class AlterarRequisicao extends HttpServlet {
                 out.print(" alert('Registros alterados com sucesso! Imprimindo...');");
                 out.print(" window.open('imprimir_requisicao.jsp?id="+id+"','_parent');");
                 out.print("</script>");
+                session.removeAttribute("produtos");
 
             } catch (Exception e) {
                 out.print(e);

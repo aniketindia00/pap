@@ -82,6 +82,7 @@
                                         Orcamento o = new Orcamento();
                                         try {
                                             id = Integer.parseInt(request.getParameter("id"));
+                                            session.setAttribute("id_orcamento", id);
 
                                             OrcamentoDAO oDB = new OrcamentoDAO();
 
@@ -147,7 +148,7 @@
                                                     <td class="" colspan="2">
                                                         <font class="subTitle">Produtos Adicionados:</font>
                                                         <div class="box minStdHeight ui-corner-all" id="produtos2">
-                                                            <%@include file="produtos_orcamento.jsp" %>
+                                                            <%@include file="produtos_adicionados.jsp" %>
                                                         </div></td>
                                                 </tr>
                                                 <tr>

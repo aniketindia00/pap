@@ -93,7 +93,7 @@
                                         Requisicao r = new Requisicao();
                                         try {
                                             id = Integer.parseInt(request.getParameter("id"));
-
+                                            session.setAttribute("id_requisicao", id);
                                             RequisicaoDAO rDB = new RequisicaoDAO();
 
 
@@ -134,7 +134,7 @@
                                                 <td class="" colspan="2">
                                                     <font class="subTitle">Produtos Adicionados:</font>
                                                     <div class="box minStdHeight ui-corner-all" id="produtos2">
-                                                        <%@include file="produtos_orcamento.jsp" %>
+                                                        <%@include file="produtos_adicionados.jsp" %>
                                                     </div></td>
                                             </tr>
                                             <tr>

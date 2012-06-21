@@ -128,6 +128,7 @@
                                             <td >
                                                 <button class="button" href="form_alterar_requisicao.jsp?id=<%=r.getId()%>" onclick="window.open('form_alterar_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/edit.png"></button>
                                                 <button class="button" onclick="confirmaReq(<%=r.getId()%>)"><img src="imagens/delete.png"></button>
+                                                <button class="button" href="imprimir_requisicao.jsp?id=<%=r.getId()%>" onclick="window.open('imprimir_requisicao.jsp?id=<%=r.getId()%>','_parent');"><img src="imagens/print.png"></button>
                                             </td>
                                         </tr>
 

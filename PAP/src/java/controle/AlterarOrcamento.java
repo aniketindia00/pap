@@ -116,7 +116,7 @@ public class AlterarOrcamento extends HttpServlet {
                    pDB.desvincularProdutoOrcamento(p.getId(), id);
                 }
                    for(Produto p:produtos){
-                   pDB.vincularProdutoOrcamento(p.getId(), id);
+                   pDB.vincularProdutoOrcamento(p.getId(), id, p.getQuantidade());
                 }
 
                 for(Produto p:produtos){
@@ -136,6 +136,7 @@ public class AlterarOrcamento extends HttpServlet {
                 out.print(" alert('Registros alterados com sucesso! Imprimindo...');");
                 out.print(" window.open('imprimir_orcamento.jsp?id="+id+"','_parent');");
                 out.print("</script>");
+                session.removeAttribute("produtos");
             } catch (Exception e) {
                 out.print(e);
                 session.removeAttribute("produtos");

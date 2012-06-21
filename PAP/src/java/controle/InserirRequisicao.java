@@ -120,7 +120,7 @@ public class InserirRequisicao extends HttpServlet {
 
                 pDB.conectar();
                 for (Produto p : produtos) {
-                    pDB.vincularProdutoRequisicao(p.getId(), id_requisicao);
+                    pDB.vincularProdutoRequisicao(p.getId(), id_requisicao, p.getQuantidade());
                 }
                 pDB.desconectar();
 
