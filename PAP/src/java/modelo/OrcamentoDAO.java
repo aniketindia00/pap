@@ -19,19 +19,27 @@ public class OrcamentoDAO extends DataBaseDAO{
     public OrcamentoDAO() throws Exception {
     }
 
-    public void inserir(Orcamento o) throws SQLException{
-
+    public int inserir(Orcamento o) throws SQLException{
+        int id = 0;
         PreparedStatement pst;
-        String sql = "INSERT INTO orcamento (id, id_cliente, data_emissao, hora_emissao, valor,id_carro) values(?,?,?,?,?,?)";
+        PreparedStatement pst1;
+        String sql = "INSERT INTO orcamento ( id_cliente, data_emissao, hora_emissao, valor,id_carro) values(?,?,?,?,?)";
         pst = conn.prepareStatement(sql);
-        pst.setInt(1,o.getId());
-        pst.setInt(2, o.getIdCliente());
+        pst.setInt(1, o.getIdCliente());
+        pst.setString(2, o.getDataEmissao());
         pst.setString(3, o.getDataEmissao());
-        pst.setString(4, o.getDataEmissao());
-        pst.setDouble(5, o.getValor());
-        pst.setInt(6, o.getIdCarro());
+        pst.setDouble(4, o.getValor());
+        pst.setInt(5, o.getIdCarro());
         pst.execute();
-
+        String sql1 ="SELECT * FROM orcamento WHERE hora_emissao=?";
+        pst1 =conn.prepareStatement(sql1);
+        pst1.setInt(1, o.getIdCliente());
+        pst1.setString(2, o.getHoraEmissao());
+        ResultSet rs = pst1.executeQuery();
+        if(rs.next()){
+        id = rs.getInt("id");
+        }
+        return id;
     }
 
     public void alterar(Orcamento o) throws SQLException{
