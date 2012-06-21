@@ -70,7 +70,7 @@
                                             r = rDB.carregaPorId(id);
                                             session.setAttribute("produtos", r.getProdutos());
                             %>
-                            <form action="form_inserir_requisicao.jsp" method="POST">
+                            <form action="alterar_requisicao.do" method="POST">
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="100%">
