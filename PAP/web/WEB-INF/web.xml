@@ -210,7 +210,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarOrcamento</servlet-name>
-        <url-pattern>/alterar_orcamento.co</url-pattern>
+        <url-pattern>/alterar_orcamento.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
