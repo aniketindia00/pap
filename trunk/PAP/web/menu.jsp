@@ -17,7 +17,7 @@ try{
             + "<img src='"+mp.getIcone()+"'>"+mp.getMenu()+"</div></a></td></tr>" );
     }
 
-    out.print("<a class='button' href='sair.jsp'>(Sair)</a>");
+    out.print("<tr><td><a class='button' href='sair.jsp'>(Sair)</a></td></tr>");
 
     logged = true;
 
