@@ -30,10 +30,9 @@
 
     <body nLoad="javascript:window.print()">
         <%
-                    int id = 0;
                     Orcamento o = new Orcamento();
                     try {
-                        id = Integer.parseInt(request.getParameter("id"));
+                        int id = Integer.parseInt(request.getParameter("id"));
 
                         OrcamentoDAO oDB = new OrcamentoDAO();
 
