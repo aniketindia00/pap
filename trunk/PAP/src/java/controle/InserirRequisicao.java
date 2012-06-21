@@ -50,7 +50,11 @@ public class InserirRequisicao extends HttpServlet {
             out.println("<body>");
 
             try {
+                int cpf_mecanico = 0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
+                if(request.getParameter("cpf_mecanico") != null){
+                cpf_mecanico = Integer.parseInt(request.getParameter("cpf_mecanico"));
+                }
                 String cpf = request.getParameter("cpf");
 
                 double valor = 0;
@@ -73,7 +77,7 @@ public class InserirRequisicao extends HttpServlet {
                     m.setNome(nome);
                     m.setOficina(oficina);
                     m.setTelefone(telefone);
-                    r.setMecanico(m);
+                    
                     mDB.inserir(m);
                 } else {
                     m = mDB.carregaPorCpf(cpf);
@@ -83,8 +87,10 @@ public class InserirRequisicao extends HttpServlet {
                     valor += (p.getPreco() * p.getQuantidade());
                 }
 
+                r.setMecanico(m);
                 r.setValor(valor);
                 r.setProdutos(produtos);
+                r.setCpfMecanico(m.getCpf());
 
                 TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
                 DateFormat horaF = new SimpleDateFormat("HH:mm:ss");
@@ -104,18 +110,18 @@ public class InserirRequisicao extends HttpServlet {
                 //out.print("Data Formato Banco de Dados MySQL: "+dataBancoDados);
                 //out.print("<br />");
 
-                r.setDataEmissao(dataBancoDados);
+                r.setDataEmissao(dataNormal);
                 r.setHoraEmissao(hora);
 
                 r.setCpfMecanico(cpf);
 
-                rDB.inserir(r);
+                int id_requisicao = rDB.inserir(r);
 
                 ProdutoDAO pDB = new ProdutoDAO();
 
                 pDB.conectar();
                 for (Produto p : produtos) {
-                    //pDB.vincularProdutoRequisicao(p.getId(), rDB.carregaPorDataHoraValor(data, hora, valor).getId());
+                    pDB.vincularProdutoRequisicao(p.getId(), id_requisicao);
                 }
                 pDB.desconectar();
 

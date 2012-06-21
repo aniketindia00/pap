@@ -79,10 +79,6 @@ public class InserirOrcamento extends HttpServlet {
                 c = cDB.carregaPorNomeTelefone(nome, telefone);
                 }
 
-
-
-                
-
                 CarroDAO caDB = new CarroDAO();
 
                 caDB.conectar();
