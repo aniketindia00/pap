@@ -39,7 +39,8 @@
 
                         
                         CarroDAO carDB = new CarroDAO();
-                        Carro car = carDB.carregaPorId(o.getIdCarro());
+                        ArrayList<Carro> car = new ArrayList<Carro>();
+                        car = carDB.carrosCliente(id);
                         oDB.conectar();
                         o = oDB.carregaPorId(id);
                         session.setAttribute("produtos", o.getProdutos());
@@ -72,8 +73,8 @@
             <td width="25%" align="right">Telefone: <%=o.getCliente().getTelefone() %> &nbsp;</td>
         </tr>
         <tr>
-            <td>Marca: <%=car.getMarca() %> </td>
-            <td>Modelo: <%=car.getModelo() %> </td>
+            <td>Marca: <%=car.get(marca.Carro) %> </td>
+            <td>Modelo: <%=car.get(modelo.Carro) %> </td>
             <td width="20%" align="right" >Ano: <%=car.getAno() %> &nbsp;</td>
         </tr>
     </table><!-- tabela cliente-->
