@@ -75,7 +75,7 @@
 
                         if(p.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_produto" action="alterar_produto.do" method="POST">
+                            <form name="form_alterar_produto" action="alterar_produto.do" method="POST" onsubmit="return validaForm() ">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(p.getId());%>"/> </td>

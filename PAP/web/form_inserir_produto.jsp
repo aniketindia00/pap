@@ -31,7 +31,7 @@
 
                 if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    campo_nome.focus();
                     return false;
                 }
                 if(campo_codBarras.value==""){
@@ -44,6 +44,8 @@
                     campo_preco.focus();
                     return false;
                 }
+                
+
                 return true;
         }
         </script>
