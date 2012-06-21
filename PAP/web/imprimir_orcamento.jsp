@@ -21,14 +21,32 @@
     <head>
         <link href="css/main.css" rel="stylesheet" type="text/css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/custom-theme/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="js/teste.js"></script>
         <title>Orçamento - Pointer Auto Peças</title>
+        <script type="text/javascript">
+    $(document).ready(function() {
+        $('#reimp').prepend('<a id="print" class="button" href="#">Click aqui para reimprimir</a>');
+        $('a#print').click(function() {
+            $('a#print').hide(); //antes de imprimir escondo o link
+            window.print();
+            $('a#print').show(); //depois que imprimir exibe.
+            return false;
+        });
+
+    });
+        </script>
     </head>
 
     <STYLE TYPE="text/css">
         P.quebra-aqui {page-break-before: always}
     </STYLE>
 
-    <body nLoad="javascript:window.print()">
+    <body onLoad="javascript:window.print()">
         <%
                     Orcamento o = new Orcamento();
                     int id =0;
@@ -101,13 +119,14 @@
         <table class="subtotal" width="654"  border="1" cellspacing="0" cellpadding="0">
             <tr>
                 <td width="85%" colspan="3"><b>SUBTOTAL</b></td>
-                <td width="15%" align="center"> R$ <%=o.getValor() %> </td>
+                <td width="15%" align="center"> R$ <%=o.getValor() %>  </td>
             </tr>
         </table>
     </div>
 
 </td></tr>
 </table>
+<div class="fill" align="center" id="reimp" ></div>
 <!-- <p class="quebra-aqui"></p> -->
 <%
                             oDB.desconectar();
