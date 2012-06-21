@@ -54,6 +54,7 @@ public class AlterarOrcamento extends HttpServlet {
                 double valor = 0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                 int id = Integer.parseInt(request.getParameter("id"));
+                int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
                 int id_carro = Integer.parseInt(request.getParameter("id_carro"));
                 String nome = request.getParameter("nome");
                 String telefone = request.getParameter("telefone");
@@ -64,7 +65,7 @@ public class AlterarOrcamento extends HttpServlet {
                 ClienteDAO cDB = new ClienteDAO();
                 cDB.conectar();
                 Cliente c = new Cliente();
-                if(cDB.carregaPorNomeTelefone(nome, telefone) == null || cDB.carregaPorId(id) == null){
+                if(cDB.carregaPorNomeTelefone(nome, telefone) == null || cDB.carregaPorId(id_cliente) == null){
                 c.setNome(nome);
                 c.setTelefone(telefone);
                 cDB.alterar(c);
@@ -116,7 +117,7 @@ public class AlterarOrcamento extends HttpServlet {
 
                 pDB.conectar();
                 for(Produto p:produtos){
-                   // pDB.vincularProdutoOrcamento(p.getId(), oDB.carregaPorDataHoraValor(data, hora, valor).getId());
+                   pDB.vincularProdutoOrcamento(p.getId(), oDB.carregaPorDataHoraValor(data, hora, valor).getId());
                 }
                 pDB.desconectar();
 
@@ -124,6 +125,11 @@ public class AlterarOrcamento extends HttpServlet {
                 cDB.desconectar();
                 caDB.desconectar();
                 oDB.desconectar();
+
+                out.print("<script language='JavaScript'>");
+                out.print(" alert('Registros alterados com sucesso!');");
+                out.print(" window.open('listar_orcamento.jsp','_parent');");
+                out.print("</script>");
             } catch (Exception e) {
                 out.print(e);
             }

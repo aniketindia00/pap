@@ -53,11 +53,11 @@ public class InserirOrcamento extends HttpServlet {
             out.println("<body>");
             try {
                 double valor = 0;
-                int id = 0;
+                int id_cliente = 0;
                 int id_carro = 0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-                if(request.getParameter("id") != null){
-                id = Integer.parseInt(request.getParameter("id"));
+                if(request.getParameter("id_cliente") != null){
+                id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
                 }
                 if(request.getParameter("id_carro") != null){
                 id_carro = Integer.parseInt(request.getParameter("id_carro"));
@@ -71,7 +71,7 @@ public class InserirOrcamento extends HttpServlet {
                 ClienteDAO cDB = new ClienteDAO();
                 cDB.conectar();
                 Cliente c = new Cliente();
-                if(cDB.carregaPorNomeTelefone(nome, telefone) == null || cDB.carregaPorId(id) == null){
+                if(cDB.carregaPorNomeTelefone(nome, telefone) == null || cDB.carregaPorId(id_cliente) == null){
                 c.setNome(nome);
                 c.setTelefone(telefone);
                 cDB.inserir(c);
@@ -131,8 +131,14 @@ public class InserirOrcamento extends HttpServlet {
                 cDB.desconectar();
                 caDB.desconectar();
                 oDB.desconectar();
+
+                out.print("<script language='JavaScript'>");
+                out.print(" alert('Registros inseridos com sucesso!');");
+                out.print(" window.open('listar_orcamento.jsp','_parent');");
+                out.print("</script>");
             } catch (Exception e) {
                 out.print(e);
+
             }
             out.println("</body>");
             out.println("</html>");
