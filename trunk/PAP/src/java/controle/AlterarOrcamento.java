@@ -114,16 +114,7 @@ public class AlterarOrcamento extends HttpServlet {
                 o.setIdCarro(caDB.carregaPorModeloAnoMarca(modelo, ano, marca).getId());
                 o.setProdutos(produtos);
 
-                ProdutoDAO pDB = new ProdutoDAO();
-
-                pDB.conectar();
-                for(Produto p:pDB.produtosOrcamento(id)){
-                   pDB.desvincularProdutoOrcamento(p.getId(), id);
-                }
-                for(Produto p:produtos){
-                   pDB.vincularProdutoOrcamento(p.getId(), id);
-                }
-                pDB.desconectar();
+                
 
                 for(Produto p:produtos){
                 valor += (p.getPreco() * p.getQuantidade());
@@ -131,16 +122,25 @@ public class AlterarOrcamento extends HttpServlet {
                 o.setValor(valor);
                 oDB.alterar(o);
 
-                
+                ProdutoDAO pDB = new ProdutoDAO();
+
+                pDB.conectar();
+                for(Produto p:pDB.produtosOrcamento(id)){
+                   pDB.desvincularProdutoOrcamento(p.getId(), id);
+                }
+                /*for(Produto p:produtos){
+                   pDB.vincularProdutoOrcamento(p.getId(), id);
+                }*/
+                pDB.desconectar();
 
                 cDB.desconectar();
                 caDB.desconectar();
                 oDB.desconectar();
 
-                out.print("<script language='JavaScript'>");
+                /*out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");
                 out.print(" window.open('listar_orcamento.jsp','_parent');");
-                out.print("</script>");
+                out.print("</script>");*/
             } catch (Exception e) {
                 out.print(e);
             }
