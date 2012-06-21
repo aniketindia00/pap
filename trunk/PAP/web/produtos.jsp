@@ -13,8 +13,10 @@
 <table align="center" class="fill">
 <%
                 try {
+                    
                     String coluna;
                     String query;
+                    
                     if(request.getParameter("coluna") != null){
                     coluna = request.getParameter("coluna");
                     query = request.getParameter("query");
@@ -33,6 +35,7 @@
 //                        }
 //                    }
 //                   }
+
                     for(Produto p:lista){%>
 
                     <tr>
