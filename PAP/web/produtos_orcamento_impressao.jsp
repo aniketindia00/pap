@@ -21,12 +21,7 @@
 
 
         <table align="center" class="fillall">
-            <tr>
-            <td width="60%">Nome</td>
-                <td>Preco</td>
-                <td>Quantidade</td>
-                <td>Total do Produto</td>
-            </tr>
+            
             <%
                         try {
                             double valor = 0;
@@ -39,10 +34,10 @@
 
             <tr>
                 
-                <td width="60%"><%=p.getNome()%></td>
-                <td>R$ <%=p.getPreco()%></td>
-                <td><%=p.getQuantidade()%></td>
-                <td><%=p.getPreco()*p.getQuantidade()%></td>
+                <td  width="440"><%=p.getNome()%></td>
+                <td width="90">R$ <%=p.getPreco()%></td>
+                <td width="40"><%=p.getQuantidade()%></td>
+                <td width="35"><%=p.getPreco()*p.getQuantidade()%></td>
             </tr>
 
             <%}

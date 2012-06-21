@@ -37,13 +37,13 @@
 
                         OrcamentoDAO oDB = new OrcamentoDAO();
 
-                        ArrayList<Carro> carros1 = new ArrayList<Carro>();
+                        
+                        CarroDAO carDB = new CarroDAO();
+                        Carro car = carDB.carregaPorId(o.getIdCarro());
                         oDB.conectar();
                         o = oDB.carregaPorId(id);
-                        Carro ca = new Carro();
-                        CarroDAO caDB = new CarroDAO();
-                        ca = caDB.carregaPorId(o.getIdCarro());
                         session.setAttribute("produtos", o.getProdutos());
+
         %>
         <table class="impressao" width="657" border="2" cellspacing="0" cellpadding="0" align="center"><!-- tabela geral-->
             <tr><td>
@@ -54,8 +54,8 @@
                             <td width="85%"colspan="3" align="center"> <h2>Orçamento</h2></td></tr>
                         <tr>
                         <tr>
-                            <td align="right" width="90px">Data: DATA <%=o.getHoraEmissao() %>&nbsp;</td>
-                            <td align="right">Hora: HORA <%=o.getDataEmissao() %>&nbsp;</td>
+                            <td align="right" width="90px">Data: <%=o.getDataEmissao() %>&nbsp;</td>
+                            <td align="right">Hora: <%=o.getHoraEmissao() %>&nbsp;</td>
                         </tr>
                     </table>
                     <br />
@@ -72,9 +72,9 @@
             <td width="25%" align="right">Telefone: <%=o.getCliente().getTelefone() %> &nbsp;</td>
         </tr>
         <tr>
-            <td>Marca: <%=ca.getMarca() %> </td>
-            <td>Modelo: <%=ca.getModelo() %> </td>
-            <td width="20%" align="right" >Ano: <%=ca.getAno() %> &nbsp;</td>
+            <td>Marca: <%=car.getMarca() %> </td>
+            <td>Modelo: <%=car.getModelo() %> </td>
+            <td width="20%" align="right" >Ano: <%=car.getAno() %> &nbsp;</td>
         </tr>
     </table><!-- tabela cliente-->
     <br />
@@ -88,8 +88,8 @@
             </tr>
 
             <tr>
-                <td>
-                    <%@include file="produtos_orcamento.jsp" %>
+                <td colspan="4">
+                    <%@include file="produtos_orcamento_impressao.jsp" %>
                 </td>
             </tr>
         </table><!-- tabela pecas-->
