@@ -34,6 +34,40 @@
                     }
                 });
             });
+
+
+            function validaForm(){
+
+            var form_inserir_requisicao=document.form_inserir_requisicao;
+                var campo_nome=form_inserir_requisicao.nome;
+                var campo_cpf=form_inserir_requisicao.cpf;
+                var campo_oficina=form_inserir_requisicao.oficina;
+                var campo_telefone=form_inserir_requisicao.telefone;
+
+                if(campo_nome.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_nome.focus();
+                    return false;
+                }
+                if(campo_cpf.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_cpf.focus();
+                    return false;
+                }
+                if(campo_oficina.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_oficina.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+
+
+                return true;
+        }
         </script>
 
     </head>
@@ -55,7 +89,7 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" valign="top">
-                            <form action="form_inserir_requisicao.jsp" method="POST">
+                            <form name="form_inserir_requisicao" action="form_inserir_requisicao.jsp" method="POST" onsubmit="return validaForm()">
                             <table align="center" class="fill">
                                 <tr>
                                     <td class="fill">
