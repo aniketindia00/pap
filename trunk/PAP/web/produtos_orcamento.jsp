@@ -23,7 +23,7 @@
         <table align="center" class="fillall">
             <%
                         try {
-                            int valor = 0;
+                            double valor = 0;
                             ArrayList<Produto> produtos = new ArrayList<Produto>();
                             if (session.getAttribute("produtos") != null) {
                                 produtos = (ArrayList<Produto>) session.getAttribute("produtos");
@@ -34,7 +34,7 @@
                 }
                     %>
                         <tr>
-                            <td colspan="5" align="right" >Valor Total <input type="text" value="<%=valor%>" ></td>
+                            <td colspan="5" align="right" ><div id="valor" >Valor Total <input type="text" value="<%=valor%>" ></div></td>
                         </tr>
                     <%
                 for (Produto p : produtos) {%>
@@ -44,7 +44,7 @@
                 <td width="60%"><%=p.getNome()%></td>
                 <td>R$ <%=p.getPreco()%></td>
                 <td><%=p.getCodBarras()%></td>
-                <td>Qnt. <input type="text" value="<%=p.getQuantidade()%>"  onkeypress="refreshPage('produtos2','inserir_produto_sessao.do?id=<%=p.getId()%>&qnt='+this.value);" size="2"></td>
+                <td>Qnt. <input type="text" value="<%=p.getQuantidade()%>"  onkeyup="refreshPage('valor','inserir_produto_sessao.do?div=valor_total&id=<%=p.getId()%>&qnt='+this.value);" size="2"></td>
                 <td><a href="#" onclick="refreshPage('produtos2','excluir_produto_sessao.do?id=<%=p.getId()%>'); refreshPage('valor','valor_total.jsp');"><img src="imagens/delete.png"/></a></td>
             </tr>
 

@@ -66,16 +66,16 @@ public class InserirProdutoSessao extends HttpServlet {
                 produtos.remove(p2);
                 produtos.add(p);
                 }
-                response.sendRedirect("produtos_orcamento.jsp");
+                response.sendRedirect(request.getParameter("div")+".jsp");
                 }else{
                 produtos.add(p);
                 session.removeAttribute("produtos");
                 session.setAttribute("produtos",produtos);
-                response.sendRedirect("produtos_orcamento.jsp");
+                response.sendRedirect(request.getParameter("div")+".jsp");
                 
                 }
             } catch (Exception e) {
-                response.sendRedirect("produtos_orcamento.jsp");
+                response.sendRedirect(request.getParameter("div")+".jsp");
             }
 
         } finally { 
