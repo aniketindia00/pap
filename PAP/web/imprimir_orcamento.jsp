@@ -131,6 +131,7 @@
 <%
                             oDB.desconectar();
                             carDB.desconectar();
+                            session.removeAttribute("produtos");
                         } catch (Exception e) {
 
                             out.println(e);

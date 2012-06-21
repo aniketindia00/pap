@@ -134,6 +134,7 @@ public class InserirOrcamento extends HttpServlet {
                 out.print("</script>");
             } catch (Exception e) {
                 out.print(e);
+                session.removeAttribute("produtos");
 
             }
             out.println("</body>");

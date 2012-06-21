@@ -130,7 +130,7 @@
                                         </table>
                                     </td></tr>
                                 <tr>
-                                    <td><input type="reset" value="Limpar"><input type="submit" value="Salvar e Imprimir" ></td>
+                                    <td><input type="reset" class="button" value="Limpar"><input type="submit" class="button" value="Salvar e Imprimir" ></td>
                                   
                                 </tr>
                             </table>
