@@ -24,12 +24,30 @@
         <script type="text/javascript">
             function validaForm(){
 
-            var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.perfil;
+            var form_alterar_mecanico=document.form_alterar_mecanico;
+                var campo_cpf=form_alterar_mecanico.cpf;
+                var campo_nome=form_alterar_mecanico.nome;
+                var campo_oficina=form_alterar_mecanico.oficina;
+                var campo_telefone=form_alterar_mecanico.telefone;
 
-                if(campo_perfil.value==""){
+                if(campo_cpf.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    campo_cpf.focus();
+                    return false;
+                }
+                if(campo_nome.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_nome.focus();
+                    return false;
+                }
+                if(campo_oficina.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_oficina.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
                     return false;
                 }
                 return true;
@@ -60,7 +78,7 @@
                             </tr>
                         </table>
                         <table align="center">
-                            <form name="form_alterar_mecanico" action="alterar_mecanico.do" method="POST">
+                            <form name="form_alterar_mecanico" action="alterar_mecanico.do" method="POST" onsubmit="return validaForm()">
                                 <%
                     try{
                     String cpf = request.getParameter("cpf");

@@ -80,7 +80,7 @@
 
                         if(p.getId()>0){%>
                         <table align="center">
-                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validaForm();">
+                            <form name="form_alterar_perfil" action="alterar_perfil.do" method="POST" onsubmit="return validaForm()">
                                 <tr>
                                     <td>Id</td>
                                     <td><input type="text" name="id" readonly value="<%out.print(p.getId());%>"/> </td>
