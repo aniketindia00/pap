@@ -69,7 +69,7 @@
                             <table class="tableDist" align="center" >
                                 <tr>
                                     <td align="left"><h1>Lista de Orçamentos</h1></td>
-                                    <td align="right"><a class="button" href="form_inserir_requisicao.jsp">Inserir Requisição</a></td>
+                                    <td align="right"><a class="button" href="form_inserir_orcamento.jsp">Inserir Orçamento</a></td>
                                 </tr>
                             </table>
 
