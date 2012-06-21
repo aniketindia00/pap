@@ -43,10 +43,10 @@ public class OrcamentoDAO extends DataBaseDAO{
         return id;
     }
 
-    public int alterar(Orcamento o) throws SQLException{
-        int id = 0;
+    public void alterar(Orcamento o) throws SQLException{
+
         PreparedStatement pst;
-        PreparedStatement pst1;
+
         String sql ="UPDATE orcamento SET id_cliente=?, data_emissao=?, hora_emissao=?, valor=?, id_carro=?  WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setInt(1, o.getIdCliente());
@@ -56,16 +56,7 @@ public class OrcamentoDAO extends DataBaseDAO{
         pst.setInt(5, o.getIdCarro());
         pst.setInt(6, o.getId());
         pst.execute();
-        String sql1 ="SELECT * FROM orcamento WHERE data_emissao=? AND hora_emissao=? AND id_cliente=?";
-        pst1 =conn.prepareStatement(sql1);
-        pst1.setString(1, o.getDataEmissao());
-        pst1.setString(2, o.getHoraEmissao());
-        pst1.setInt(3, o.getIdCliente());
-        ResultSet rs = pst1.executeQuery();
-        if(rs.next()){
-        id = rs.getInt("id");
-        }
-        return id;
+
 
     }
 

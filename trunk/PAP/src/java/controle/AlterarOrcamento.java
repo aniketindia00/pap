@@ -52,10 +52,16 @@ public class AlterarOrcamento extends HttpServlet {
             out.println("<body>");
             try {
                 double valor = 0;
+                int id = 0;
+                int id_cliente = 0;
+                int id_carro = 0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-                int id = Integer.parseInt(request.getParameter("id"));
-                int id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
-                int id_carro = Integer.parseInt(request.getParameter("id_carro"));
+                if(request.getParameter("id_cliente") != null){
+                id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
+                }
+                if(request.getParameter("id_carro") != null){
+                id_carro = Integer.parseInt(request.getParameter("id_carro"));
+                }
                 String nome = request.getParameter("nome");
                 String telefone = request.getParameter("telefone");
                 String modelo = request.getParameter("modelo");
