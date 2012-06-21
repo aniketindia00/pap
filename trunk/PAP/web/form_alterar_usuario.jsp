@@ -30,14 +30,39 @@
         <script type="text/javascript">
             function validaForm(){
 
-            var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.perfil;
+            var form_alterar_usuario=document.form_alterar_usuario;
+                var campo_nome=form_alterar_usuario.nome;
+                var campo_id_perfil=form_alterar_usuario.id_perfil;
+                var campo_telefone=form_alterar_usuario.telefone;
+                var campo_login=form_alterar_usuario.login;
+                var campo_senha=form_alterar_usuario.senha;
 
-                if(campo_perfil.value==""){
+                if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    campo_nome.focus();
                     return false;
                 }
+                if(campo_id_perfil.value=="0"){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_id_perfil.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+                if(campo_login.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_login.focus();
+                    return false;
+                }
+                if(campo_senha.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_senha.focus();
+                    return false;
+                }
+
                 return true;
         }
         </script>
@@ -83,7 +108,7 @@
                                                 ArrayList<Perfil> lista = pDB.listar();
 
                                 %>
-                                <form action="alterar_usuario.do" method="POST" >
+                                <form name="form_alterar_usuario" action="alterar_usuario.do" method="POST" onsubmit="return validaForm()">
                                     <tr>
                                     <td>Id:</td>
                                     <td><input type="text" readonly size="45" name="id" value="<%=u.getId()%>"/> </td>
