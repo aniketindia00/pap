@@ -46,7 +46,6 @@ public class OrcamentoDAO extends DataBaseDAO{
     public void alterar(Orcamento o) throws SQLException{
 
         PreparedStatement pst;
-
         String sql ="UPDATE orcamento SET id_cliente=?, data_emissao=?, hora_emissao=?, valor=?, id_carro=?  WHERE id=?";
         pst =conn.prepareStatement(sql);
         pst.setInt(1, o.getIdCliente());

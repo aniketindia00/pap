@@ -114,6 +114,7 @@ public class AlterarOrcamento extends HttpServlet {
                 String data = new SimpleDateFormat(dataF).format(new Date());
                 String hora = new SimpleDateFormat(horaF).format(new Date());
                 Orcamento o = new Orcamento();
+                o.setId(id);
                 o.setDataEmissao(data);
                 o.setHoraEmissao(hora);
                 o.setIdCliente(cDB.carregaPorNomeTelefone(nome, telefone).getId());
@@ -127,7 +128,7 @@ public class AlterarOrcamento extends HttpServlet {
                    pDB.vincularProdutoOrcamento(p.getId(), id);
                 }
 
-                for(Produto p:pDB.produtosOrcamento(id)){
+                for(Produto p:produtos){
                 valor += (p.getPreco() * p.getQuantidade());
                 }
                 o.setValor(valor);
