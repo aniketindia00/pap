@@ -72,7 +72,7 @@
                                             ArrayList<Carro> carros = o.getCliente().getCarros();
                                             session.setAttribute("produtos", o.getProdutos());
                             %>
-                            <form action="form_inserir_orcamento.jsp" method="POST">
+                            <form action="alterar_orcamento.do" method="POST">
                                 <table align="center" class="fill">
                                     <tr>
                                         <td width="50%">
