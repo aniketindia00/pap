@@ -56,7 +56,7 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" height="100%" valign="top">
-                            <form action="inserir_orcamento.do" method="POST">
+                            <form name="form_inserir_orcamento" action="inserir_orcamento.do" method="POST">
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="50%">
