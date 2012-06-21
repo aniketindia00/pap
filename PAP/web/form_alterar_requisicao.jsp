@@ -36,6 +36,37 @@
                     }
                 });
             });
+
+            function validaForm(){
+
+                var form_alterar_requisicao=document.form_alterar_requisicao;
+                var campo_cpf=form_alterar_requisicao.cpf;
+                var campo_nome=form_alterar_requisicao.nome;
+                var campo_oficina=form_alterar_requisicao.oficina;
+                var campo_telefone=form_alterar_requisicao.telefone;
+
+                if(campo_cpf.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_cpf.focus();
+                    return false;
+                }
+                if(campo_nome.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_nome.focus();
+                    return false;
+                }
+                if(campo_oficina.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_oficina.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+                return true;
+            }
         </script>
 
     </head>
@@ -70,7 +101,7 @@
                                             r = rDB.carregaPorId(id);
                                             session.setAttribute("produtos", r.getProdutos());
                             %>
-                            <form action="alterar_requisicao.do" method="POST">
+                            <form name="form_alterar_requisicao" action="alterar_requisicao.do" method="POST" onsubmit="return validaForm()">
                                 <input hidden id="id" name="id" value="<%=id%>">
                             <table align="center" class="fill">
                                 <tr>

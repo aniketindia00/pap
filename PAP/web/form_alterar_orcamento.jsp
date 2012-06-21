@@ -37,6 +37,25 @@
                     }
                 });
             });
+
+            function validaForm(){
+
+                var form_alterar_orcamento=document.form_alterar_orcamento;
+                var campo_nome=form_alterar_orcamento.nome;
+                var campo_telefone=form_alterar_orcamento.telefone;
+
+                if(campo_nome.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_nome.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+                return true;
+            }
         </script>
 
     </head>
@@ -72,7 +91,7 @@
                                             ArrayList<Carro> carros = o.getCliente().getCarros();
                                             session.setAttribute("produtos", o.getProdutos());
                             %>
-                            <form action="alterar_orcamento.do" method="POST">
+                            <form name="form_alterar_orcamento" action="alterar_orcamento.do" method="POST" onsubmit="return validaForm()">
                                 <input type="text" value="<%=id%>" id="id" name="id" hidden />
                                 <table align="center" class="fill">
                                     <tr>
