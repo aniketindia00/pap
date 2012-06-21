@@ -27,14 +27,15 @@ public class OrcamentoDAO extends DataBaseDAO{
         pst = conn.prepareStatement(sql);
         pst.setInt(1, o.getIdCliente());
         pst.setString(2, o.getDataEmissao());
-        pst.setString(3, o.getDataEmissao());
+        pst.setString(3, o.getHoraEmissao());
         pst.setDouble(4, o.getValor());
         pst.setInt(5, o.getIdCarro());
         pst.execute();
-        String sql1 ="SELECT * FROM orcamento WHERE hora_emissao=?";
+        String sql1 ="SELECT * FROM orcamento WHERE data_emissao=? AND hora_emissao=? AND id_cliente=?";
         pst1 =conn.prepareStatement(sql1);
-        pst1.setInt(1, o.getIdCliente());
+        pst1.setString(1, o.getDataEmissao());
         pst1.setString(2, o.getHoraEmissao());
+        pst1.setInt(3, o.getIdCliente());
         ResultSet rs = pst1.executeQuery();
         if(rs.next()){
         id = rs.getInt("id");

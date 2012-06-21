@@ -108,7 +108,6 @@ public class InserirOrcamento extends HttpServlet {
                 Date date = new Date();
                 String hora = horaF.format(date);
                 String data = dataF.format(date);
-                out.print(hora);
                 Orcamento o = new Orcamento();
                 o.setDataEmissao(data);
                 o.setHoraEmissao(hora);
@@ -123,14 +122,11 @@ public class InserirOrcamento extends HttpServlet {
 
                 ProdutoDAO pDB = new ProdutoDAO();
                 
-                out.print(id_orcamento);
-               /* pDB.conectar();
+                pDB.conectar();
                 for(Produto p1:produtos){
                     pDB.vincularProdutoOrcamento(p1.getId(), id_orcamento);
-                    out.print(p1.getId());
                 }
-                pDB.desconectar();
-*/  
+                pDB.desconectar();  
 
                 cDB.desconectar();
                 caDB.desconectar();
