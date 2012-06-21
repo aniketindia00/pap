@@ -49,8 +49,12 @@ public class AlterarRequisicao extends HttpServlet {
             out.println("<body>");
 
             try {
+                int id =0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
                 String cpf = request.getParameter("cpf");
+                if(request.getParameter("id") != null){
+                id = Integer.parseInt(request.getParameter("id"));
+                }
 
                 double valor=0;
 
@@ -66,6 +70,9 @@ public class AlterarRequisicao extends HttpServlet {
                 mDB.conectar();
 
                 Requisicao r = new Requisicao();
+                ProdutoDAO pDB = new ProdutoDAO();
+
+                pDB.conectar();
 
                 if(mDB.carregaPorCpf(cpf) == null){
                 m.setNome(nome);
@@ -77,10 +84,16 @@ public class AlterarRequisicao extends HttpServlet {
                 m = mDB.carregaPorCpf(cpf);
                 }
 
+                for(Produto p:pDB.produtosRequisicao(id)){
+                   pDB.desvincularProdutoRequisicao(p.getId(), id);
+                }
+                   for(Produto p:produtos){
+                   pDB.vincularProdutoRequisicao(p.getId(), id);
+                }
+
                 for(Produto p:produtos){
                 valor += (p.getPreco() * p.getQuantidade());
                 }
-
                 r.setValor(valor);
                 r.setProdutos(produtos);
 
@@ -95,19 +108,22 @@ public class AlterarRequisicao extends HttpServlet {
 
                 r.setCpfMecanico(cpf);
 
+                r.setId(id);
+
                 rDB.alterar(r);
 
-                ProdutoDAO pDB = new ProdutoDAO();
 
-                pDB.conectar();
-                for(Produto p:produtos){
-                    pDB.vincularProdutoRequisicao(p.getId(), rDB.carregaPorDataHoraValor(data, hora, valor).getId());
-                }
+                
                 pDB.desconectar();
 
                 rDB.desconectar();
 
                 mDB.desconectar();
+
+                out.print("<script language='JavaScript'>");
+                out.print(" alert('Registros alterados com sucesso!');");
+                out.print(" window.open('listar_requisicao.jsp','_parent');");
+                out.print("</script>");
 
             } catch (Exception e) {
                 out.print(e);
