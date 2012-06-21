@@ -73,9 +73,9 @@
             <td width="25%" align="right">Telefone: <%=o.getCliente().getTelefone() %> &nbsp;</td>
         </tr>
         <tr>
-            <td>Marca: <%=car.get(marca.Carro) %> </td>
-            <td>Modelo: <%=car.get(modelo.Carro) %> </td>
-            <td width="20%" align="right" >Ano: <%=car.getAno() %> &nbsp;</td>
+            <td>Marca: </td>
+            <td>Modelo:  </td>
+            <td width="20%" align="right" >Ano: &nbsp;</td>
         </tr>
     </table><!-- tabela cliente-->
     <br />
