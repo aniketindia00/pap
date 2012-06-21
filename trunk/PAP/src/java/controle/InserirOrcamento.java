@@ -120,7 +120,7 @@ public class InserirOrcamento extends HttpServlet {
                 
                 pDB.conectar();
                 for(Produto p1:produtos){
-                    pDB.vincularProdutoOrcamento(p1.getId(), id_orcamento);
+                    pDB.vincularProdutoOrcamento(p1.getId(), id_orcamento, p1.getQuantidade());
                 }
                 pDB.desconectar();  
 

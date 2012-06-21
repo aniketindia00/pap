@@ -104,6 +104,7 @@
                                                 <td width="25%">
                                                     <button class="button" href="form_alterar_cliente.jsp?id=<%=c.getId()%>" onclick="window.open('form_alterar_cliente.jsp?id=<%=c.getId()%>','_parent');"><img src="imagens/edit.png"></button>
                                                     <button class="button" onclick="confirma(<%=c.getId()%>)"><img src="imagens/delete.png"></button>
+
                                                 </td>
                                             </tr>
                                         </table></a></h3>
@@ -130,6 +131,7 @@
                                             <td >
                                                 <button class="button" href="form_alterar_orcamento.jsp?id=<%=o.getId()%>" onclick="window.open('form_alterar_orcamento.jsp?id=<%=o.getId()%>','_parent');"><img src="imagens/edit.png"></button>
                                                 <button class="button" onclick="confirmaOrc(<%=o.getId()%>)"><img src="imagens/delete.png"></button>
+                                                <button class="button" href="imprimir_orcamento.jsp?id=<%=o.getId()%>" onclick="window.open('imprimir_orcamento.jsp?id=<%=o.getId()%>','_parent');"><img src="imagens/print.png"></button>
                                             </td>
                                         </tr>
 

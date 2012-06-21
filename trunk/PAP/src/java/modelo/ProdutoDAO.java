@@ -87,13 +87,14 @@ public class ProdutoDAO extends DataBaseDAO {
 
     }
 
-    public void vincularProdutoOrcamento(int id_produto, int id_orcamento) throws SQLException{
+    public void vincularProdutoOrcamento(int id_produto, int id_orcamento,int quantidade) throws SQLException{
 
         PreparedStatement pst;
-        String sql = "INSERT INTO orcamento_produto (id_produto,id_orcamento) values(?,?)";
+        String sql = "INSERT INTO orcamento_produto (id_produto,id_orcamento,quantidade) values(?,?,?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1,id_produto);
         pst.setInt(2,id_orcamento);
+        pst.setInt(3, quantidade);
         pst.execute();
 
     }
@@ -113,7 +114,7 @@ public class ProdutoDAO extends DataBaseDAO {
 
         ArrayList<Produto> lista = new ArrayList<Produto>();
         PreparedStatement pst;
-        String sql = "SELECT p.* FROM produto as p, "
+        String sql = "SELECT p.*,po.quantidade FROM produto as p, "
                 + "orcamento_produto as po "
                 + "WHERE po.id_orcamento=? "
                 + "AND po.id_produto = p.id";
@@ -121,9 +122,16 @@ public class ProdutoDAO extends DataBaseDAO {
         pst.setInt(1,id_orcamento);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            Produto p = new Produto();
+            p.setCodBarras(rs.getString("cod_barras"));
+            p.setId(rs.getInt("id"));
+            p.setNome(rs.getString("nome"));
+            p.setPreco(rs.getDouble("preco"));
+            p.setQuantidade(rs.getInt("quantidade"));
+
             lista.add(p);
         }
+        rs.close();
         return lista;
 
     }
@@ -144,13 +152,14 @@ public class ProdutoDAO extends DataBaseDAO {
 
     }
 
-    public void vincularProdutoRequisicao(int id_produto, int id_requisicao) throws SQLException{
+    public void vincularProdutoRequisicao(int id_produto, int id_requisicao, int quantidade) throws SQLException{
 
         PreparedStatement pst;
-        String sql = "INSERT INTO requisicao_produto (id_requisicao,id_produto) values(?,?)";
+        String sql = "INSERT INTO requisicao_produto (id_requisicao,id_produto,quantidade) values(?,?,?)";
         pst = conn.prepareStatement(sql);
         pst.setInt(1,id_requisicao);
         pst.setInt(2,id_produto);
+        pst.setInt(3, quantidade);
         pst.execute();
 
     }
@@ -170,7 +179,7 @@ public class ProdutoDAO extends DataBaseDAO {
 
         ArrayList<Produto> lista = new ArrayList<Produto>();
         PreparedStatement pst;
-        String sql = "SELECT p.* FROM produto as p, "
+        String sql = "SELECT p.*, rp.quantidade FROM produto as p, "
                 + "requisicao_produto as rp "
                 + "WHERE rp.id_requisicao=? "
                 + "AND rp.id_produto = p.id";
@@ -178,7 +187,13 @@ public class ProdutoDAO extends DataBaseDAO {
         pst.setInt(1,id_requisicao);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("cod_barras"),rs.getDouble("preco"));
+            Produto p = new Produto();
+            p.setCodBarras(rs.getString("cod_barras"));
+            p.setId(rs.getInt("id"));
+            p.setNome(rs.getString("nome"));
+            p.setPreco(rs.getDouble("preco"));
+            p.setQuantidade(rs.getInt("quantidade"));
+
             lista.add(p);
         }
         return lista;

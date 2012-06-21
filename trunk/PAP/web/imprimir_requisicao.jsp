@@ -62,7 +62,7 @@
                         if(request.getParameter("id") != null){
                             id = Integer.parseInt(request.getParameter("id"));
                         }
-
+                        session.setAttribute("id_requisicao",id);
 
                         RequisicaoDAO rDB = new RequisicaoDAO();
                         MecanicoDAO mDB = new MecanicoDAO();
@@ -118,7 +118,7 @@
 
             <tr>
                 <td colspan="4">
-                    <%@include file="produtos_impressao.jsp" %>
+                    <%@include file="produtos_requisicao_impressao.jsp" %>
                 </td>
             </tr>
         </table><!-- tabela pecas-->
@@ -137,7 +137,7 @@
 <%
                             rDB.desconectar();
                             mDB.desconectar();
-                            session.removeAttribute("produtos");
+                            session.removeAttribute("id_requisicao");
                         } catch (Exception e) {
 
                             out.println(e);
