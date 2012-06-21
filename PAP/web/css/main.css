@@ -133,7 +133,7 @@ root {
     display: block;
 }
 
-/* div.pecas{
+div.pecas{
     width: 654px;
     min-height: 284px;
     max-height: 285px;
@@ -146,5 +146,12 @@ table.impressao{
     background-attachment: fixed;
     background-repeat: no-repeat;
     table-layout: fixed;
-}*/
+}
+
+b.rodape{
+    font-family: verdana;
+    font-style: italic;
+    font-size: smaller;
+    text-align: center;
+}
 
