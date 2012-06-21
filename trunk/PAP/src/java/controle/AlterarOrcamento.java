@@ -138,6 +138,7 @@ public class AlterarOrcamento extends HttpServlet {
                 out.print("</script>");
             } catch (Exception e) {
                 out.print(e);
+                session.removeAttribute("produtos");
             }
             out.println("</body>");
             out.println("</html>");

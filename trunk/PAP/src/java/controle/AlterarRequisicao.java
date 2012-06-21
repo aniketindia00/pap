@@ -121,12 +121,13 @@ public class AlterarRequisicao extends HttpServlet {
                 mDB.desconectar();
 
                 out.print("<script language='JavaScript'>");
-                out.print(" alert('Registros alterados com sucesso!');");
-                out.print(" window.open('listar_requisicao.jsp','_parent');");
+                out.print(" alert('Registros alterados com sucesso! Imprimindo...');");
+                out.print(" window.open('imprimir_requisicao.jsp?id="+id+"','_parent');");
                 out.print("</script>");
 
             } catch (Exception e) {
                 out.print(e);
+                session.removeAttribute("produtos");
             }
 
             out.println("</body>");

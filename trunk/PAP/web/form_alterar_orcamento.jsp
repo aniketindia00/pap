@@ -154,7 +154,7 @@
                                             </table>
                                         </td></tr>
                                     <tr>
-                                        <td><input type="reset" class="button" value="Limpar"><input class="button" type="submit" value="Salvar" ></td>
+                                        <td><input type="reset" class="button" value="Limpar"><input class="button" type="submit" value="Salvar e Imprimir" ></td>
                                         
                                     </tr>
                                 </table>
