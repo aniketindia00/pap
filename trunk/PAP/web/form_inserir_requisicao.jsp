@@ -157,7 +157,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="footer">
+            <div class="footer fill">
                 <%@include file="rodape.jsp" %>
             </div>
             <%
