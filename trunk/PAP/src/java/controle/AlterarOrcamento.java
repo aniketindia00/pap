@@ -90,16 +90,7 @@ public class AlterarOrcamento extends HttpServlet {
 
                 caDB.conectar();
                 Carro ca = new Carro();
-
-                if(id_carro == 0){
-                ca.setAno(ano);
-                ca.setIdCliente(cDB.carregaPorNomeTelefone(nome, telefone).getId());
-                ca.setMarca(marca);
-                ca.setModelo(modelo);
-                caDB.alterar(ca);
-                }else{
                 ca = caDB.carregaPorId(id_carro);
-                }
                 
 
                 OrcamentoDAO oDB = new OrcamentoDAO();
@@ -118,7 +109,7 @@ public class AlterarOrcamento extends HttpServlet {
                 o.setDataEmissao(data);
                 o.setHoraEmissao(hora);
                 o.setIdCliente(cDB.carregaPorNomeTelefone(nome, telefone).getId());
-                o.setIdCarro(caDB.carregaPorModeloAnoMarca(modelo, ano, marca).getId());
+                o.setIdCarro(id_carro);
                 o.setProdutos(produtos);
 
                 for(Produto p:pDB.produtosOrcamento(id)){

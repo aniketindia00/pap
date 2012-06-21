@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : imprimir_orcamento
     Created on : 12/06/2012, 16:35:14
     Author     : Daniel
@@ -31,18 +31,23 @@
     <body nLoad="javascript:window.print()">
         <%
                     Orcamento o = new Orcamento();
+                    int id =0;
                     try {
-                        int id = Integer.parseInt(request.getParameter("id"));
+
+                        if(request.getParameter("id") != null){
+                            id = Integer.parseInt(request.getParameter("id"));
+                        }
+
 
                         OrcamentoDAO oDB = new OrcamentoDAO();
-
-                        
                         CarroDAO carDB = new CarroDAO();
-                        ArrayList<Carro> car = new ArrayList<Carro>();
-                        car = carDB.carrosCliente(id);
+                        Carro car = new Carro();
+                        carDB.conectar();
+
                         oDB.conectar();
                         o = oDB.carregaPorId(id);
-                        session.setAttribute("produtos", o.getProdutos());
+                        car = carDB.carregaPorId(o.getIdCarro());
+
 
         %>
         <table class="impressao" width="657" border="2" cellspacing="0" cellpadding="0" align="center"><!-- tabela geral-->
@@ -72,9 +77,9 @@
             <td width="25%" align="right">Telefone: <%=o.getCliente().getTelefone() %> &nbsp;</td>
         </tr>
         <tr>
-            <td>Marca: </td>
-            <td>Modelo:  </td>
-            <td width="20%" align="right" >Ano: &nbsp;</td>
+            <td>Marca: <%=car.getMarca() %></td>
+            <td>Modelo: <%=car.getModelo() %> </td>
+            <td width="20%" align="right" >Ano: <%=car.getAno() %></td>
         </tr>
     </table><!-- tabela cliente-->
     <br />
@@ -106,7 +111,7 @@
 <!-- <p class="quebra-aqui"></p> -->
 <%
                             oDB.desconectar();
-
+                            carDB.desconectar();
                         } catch (Exception e) {
 
                             out.println(e);
