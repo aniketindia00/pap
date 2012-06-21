@@ -24,14 +24,28 @@
         <script type="text/javascript">
             function validaForm(){
 
-            var form_alterar_perfil=document.form_alterar_perfil;
-                var campo_perfil=form_alterar_perfil.perfil;
+            var form_alterar_produto=document.form_alterar_produto;
+                var campo_nome=form_alterar_produto.nome;
+                var campo_codBarras=form_alterar_produto.cod_barras;
+                var campo_preco=form_alterar_produto.preco;
 
-                if(campo_perfil.value==""){
+                if(campo_nome.value==""){
                     alert("Todos os campos devem ser preenchidos!");
-                    campo_perfil.focus();
+                    campo_nome.focus();
                     return false;
                 }
+                if(campo_codBarras.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_codBarras.focus();
+                    return false;
+                }
+                if(campo_preco.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_preco.focus();
+                    return false;
+                }
+
+
                 return true;
         }
         </script>
