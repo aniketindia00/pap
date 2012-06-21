@@ -71,6 +71,7 @@
                                             session.setAttribute("produtos", r.getProdutos());
                             %>
                             <form action="alterar_requisicao.do" method="POST">
+                                <input hidden id="id" name="id" value="<%=id%>">
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="100%">
