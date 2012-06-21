@@ -35,6 +35,25 @@
                     }
                 });
             });
+
+            function validaForm(){
+
+                var form_inserir_orcamento=document.form_inserir_orcamento;
+                var campo_nome=form_inserir_orcamento.nome;
+                var campo_telefone=form_inserir_orcamento.telefone;
+
+                if(campo_nome.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_nome.focus();
+                    return false;
+                }
+                if(campo_telefone.value==""){
+                    alert("Todos os campos devem ser preenchidos!");
+                    campo_telefone.focus();
+                    return false;
+                }
+                return true;
+            }
         </script>
 
     </head>
@@ -56,7 +75,7 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" height="100%" valign="top">
-                            <form name="form_inserir_orcamento" action="inserir_orcamento.do" method="POST">
+                            <form name="form_inserir_orcamento" action="inserir_orcamento.do" method="POST" onsubmit="return validaForm()">
                                 <input type="text" value="0" id="id" name="id" hidden />
                             <table align="center" class="fill">
                                 <tr>
