@@ -7,6 +7,7 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -102,10 +103,12 @@ public class InserirOrcamento extends HttpServlet {
                 oDB.conectar();
 
                 TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
-                String horaF = "HH:mm:ss";
-                String dataF = "dd/MM/yyyy";
-                String data = new SimpleDateFormat(dataF).format(new Date());
-                String hora = new SimpleDateFormat(horaF).format(new Date());
+                DateFormat horaF = new SimpleDateFormat("HH:mm:ss");
+                DateFormat dataF = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                String hora = horaF.format(date);
+                String data = dataF.format(date);
+                out.print(hora);
                 Orcamento o = new Orcamento();
                 o.setDataEmissao(data);
                 o.setHoraEmissao(hora);
@@ -116,18 +119,18 @@ public class InserirOrcamento extends HttpServlet {
                 valor += (p.getPreco() * p.getQuantidade());
                 }
                 o.setValor(valor);
-                oDB.inserir(o);
+                int id_orcamento = oDB.inserir(o);
 
                 ProdutoDAO pDB = new ProdutoDAO();
-                int id_orcamento = oDB.carregaPorDataHoraCliente(data, hora, o.getIdCliente()).getId();
+                
                 out.print(id_orcamento);
-                pDB.conectar();
+               /* pDB.conectar();
                 for(Produto p1:produtos){
                     pDB.vincularProdutoOrcamento(p1.getId(), id_orcamento);
                     out.print(p1.getId());
                 }
                 pDB.desconectar();
-
+*/  
 
                 cDB.desconectar();
                 caDB.desconectar();
