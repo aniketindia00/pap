@@ -89,7 +89,7 @@
                             <%@include file="menu.jsp" %>
                         </td>
                         <td class="fill" valign="top">
-                            <form name="form_inserir_requisicao" action="form_inserir_requisicao.jsp" method="POST" onsubmit="return validaForm()">
+                            <form name="form_inserir_requisicao" action="inserir_requisicao.do" method="POST" onsubmit="return validaForm()">
                             <table align="center" class="fill">
                                 <tr>
                                     <td class="fill">
