@@ -34,10 +34,13 @@
         <title>Requisição - Pointer Auto Peças</title>
                 <script type="text/javascript">
     $(document).ready(function() {
+        $('#reimp').prepend('<a id="voltar" class="button" href="listar_requisicao.jsp">Voltar</a>');
         $('#reimp').prepend('<a id="print" class="button" href="#">Click aqui para reimprimir</a>');
-        $('a#print').click(function() {
+                $('a#print').click(function() {
             $('a#print').hide(); //antes de imprimir escondo o link
+            $('a#valor').hide(); //antes de imprimir escondo o link
             window.print();
+            $('a#valor').show(); //depois que imprimir exibe.
             $('a#print').show(); //depois que imprimir exibe.
             return false;
         });
