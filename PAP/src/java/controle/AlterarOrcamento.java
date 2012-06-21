@@ -56,6 +56,9 @@ public class AlterarOrcamento extends HttpServlet {
                 int id_cliente = 0;
                 int id_carro = 0;
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
+                if(request.getParameter("id") != null){
+                id = Integer.parseInt(request.getParameter("id"));
+                }
                 if(request.getParameter("id_cliente") != null){
                 id_cliente = Integer.parseInt(request.getParameter("id_cliente"));
                 }
@@ -100,6 +103,9 @@ public class AlterarOrcamento extends HttpServlet {
                 
 
                 OrcamentoDAO oDB = new OrcamentoDAO();
+                ProdutoDAO pDB = new ProdutoDAO();
+
+                pDB.conectar();
                 oDB.conectar();
 
                 TimeZone.setDefault(TimeZone.getTimeZone("Brazil/East"));
@@ -114,33 +120,30 @@ public class AlterarOrcamento extends HttpServlet {
                 o.setIdCarro(caDB.carregaPorModeloAnoMarca(modelo, ano, marca).getId());
                 o.setProdutos(produtos);
 
-                
+                for(Produto p:pDB.produtosOrcamento(id)){
+                   pDB.desvincularProdutoOrcamento(p.getId(), id);
+                }
+                   for(Produto p:produtos){
+                   pDB.vincularProdutoOrcamento(p.getId(), id);
+                }
 
-                for(Produto p:produtos){
+                for(Produto p:pDB.produtosOrcamento(id)){
                 valor += (p.getPreco() * p.getQuantidade());
                 }
                 o.setValor(valor);
                 oDB.alterar(o);
 
-                ProdutoDAO pDB = new ProdutoDAO();
-
-                pDB.conectar();
-                for(Produto p:pDB.produtosOrcamento(id)){
-                   pDB.desvincularProdutoOrcamento(p.getId(), id);
-                }
-                /*for(Produto p:produtos){
-                   pDB.vincularProdutoOrcamento(p.getId(), id);
-                }*/
+                
                 pDB.desconectar();
 
                 cDB.desconectar();
                 caDB.desconectar();
                 oDB.desconectar();
 
-                /*out.print("<script language='JavaScript'>");
+                out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros alterados com sucesso!');");
                 out.print(" window.open('listar_orcamento.jsp','_parent');");
-                out.print("</script>");*/
+                out.print("</script>");
             } catch (Exception e) {
                 out.print(e);
             }
