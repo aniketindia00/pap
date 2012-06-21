@@ -92,12 +92,12 @@
                                     <td><input type="text" name="id" readonly value="<%out.print(c.getId());%>"/> </td>
                                 </tr>
                                 <tr>
-                                    <td>Perfil</td>
+                                    <td>Nome</td>
                                     <td><input type="text" name="nome" value="<%out.print(c.getNome());%>"/> </td>
                                 </tr>
                                  <tr>
                                     <td>Telefone</td>
-                                    <td><input type="text" name="id" readonly value="<%out.print(c.getTelefone());%>"/> </td>
+                                    <td><input type="text" name="telefone" value="<%out.print(c.getTelefone());%>"/> </td>
                                 </tr>
                                 <tr>
                                     <td><input class="button" type="reset" value="Limpar"/> </td>
@@ -125,7 +125,7 @@
 <%
 
     if(logged){
-    if(session.getAttribute("cliente") == null){
+    if(session.getAttribute("orcamento") == null){
        response.sendRedirect("index.jsp?erro=1");
     }
     }

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Orcamento;
 import modelo.OrcamentoDAO;
+import modelo.Produto;
+import modelo.ProdutoDAO;
 
 /**
  *
@@ -41,10 +43,17 @@ public class ExcluirOrcamento extends HttpServlet {
 
             try {
                 String id = request.getParameter("id");
-                Orcamento o = new Orcamento();
-                o.setId(Integer.parseInt(id));
+                
 
                 OrcamentoDAO oDB = new OrcamentoDAO();
+                Orcamento o = oDB.carregaPorId(Integer.parseInt(id));
+                ProdutoDAO pDB = new ProdutoDAO();
+                pDB.conectar();
+                for(Produto p:o.getProdutos()){
+                pDB.desvincularProdutoOrcamento(p.getId(),Integer.parseInt(id));
+                }
+
+                pDB.desconectar();
 
                 oDB.conectar();
                 oDB.excluir(o);

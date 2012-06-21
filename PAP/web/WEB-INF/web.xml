@@ -116,6 +116,10 @@
         <servlet-name>AlterarOrcamento</servlet-name>
         <servlet-class>controle.AlterarOrcamento</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarCliente</servlet-name>
+        <servlet-class>controle.AlterarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EfetuarLogin</servlet-name>
         <url-pattern>/efetuar_login.do</url-pattern>
@@ -211,6 +215,10 @@
     <servlet-mapping>
         <servlet-name>AlterarOrcamento</servlet-name>
         <url-pattern>/alterar_orcamento.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarCliente</servlet-name>
+        <url-pattern>/alterar_cliente.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
