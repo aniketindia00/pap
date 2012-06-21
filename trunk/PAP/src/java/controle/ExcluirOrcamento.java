@@ -46,6 +46,7 @@ public class ExcluirOrcamento extends HttpServlet {
                 
 
                 OrcamentoDAO oDB = new OrcamentoDAO();
+                                oDB.conectar();
                 Orcamento o = oDB.carregaPorId(Integer.parseInt(id));
                 ProdutoDAO pDB = new ProdutoDAO();
                 pDB.conectar();
@@ -55,7 +56,7 @@ public class ExcluirOrcamento extends HttpServlet {
 
                 pDB.desconectar();
 
-                oDB.conectar();
+
                 oDB.excluir(o);
                 oDB.desconectar();
 
