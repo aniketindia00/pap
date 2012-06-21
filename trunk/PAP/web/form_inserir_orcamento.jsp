@@ -57,13 +57,14 @@
                         </td>
                         <td class="fill" height="100%" valign="top">
                             <form name="form_inserir_orcamento" action="inserir_orcamento.do" method="POST">
+                                <input type="text" value="0" id="id" name="id" hidden />
                             <table align="center" class="fill">
                                 <tr>
                                     <td width="50%">
                                         <div id="cliente" class="min200height box ui-corner-all" >
                                             <table align="center">
                                                 <tr>
-                                                    <td colspan="2"><h3 align="center" >Dados do Cliente</h3><input type="text" value="0" id="id" name="id" hidden /></td>
+                                                    <td colspan="2"><h3 align="center" >Dados do Cliente</h3><input type="text" value="0" id="id_cliente" name="id_cliente" hidden /></td>
 
                                                 </tr>
                                                 <tr>

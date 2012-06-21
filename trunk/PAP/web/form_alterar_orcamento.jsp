@@ -73,13 +73,14 @@
                                             session.setAttribute("produtos", o.getProdutos());
                             %>
                             <form action="alterar_orcamento.do" method="POST">
+                                <input type="text" value="0" id="id" name="id" hidden />
                                 <table align="center" class="fill">
                                     <tr>
                                         <td width="50%">
                                             <div id="cliente" class="min200height box ui-corner-all" >
                                                 <table align="center">
                                                     <tr>
-                                                        <td colspan="2"><h3 align="center" >Dados do Cliente<input type="text" value="0" id="id" name="id" hidden /></h3></td>
+                                                        <td colspan="2"><h3 align="center" >Dados do Cliente<input type="text" value="0" id="id_cliente" name="id_cliente" hidden /></h3></td>
                                                     </tr>
                                                     <tr>
                                                         <td><label for="nome">Nome: </label></td>
