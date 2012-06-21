@@ -125,7 +125,7 @@ public class AlterarOrcamento extends HttpServlet {
                 }
                 pDB.desconectar();
 
-                for(Produto p:pDB.produtosOrcamento(id)){
+                for(Produto p:produtos){
                 valor += (p.getPreco() * p.getQuantidade());
                 }
                 o.setValor(valor);
