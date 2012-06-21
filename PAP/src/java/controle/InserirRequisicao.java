@@ -50,12 +50,12 @@ public class InserirRequisicao extends HttpServlet {
             out.println("<body>");
 
             try {
-                int cpf_mecanico = 0;
+                String cpf = "";
                 ArrayList<Produto> produtos = (ArrayList<Produto>) session.getAttribute("produtos");
-                if(request.getParameter("cpf_mecanico") != null){
-                cpf_mecanico = Integer.parseInt(request.getParameter("cpf_mecanico"));
+                if(request.getParameter("cpf") != null){
+                cpf = request.getParameter("cpf");
                 }
-                String cpf = request.getParameter("cpf");
+                
 
                 double valor = 0;
 
@@ -77,7 +77,6 @@ public class InserirRequisicao extends HttpServlet {
                     m.setNome(nome);
                     m.setOficina(oficina);
                     m.setTelefone(telefone);
-                    
                     mDB.inserir(m);
                 } else {
                     m = mDB.carregaPorCpf(cpf);
@@ -128,6 +127,11 @@ public class InserirRequisicao extends HttpServlet {
                 rDB.desconectar();
 
                 mDB.desconectar();
+
+                out.print("<script language='JavaScript'>");
+                out.print(" alert('Registros inseridos com sucesso!');");
+                out.print(" window.open('listar_requisicao.jsp','_parent');");
+                out.print("</script>");
 
             } catch (Exception e) {
                 out.print(e);

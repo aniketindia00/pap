@@ -21,7 +21,6 @@ public class RequisicaoDAO extends DataBaseDAO{
 
     
     public int inserir(Requisicao r) throws SQLException{
-
         int id=0;
         PreparedStatement pst, pst1;
         String sql = "INSERT INTO requisicao (cpf_mecanico, data_emissao, hora_emissao, valor) values(?,?,?,?)";
@@ -31,11 +30,12 @@ public class RequisicaoDAO extends DataBaseDAO{
         pst.setString(3, r.getHoraEmissao());
         pst.setDouble(4, r.getValor());
         pst.execute();
+
         String sql1 ="SELECT * FROM requisicao WHERE cpf_mecanico=? AND data_emissao=? AND hora_emissao=?";
         pst1 = conn.prepareStatement(sql1);
         pst1.setString(1, r.getCpfMecanico());
-        pst1.setString(2, r.getHoraEmissao());
-        pst1.setString(3, r.getDataEmissao());
+        pst1.setString(2, r.getDataEmissao());
+        pst1.setString(3, r.getHoraEmissao());
         ResultSet rs = pst1.executeQuery();
         if(rs.next()){
         id = rs.getInt("id");
