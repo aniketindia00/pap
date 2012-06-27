@@ -45,7 +45,9 @@ public class InserirOrcamento extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
-            // TODO output your page here
+    if(session.getAttribute("orcamento") == null){
+       response.sendRedirect("index.jsp?erro=1");
+    }else{            // TODO output your page here
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet InserirOrcamento</title>");  
@@ -132,6 +134,7 @@ public class InserirOrcamento extends HttpServlet {
                 out.print(" alert('Registros inseridos com sucesso! Imprimindo...');");
                 out.print(" window.open('imprimir_orcamento.jsp?id="+id_orcamento+"','_parent');");
                 out.print("</script>");
+                session.removeAttribute("produtos");
             } catch (Exception e) {
                 out.print(e);
                 session.removeAttribute("produtos");
@@ -139,7 +142,7 @@ public class InserirOrcamento extends HttpServlet {
             }
             out.println("</body>");
             out.println("</html>");
-            
+            }
         } finally { 
             out.close();
         }

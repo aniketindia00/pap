@@ -166,5 +166,14 @@
                 <%@include file="rodape.jsp" %>
             </div>
         </div>
+            <%
+
+    if(logged){
+    if(session.getAttribute("orcamento") == null){
+       response.sendRedirect("index.jsp?erro=1");
+    }
+    }
+
+%>
     </body>
 </html>

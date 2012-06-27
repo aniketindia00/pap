@@ -132,7 +132,7 @@ public class InserirRequisicao extends HttpServlet {
                 out.print(" alert('Registros alterados com sucesso! Imprimindo...');");
                 out.print(" window.open('imprimir_requisicao.jsp?id="+id_requisicao+"','_parent');");
                 out.print("</script>");
-
+                session.removeAttribute("produtos");
             } catch (Exception e) {
                 out.print(e);
                 session.removeAttribute("produtos");

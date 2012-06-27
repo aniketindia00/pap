@@ -6,12 +6,17 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Carro;
+import modelo.CarroDAO;
 import modelo.Cliente;
 import modelo.ClienteDAO;
+import modelo.Orcamento;
+import modelo.OrcamentoDAO;
 
 /**
  *
@@ -42,16 +47,30 @@ public class ExcluirCliente extends HttpServlet {
                 Cliente c = new Cliente();
                 c.setId(id);
 
-                ClienteDAO pDB = new ClienteDAO();
-
-                pDB.conectar();
-                pDB.excluir(c);
-                pDB.desconectar();
+                ClienteDAO cDB = new ClienteDAO();
+                CarroDAO caDB = new CarroDAO();
+                caDB.conectar();
+                OrcamentoDAO oDB = new OrcamentoDAO();
+                oDB.conectar();
+                cDB.conectar();
+                ArrayList<Orcamento> orcamentos = oDB.orcamentosCliente(c.getId());
+                for(Orcamento o:orcamentos){
+                oDB.excluir(o);
+                }
+                ArrayList<Carro> carros = caDB.carrosCliente(c.getId());
+                for(Carro ca:carros){
+                caDB.excluir(ca);
+                }
+                
+                cDB.excluir(c);
+                oDB.desconectar();
+                caDB.desconectar();
+                cDB.desconectar();
 
 
                 out.print("<script language='JavaScript'>");
                 out.print(" alert('Registros deletados com sucesso!');");
-                out.print(" window.open('listar_perfil.jsp','_parent');");
+                out.print(" window.open('listar_orcamento.jsp','_parent');");
                 out.print("</script>");
 
 

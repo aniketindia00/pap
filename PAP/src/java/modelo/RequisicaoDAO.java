@@ -96,7 +96,7 @@ public class RequisicaoDAO extends DataBaseDAO{
 
     }
 
-        public Requisicao carregaPorDataHoraValor(String data, String hora, double valor) throws SQLException, Exception{
+       /* public Requisicao carregaPorDataHoraValor(String data, String hora, double valor) throws SQLException, Exception{
         Requisicao r = new Requisicao();
         ProdutoDAO pDB = new ProdutoDAO();
         MecanicoDAO mDB = new MecanicoDAO();
@@ -123,7 +123,7 @@ public class RequisicaoDAO extends DataBaseDAO{
         return r;
 
     }
-
+*/
         public ArrayList<Requisicao> listar() throws SQLException, Exception{
         ArrayList<Requisicao> lista = new ArrayList<Requisicao>();
         Requisicao r = new Requisicao();
