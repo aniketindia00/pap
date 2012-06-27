@@ -99,7 +99,7 @@ public class OrcamentoDAO extends DataBaseDAO{
     }
         
         
-        public Orcamento carregaPorDataHoraCliente(String data, String hora, int id_cliente) throws SQLException, Exception{
+        /*public Orcamento carregaPorDataHoraCliente(String data, String hora, int id_cliente) throws SQLException, Exception{
         Orcamento o = new Orcamento();
         ProdutoDAO pDB = new ProdutoDAO();
         ClienteDAO cDB = new ClienteDAO();
@@ -127,7 +127,7 @@ public class OrcamentoDAO extends DataBaseDAO{
         return o;
 
     }
-
+*/
 
         public ArrayList<Orcamento> listar() throws SQLException, Exception{
         ArrayList<Orcamento> lista = new ArrayList<Orcamento>();

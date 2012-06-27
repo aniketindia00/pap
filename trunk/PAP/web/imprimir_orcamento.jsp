@@ -30,8 +30,8 @@
         <title>Orçamento - Pointer Auto Peças</title>
         <script type="text/javascript">
     $(document).ready(function() {
-        $('#reimp').prepend('<a id="voltar" class="button" href="listar_orcamento.jsp">Voltar</a>');
-        $('#reimp').prepend('<a id="print" class="button" href="#">Click aqui para reimprimir</a>');
+        $('#imp').prepend('<a id="voltar" class="button" href="listar_orcamento.jsp">Voltar</a>');
+        $('#imp').prepend('<a id="print" class="button" href="#">Click aqui para imprimir</a>');
                 $('a#print').click(function() {
             $('a#print').hide(); //antes de imprimir escondo o link
             $('a#voltar').hide(); //antes de imprimir escondo o link
@@ -49,7 +49,7 @@
         P.quebra-aqui {page-break-before: always}
     </STYLE>
 
-    <body onLoad="javascript:window.print()">
+    <body onLoad="">
         <%
                     Orcamento o = new Orcamento();
                     int id =0;
@@ -129,12 +129,13 @@
 
 </td></tr>
 </table>
-<div class="fill" align="center" id="reimp" ></div>
+<div class="fill" align="center" id="imp" ></div>
 <!-- <p class="quebra-aqui"></p> -->
 <%
                             oDB.desconectar();
                             carDB.desconectar();
                             session.removeAttribute("id_orcamento");
+
                         } catch (Exception e) {
 
                             out.println(e);

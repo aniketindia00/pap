@@ -36,6 +36,7 @@ public class InserirProdutoSessao extends HttpServlet {
         HttpSession session = request.getSession();
         try {
 
+
             try {
                 int quantidade = 0;
                 ArrayList<Produto> produtos = new ArrayList<Produto>();
@@ -77,7 +78,7 @@ public class InserirProdutoSessao extends HttpServlet {
             } catch (Exception e) {
                 response.sendRedirect(request.getParameter("div")+".jsp");
             }
-
+            
         } finally { 
             out.close();
         }

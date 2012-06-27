@@ -104,11 +104,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td><label for="nome">Nome: </label></td>
-                                                        <td><input id="nome" name="nome" size="30%" value="<%=o.getCliente().getNome()%>"><td>
+                                                        <td><input readonly id="nome" name="nome" size="30%" value="<%=o.getCliente().getNome()%>"><td>
                                                     </tr>
                                                     <tr>
                                                         <td><label for="telefone">Telefone: </label></td>
-                                                        <td><input id="telefone" name="telefone" size="30%" value="<%=o.getCliente().getTelefone()%>"></td>
+                                                        <td><input readonly id="telefone" name="telefone" size="30%" value="<%=o.getCliente().getTelefone()%>"></td>
                                                     </tr>
                                                 </table>
                                             </div>

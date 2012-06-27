@@ -67,18 +67,20 @@ public class GerenciarMenuPerfil extends HttpServlet {
             uDB.conectar();
             Usuario nu = uDB.carregaPorId(u.getId());
             uDB.desconectar();
-            session.removeAttribute("user");
-            session.setAttribute("user", nu);
+            session.removeAttribute("perfil");
             session.removeAttribute("menu");
-            session.setAttribute("menu",null);
+            session.removeAttribute("orcamento");
+            session.removeAttribute("requisicao");
+            session.removeAttribute("produto");
             session.removeAttribute("usuario");
-            session.setAttribute("usuario",null);
-            session.removeAttribute("inserir_menu");
-            session.setAttribute("inserir_menu",null);
-            session.removeAttribute("inserir_usuario");
-            session.setAttribute("inserir_usuario",null);
-            session.removeAttribute("inserir_perfil");
-            session.setAttribute("inserir_perfil",null);
+            session.setAttribute("user", nu);
+            session.setAttribute("perfil", true);
+            session.setAttribute("menu", null);
+            session.setAttribute("orcamento", null);
+            session.setAttribute("requisicao", null);
+            session.setAttribute("produto", null);
+            session.setAttribute("produto", null);
+            session.setAttribute("usuario", null);
             response.sendRedirect("form_gerenciar_menu_perfil.jsp?id="+id_perfil);
 
             } catch(Exception e){

@@ -35,6 +35,7 @@ public class ExcluirProdutoSessao extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         try {
+
             /* TODO output your page here
             out.println("<html>");
             out.println("<head>");
@@ -64,10 +65,11 @@ public class ExcluirProdutoSessao extends HttpServlet {
                     produtos.removeAll(aux);
                 session.removeAttribute("produtos");
                 session.setAttribute("produtos",produtos);
-                response.sendRedirect("produtos_orcamento.jsp");
+                response.sendRedirect("produtos_adicionados.jsp");
             } catch (Exception e) {
                 out.print(e);
             }
+            
         } finally { 
             out.close();
         }

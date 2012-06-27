@@ -115,13 +115,13 @@
                                                     <td><label for="cpf">CPF: </label></td>
                                                     <td><input readonly id="cpf" name="cpf" size="30%" value="<%=r.getMecanico().getCpf() %>"></td>
                                                     <td><label for="nome">Nome: </label></td>
-                                                    <td><input id="nome" name="nome" size="30%" value="<%=r.getMecanico().getNome() %>"></td>
+                                                    <td><input readonly id="nome" name="nome" size="30%" value="<%=r.getMecanico().getNome() %>"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><label for="oficina">Oficina: </label></td>
-                                                    <td><input id="oficina" name="oficina" size="30%" value="<%=r.getMecanico().getOficina() %>"></td>
+                                                    <td><input readonly id="oficina" name="oficina" size="30%" value="<%=r.getMecanico().getOficina() %>"></td>
                                                     <td><label for="telefone">Telefone: </label></td>
-                                                    <td><input id="telefone" name="telefone" size="30%" value="<%=r.getMecanico().getTelefone() %>"></td>
+                                                    <td><input id="telefone" readonly name="telefone" size="30%" value="<%=r.getMecanico().getTelefone() %>"></td>
                                                 </tr>
                                             </table>
                                         </div>
